@@ -1,0 +1,168 @@
+\documentclass[ProgramminAssignment.tex]{subfiles}
+\begin{document}
+
+\section{Wondrous Square and Prime Display}
+Write a program to check whether a matrix is a Wondrous Square or not and display each prime and its index.
+
+A wondrous square is an n$\times$n grid fulfilling the conditions:
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Contains integers from 1 to $n^2$
+	& Sum of integers in any row or column adds up to $0.5 * n * (n^2 + 1)$
+	
+\end{easylist}	
+
+Input:\\
+Order = 5
+
+\begin{tabular}{ccccc}
+17 &	24 &	1  &	8  &	15\\	
+23 &	5  &	7  &	14 &	16\\
+4  &	6  &	13 &	20 &	22\\	
+10 & 	12 &	19 &	21 &	3\\	
+11 &	18 &	25 &	2  &	9\\	
+\end{tabular}
+
+Output:\\
+Wondrous Square
+
+\begin{tabular}{|c|c|c|}
+\hline Prime &	Row & Column\\\hline
+17	&0	&0\\
+23	&1	&0\\
+5	&1	&1\\
+7	&1	&2\\
+13	&2	&2\\
+19	&3	&2\\
+3	&3	&4\\
+11	&4	&0\\
+2	&4	&3\\\hline
+\end{tabular}
+
+\subsection{Algorithm}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Declare a Scanner object to take user input
+	& Take user input for the order of the matrix and declare an appropriate 2-D int matrix(A[ ][ ])
+	& Run a loop from i = 0 to n - 1, incrementing i at each iteration 
+		&& Run a loop from j = 0 to n - 1, incrementing j at each iteration
+			&&& Take user input and check if it is less than 0 or more than $n^2$
+			&&& Add element to matrix at A[i][j]
+	& Print the Matrix		
+	& Declare a boolean(flag) to riase a flag if sum does not match condition, and an int(sum) to store the sum according to condition
+	& Run a loop from i = 0 to n - 1, incrementing i at each iteration
+		&& Run a loop from j = 0 to n - 1, incrementing j at each iteration
+			&&& Add A[i][j] and A[j][i] in two separate variables (Summing up each row and column)
+		&& Check if both sums match the defined value(sum) and continue if true, raising a flag if not	
+	& Check for flag and display appropriate message
+	& Run a loop to iterate through the array and check each element for prime, displaying it if it is	
+	
+
+\end{easylist}
+
+\subsubsection*{boolean checkPrime(int n):}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& if n is 0 or 1, return false
+	& if n is 2, return true
+	& if n is a multiple of 2, return false
+	& Run a loop from 3 to sqrt(n) and increment by 2 at each iteration
+		&& If n is divisible by the current index, return false, else continue loop
+	& return true
+	
+\end{easylist}	
+
+\subsection{Code}
+\begin{lstlisting}
+import java.util.Scanner;
+
+public class WondrousSquare
+{
+
+	public static void main(String[] args)
+	{
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("Enter Order of Matrix.");
+		int n = s.nextInt();
+		
+		int i, j, k, A[][] = new int[n][n];
+		
+		System.out.println("Enter Elements of Matrix Row-Wise");
+		
+		for(i = 0; i < n; i++)
+			for(j = 0; j < n; j++)
+			{
+				int x = s.nextInt();
+				if(x < 0 || x > n*n)
+				{
+					System.out.println("Invalid Input");
+					System.exit(0);
+				}
+				A[i][j] = x;
+			}
+		
+		System.out.println();
+		
+		for(i = 0; i < n; i++)
+		{
+			for(j = 0; j < n; j++)
+				System.out.print(A[i][j] + "\t");
+			System.out.println();
+		}
+		
+		
+		boolean flag = false;
+		double sum = 0.5 * n * (n * n + 1);
+		
+		for(i = 0; i < n; i++)
+		{
+			double sumc = 0, sumr = 0;
+			for(j = 0; j < n; j++)
+			{
+				sumc += A[i][j];
+				sumr += A[j][i];
+			}
+				
+			
+			if(sumc != sum || sumr != sum)
+			{
+				flag = true;
+				break;
+			} 
+		}
+		
+		if(flag)
+			System.out.println("Not Wondrous Square");
+		else
+			System.out.println("Wondrous Square");
+		
+		System.out.println("\n\nPrime\tRow\tColumn");
+		for(i = 0; i < n; i++)
+			for(j = 0; j < n; j++)
+				if(checkPrime(A[i][j]))
+					System.out.println(A[i][j] + "\t" + i + "\t" + j);
+	}
+
+	public static boolean checkPrime(int n)
+	{
+		if(n == 1)
+			return false;
+		if(n == 2)
+			return true;
+		if (n % 2 == 0) 
+			return false;
+	    for(int i = 3; i * i <= n; i += 2) 
+	        if(n % i == 0)
+	            return false;
+	    
+	    return true;
+	}
+	
+}
+
+\end{lstlisting}
+\end{document}

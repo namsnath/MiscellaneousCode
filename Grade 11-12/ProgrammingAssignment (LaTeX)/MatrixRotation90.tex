@@ -1,0 +1,81 @@
+\documentclass[ProgramminAssignment.tex]{subfiles}
+\begin{document}
+
+\section{Rotate Matrix by 90 Degrees Clockwise}
+
+
+Input:\\
+\begin{tabular}{ccc}
+1&	2&	3	\\
+4&	5&	6	\\
+7&	8&	9\\	
+\end{tabular}
+
+Output:\\
+\begin{tabular}{ccc}
+7&	4&	1\\	
+8&	5&	2	\\
+9&	6&	3	\\
+\end{tabular}
+
+\subsection{Algorithm}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Take user input for order of matrix
+	& Declare an array(A[ ][ ]) of appropriate size
+	& Take user input for data
+	& Print the original matrix
+	& Run a loop from i = 0 to n - 1, incrementing i at each iteration
+		&& Run a loop from j = n - 1 till j $\geq$ 0, decrementing j at each iteration
+			&&& Print A[j][i]
+
+\end{easylist}
+
+\subsection{Code}
+\begin{lstlisting}
+import java.util.Scanner;
+public class MatrixRotation90
+{
+
+	public static void main(String[] args)
+	{
+
+		Scanner s  = new Scanner(System.in);
+		int m,n, i, j;
+		//Dimensions
+		System.out.println("Enter Order of Matrix:");
+		n = s.nextInt();
+		
+		int A[][] = new int[n][n];	//Matrix
+		
+		System.out.println("Enter the elements in the array, Row-Wise:");
+		//Data Entry
+		for(i = 0; i < n; i++)
+			for(j = 0; j < n; j++)
+				A[i][j] = s.nextInt();
+		
+		System.out.println("Your Matrix:");
+		//Original Matrix
+		for(i = 0; i < n; i++)
+		{
+			for(j = 0; j < n; j++)
+				System.out.print(A[i][j] + "\t");
+			System.out.println();
+		}
+		
+		System.out.println("Rotated Matrix:");
+		for(i = 0; i < n; i++)
+		{
+			for(j = n - 1; j >= 0; j--)	//Transposes and prints rows in opposite direction
+				System.out.print(A[j][i] + "\t");
+			System.out.println();
+		}
+		
+		s.close();
+	}
+
+}
+
+\end{lstlisting}
+\end{document}

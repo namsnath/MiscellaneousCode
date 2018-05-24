@@ -1,0 +1,113 @@
+\documentclass[ProgramminAssignment.tex]{subfiles}
+\begin{document}
+
+\section{Circular Primes}
+A Circular Prime is a prime number that remains prime under 
+cyclic shifts of its digits. When the leftmost digit is removed and 
+replaced at the end of the remaining string of digits, the generated 
+number is still prime. The process is repeated until the original number 
+is reached again.
+
+Input:\\
+131
+
+Output:\\
+131\\
+113\\
+311\\
+
+131 is Circular Prime
+
+\subsection{Algorithm}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Declare a Scanner object to take user input
+	& Take user input of an int(num)
+	& Declare a boolean (prime) and set it to true. Declare a String (inp) and set it to num
+	& Declare a StringBuffer(st), passing inp as argument
+	& Run a loop from i = 0 to i $<$ length of String, incrementing i at each iteration
+		&& Print st
+		&& Store the last character of st in a char(c)
+		&& Remove the last character and append it at the front of st
+		&& if the new number is prime
+			&&& continue loop
+		&& else
+			&&& set prime to false
+	& Print the appropriate message			
+
+\end{easylist}
+
+\subsubsection*{boolean isPrime(int n):}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& if n is 0 or 1, return false
+	& if n is 2, return true
+	& if n is a multiple of 2, return false
+	& Run a loop from 3 to sqrt(n) and increment by 2 at each iteration
+		&& If n is divisible by the current index, return false, else continue loop
+	& return true
+	
+\end{easylist}	
+
+\subsection{Code}
+\begin{lstlisting}
+import java.util.Scanner;
+
+public class CircularPrimeCheck
+{
+
+	public static void main(String[] args)
+	{
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter Number");
+		int num = s.nextInt();					//Stores input
+		boolean prime = true;					//Flag for prime
+		
+		String inp = num + "";					//Converts input to String
+		
+		
+		StringBuffer st = new StringBuffer(inp);	//StringBuffer used to rotate the String
+		for(int i = 0; i < inp.length(); i++)		//Loop to rotate the String
+		{	
+			System.out.println(st);					//Prints String
+			
+			char c = st.charAt(inp.length() - 1);	//Character to store last char in current rotation of input String
+			st.deleteCharAt(inp.length() - 1);		//Deletes saved character from string
+			st.reverse();							//Reverses String	
+			st.append(c);							//Appends char
+			st.reverse();							//Reverses String again
+			
+			if(isPrime(Integer.parseInt(st.toString())))	//Checks if current rotation is prime, if yes, goes to next rotation
+				continue;
+			else
+				prime = false;								//else, sets flag to false
+		}
+		
+		System.out.println();
+		if(prime)
+			System.out.println(num + " is Circular Prime");
+		else
+			System.out.println(num + " is not Circular Prime");
+		
+		s.close();
+	}
+	
+	public static boolean isPrime(int n)		//Function to check for prime
+	{
+		if(n == 0 || n == 1)
+			return false;
+		if(n == 2)
+			return true;	
+		if(n % 2 == 0)							//Checks for multiple of 2
+			return false;
+		for(int i = 3; i * i < n; i += 2)		//Checks for multiples of all odd numbers
+			if(n % i == 0)
+				return false;
+		return true;
+	}
+
+}
+\end{lstlisting}
+\end{document}

@@ -1,0 +1,48 @@
+\documentclass[Math.tex]{subfiles}
+
+\begin{document}
+
+\section*{\centering\huge\underline{Correlation and Regression}}
+
+\subsection*{Karl Pearson's Co-efficient of Correlation:}
+
+\textbf{Covariance:}
+
+$\displaystyle Cov(x,y) = \frac{1}{n}\sum{(x - \bar{x})(y - \bar{y})} = \frac{\sum{d_x d_y}}{n}$
+
+\textbf{Correlation Co-efficient:}
+
+$\rho(x, y)$ or $\displaystyle r = \frac{Cov(x, y)}{\sigma_x\sigma_y} = \frac{Cov(x, y)}{\sqrt{\sigma_x^2 \sigma_y^2}}$ (Product Moment Methos)\\
+$\rho(x, y)$ or $\displaystyle r = \frac{\sum{d_x d_y}}{n\cdot\sigma_x\sigma_y} = \frac{\sum{d_x d_y}}{\sqrt{(\sum{d\!\,_x\!\!\;^2)} (\vphantom{\int}\sum{d\!\,_y\!\!\;^2)}}}$
+
+$\displaystyle r = \frac{n\sum xy - \sum x \cdot \sum y}{\sqrt{n\sum{x^2} - (\sum x)^2}\sqrt{n\sum{y^2} - (\sum y)^2}}$ (Direct Method)
+
+
+$\displaystyle r = \frac{n\sum uv - \sum u \cdot \sum v}{\sqrt{n\sum{u^2} - (\sum u)^2}\sqrt{n\sum{v^2} - (\sum v)^2}}$ (Assumed Mean Method)\\
+($u = x - A$ and $v = y - B$, $A$ and $B$ being assumed means)
+
+\subsection*{Spearman's Rank Correlation:}
+$\displaystyle r = 1 - \frac{6\left[\sum D^2 + \sum CF\right]}{n^3 - n}$, $\displaystyle CF = \frac{m^3 - m}{12}$
+
+
+\subsection*{Regression Analysis:}
+
+Regression of Y on X: $y = b_{yx}\cdot x + c$\\
+Regression of X on Y: $x = b_{xy}\cdot y + c$\\
+The lines intersect at $(\bar{x}, \bar{y})$
+
+When x is independant, use $y - \bar{y} = b_{yx}(x - \bar{x})$\\
+When y is independant, use $x - \bar{x} = b_{xy}(y - \bar{y})$
+
+
+$\displaystyle b_{yx} = \frac{r\cdot \sigma_y}{\sigma_x} = \frac{\sum d_x d_y}{\sum{d\!\,_x\!\!\;^2}} = 
+\frac{n\sum xy - \sum x \cdot \sum y}{n\sum{x^2} - (\sum x)^2} = \frac{n\sum uv - \sum u \cdot \sum v}{n\sum{u^2} - (\sum u)^2}$
+
+$\displaystyle b_{xy} = \frac{r\cdot \sigma_x}{\sigma_y} = \frac{\sum d_x d_y}{\sum{d\!\,_y\!\!\;^2}} = 
+\frac{n\sum xy - \sum x \cdot \sum y}{n\sum{y^2} - (\sum y)^2} = \frac{n\sum uv - \sum u \cdot \sum v}{n\sum{v^2} - (\sum v)^2}$
+
+$r = \sqrt{b_{xy} \cdot b_{yx}}$
+
+If one correlation coefficient is more than unity, other is less than unity.\\
+The correlation coefficient and regression coefficients have the same sign.
+\end{document}

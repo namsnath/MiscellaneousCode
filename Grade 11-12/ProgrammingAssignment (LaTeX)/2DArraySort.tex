@@ -1,0 +1,92 @@
+\documentclass[ProgramminAssignment.tex]{subfiles}
+\begin{document}
+
+\section{2-D Array Sort}
+Write a program to sort a 2-D array in ascending order
+
+Input:\\
+\begin{tabular}{ccc}
+5&4&2\\
+3&5&4\\
+8&9&1\\
+\end{tabular}
+
+Output:\\
+\begin{tabular}{ccc}
+1&	2&	3\\	
+4&	4&	5	\\
+5&	8&	9\\
+\end{tabular}
+
+\subsection{Algorithm}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Take user input for Dimensions fo the matrix.
+	& Create a 2D array(A[ ][ ]) of given dimensions and a normal array(B[ ]) of size product of dimensions
+	& Take user input for data, entering data in both arrays simultaneously
+	& Sort B in ascending order
+	& Add each element from B to A in order
+	& Print A
+
+\end{easylist}
+
+\subsection{Code}
+\begin{lstlisting}
+import java.util.Scanner;
+
+public class ArraySort2D
+{
+
+	public static void main(String[] args)
+	{
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter Order of Matrix:");
+		int n = s.nextInt();	//Order of the Matrix
+		
+		int A[][] = new int[n][n], B[] = new int[n*n], k = 0, i, j;	//A is original Matrix, B is for sorting
+		
+		System.out.println("Enter elements of array Row-wise:");
+		//Data Entry
+		for(i = 0; i < n; i++)
+			for(j = 0; j < n; j++)
+			{
+				int x = s.nextInt();
+				if(x < 0)
+				{
+					System.out.println("Invalid Input. Input cannot be less than 0");
+					System.exit(0);
+				}
+				A[i][j] = x;	//Adds to A
+				B[k] = x;	//Adds to B
+				k++;
+			}
+		
+		for(i = 0; i < n * n; i++)	//Sorting B
+			for(j = 0; j < n * n - 1; j++)
+				if(B[j + 1] < B[j])
+				{
+					int temp = B[j];
+					B[j] = B[j + 1];
+					B[j + 1] = temp;
+				}
+
+		k = 0;		
+		for(i = 0; i < n; i++)	//Copies elements from B to A in order
+			for(j = 0; j < n; j++, k++)
+				A[i][j] = B[k];
+		
+		for(i = 0; i < n; i++)	//Printing
+		{
+			for(j = 0; j < n; j++)
+			{
+				System.out.print(A[i][j] + "\t");
+			}
+			System.out.println();
+		}
+		
+	}
+
+}
+\end{lstlisting}
+\end{document}

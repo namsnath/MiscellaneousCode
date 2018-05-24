@@ -1,0 +1,62 @@
+\documentclass[ProgramminAssignment.tex]{subfiles}
+\begin{document}
+
+\section{Binary Search (Recursive)}
+Write a program to implement recursive binary search in an array.
+
+\subsection{Algorithm}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Take user input of an array or use a sorted sample array (sample used here)
+	& Take user input for data to search for
+	& Call binarySearch(), passing the array, element, 0 and length - 1 as parameters
+	& Print position if function does not return -1, else display appropriate message
+
+\end{easylist}
+\subsubsection*{int binarySearch(int[] A, intx, int low, int high)}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& If low $>$ high (out of bounds), return -1 (not found)
+	& Set mid to (low + high) / 2
+	& If A[mid] $<$ x, call binarySearch, passing A, x, mid + 1 and high as parameters and return its value
+	& If A[mid] $>$ x, call binarySearch, passing A, x, low and mid - 1 as parameters and return its value
+	
+\end{easylist}	
+
+\subsection{Code}
+\begin{lstlisting}
+import java.util.Scanner;
+public class RecursiveBinarySearch
+{
+	public static void main(String[] args)
+	{
+		int A[] = {2, 45, 69, 234, 567, 876, 900, 976, 999};	//Sample Data
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("Enter data to search for:");
+		int x = s.nextInt();
+		
+		int found = binarySearch(A, x, 0, A.length - 1);
+		
+		if(found != -1)
+			System.out.println("Found at position " + (found + 1));
+		else
+			System.out.println("Not Found");
+	}	
+
+	static int binarySearch(int A[], int x, int low, int high) 
+	{
+		if(low > high)
+			return -1;
+		int mid = (low + high) / 2;
+		if(x > A[mid])
+			return binarySearch(A, x, mid + 1, high);
+		else if(x < A[mid])
+			return binarySearch(A, x, low, mid - 1);
+		return mid;
+	}	
+}
+\end{lstlisting}
+\end{document}

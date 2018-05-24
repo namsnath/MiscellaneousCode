@@ -1,0 +1,114 @@
+\documentclass[ProgramminAssignment.tex]{subfiles}
+\begin{document}
+
+\section{Checking Increasing, Decreasing and Bouncy Numbers}
+Write a program to check if a given number is Increasing, Decreasing or Bouncy.\\
+Increasing Number : Working from left-to-right if no digit is exceeded by the digit to its left it is called an increasing number; for example, 22344.\\
+Decreasing Number : Similarly if no digit is exceeded by the digit to its right it is called a decreasing number; for example, 774410.\\
+Bouncy Number : We shall call a positive integer that is neither increasing nor decreasing a “bouncy” number; for example, 155349. 
+Clearly there cannot be any bouncy numbers below 100.
+
+
+Input:\\
+123456
+
+Output:\\
+Increasing
+
+\subsection{Algorithm}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Declare a Scanner object to take user input
+	& Take user input of a number and store it in an int (n)
+	& Check if the number is Increasing using isIncreasing(int n) and display message if it is
+	& Check if the number is Decreasing using isDecreasing(int n) and display message if it is
+	& If the number is neither Increasing or Decreasing, it is Bouncy. Display appropriate message.
+
+\end{easylist}
+
+\subsubsection*{boolean isIncreasing(int n):}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Parse the number to a String(st)
+	& Declare a boolean(inc) to flag if it is Increasing and set to true
+	& Run a loop from i = 0 to length of String - 1, incrementing i at each iteration
+		&& if the character at i $\geq$ character preceding it, continue the loop
+		&& else, set inc to false
+	& Return inc	
+	
+\end{easylist}	
+
+\subsubsection*{boolean isDecreasing(int n):}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Parse the number to a String(st)
+	& Declare a boolean(dec) to flag if it is Decreasing and set to true
+	& Run a loop from i = 0 to length of String - 1, incrementing i at each iteration
+		&& if the character at i $\leq$ character preceding it, continue the loop
+		&& else, set dec to false
+	& Return dec	
+	
+\end{easylist}	
+
+\subsection{Code}
+\begin{lstlisting}
+import java.util.Scanner;
+public class Bouncy_Inc_DecCheck
+{
+	public static void main(String[] args)
+	{
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("Enter Number to Check");
+		int n = s.nextInt();							//Variable to store number
+		
+		if(isIncreasing(n))								//Checks if number is increasing
+			System.out.println("Increasing");
+		else if(isDecreasing(n))						//Checks if number is decreasing
+			System.out.println("Decreasing");
+		else
+			System.out.println("Bouncy");				//Else number is bouncy Number
+		
+		s.close();
+	}
+
+	
+	public static boolean isIncreasing(int n)		//Function to check if number is increasing
+	{
+		String st = Integer.toString(n);			//Converts integer to String
+		
+		boolean inc = true;							//Flag to indicate Increasing Number
+		
+		for(int i = 1; i < st.length(); i++)		//Loop to iterate through string
+		{
+			if(st.charAt(i) >= st.charAt(i - 1))	//Checks if character is more than or equal to preceding number
+				continue;
+			else
+				inc = false;
+		}
+		
+		return inc;		//returns boolean flag
+	}
+	
+	public static boolean isDecreasing(int n)		//Function to check if number is decreasing
+	{
+		String st = Integer.toString(n);			//Converts integer to String
+		
+		boolean dec = true;							//Flag to indicate Increasing Number
+		
+		for(int i = 1; i < st.length(); i++)		//Loop to iterate through string
+		{
+			if(st.charAt(i) <= st.charAt(i - 1))	//Checks if character is more than or equal to preceding number
+				continue;
+			else
+				dec = false;
+		}
+		
+		return dec;		//returns boolean flag
+	}
+}
+\end{lstlisting}
+\end{document}

@@ -1,0 +1,95 @@
+{\tiny }%%This is a very basic article template.
+%%There is just one section and two subsections.
+\documentclass[fleqn, a4paper]{article}
+\usepackage{fullpage}
+\begin{document}
+
+
+\section{Sum Of Two Angles}
+\[\sin(\alpha+\beta) = \sin\alpha\cdot\cos\beta + \cos\alpha\cdot\sin\beta\]
+\[\cos(\alpha+\beta) = \cos\alpha\cdot\cos\beta - \sin\alpha\cdot\sin\beta\]
+\[\tan(\alpha+\beta) = \frac{\tan\alpha + \tan\beta}{1 - \tan\alpha\cdot\tan\beta}\]
+
+\section{Difference Of Two Angles}
+\[\sin(\alpha-\beta) = \sin\alpha\cdot\cos\beta - \cos\alpha\cdot\sin\beta\]
+\[\cos(\alpha-\beta) = \cos\alpha\cdot\cos\beta + \sin\alpha\cdot\sin\beta\]
+\[\tan(\alpha-\beta) = \frac{\tan\alpha - \tan\beta}{1 + \tan\alpha\cdot\tan\beta}\]
+
+\section{Products To Sums}
+\[2\sin\alpha\cdot\cos\beta = \sin(\alpha+\beta) + \sin(\alpha-\beta)\]
+\[2\cos\alpha\cdot\sin\beta = \sin(\alpha+\beta) - \sin(\alpha-\beta)\]
+\[2\cos\alpha\cdot\cos\beta = \cos(\alpha+\beta) + \cos(\alpha-\beta)\]
+\[2\sin\alpha\cdot\sin\beta = \cos(\alpha-\beta) - \cos(\alpha+\beta)\]
+
+\section{Products Of Sums Of Two Angles}
+\[\sin(\alpha+\beta)\cdot\sin(\alpha-\beta) = \sin^2\alpha - \sin^2\beta\]
+\[\cos(\alpha+\beta)\cdot\cos(\alpha-\beta) = \cos^2\alpha - \sin^2\beta\]
+\[\tan(\alpha+\beta)\cdot\tan(\alpha-\beta) = \frac{\tan^2\alpha - \tan^2\beta}{1 - \tan^2\alpha\cdot\tan^2\beta}\]
+
+\section{Sums or Differences to Products}
+\[\sin C + \sin D = 2\sin\left(\frac{C+D}{2}\right)\cos\left(\frac{C-D}{2}\right)\]
+\[\sin C - \sin D = 2\cos\left(\frac{C+D}{2}\right)\sin\left(\frac{C-D}{2}\right)\]
+\[\cos C + \cos D = 2\cos\left(\frac{C+D}{2}\right)\cos\left(\frac{C-D}{2}\right)\]
+\[\cos C - \cos D = 2\sin\left(\frac{C+D}{2}\right)\sin\left(\frac{D-C}{2}\right)\]
+
+\section{Double Angles}
+\[\sin2\theta = 2\sin\theta\cdot\cos\theta\]
+\[ = \frac{2\tan\theta}{1 + \tan^2\theta}\]
+\[\]
+\[\cos2\theta = \cos^2\theta - \sin^2\theta\]
+\[ = 1 - 2\sin^2\theta\]
+\[ = 2\cos^2\theta - 1\]
+\[ = \frac{1 - \tan^2\theta}{1 + \tan^2\theta}\]
+\[\]
+\[\tan2\theta = \frac{2\tan\theta}{1 - \tan^2\theta}\]
+\[\]
+\[\sin^2\theta = \frac{1 - \cos2\theta}{2}\]
+\[\cos^2\theta = \frac{1 + \cos2\theta}{2}\]
+
+\section{Triple Angles}
+\[\sin3\theta = 3\sin\theta - 4\sin^3\theta\]
+\[\cos3\theta = 4\cos^3\theta - 3\cos\theta\]
+\[\tan3\theta = \frac{3\tan\theta - \tan^3\theta}{1 - 3\tan^2\theta}\]
+
+\section{Miscellaneous}
+\[\sin\theta\cdot\sin(60-\theta)\cdot\sin(60+\theta) = \frac{\sin3\theta}{4}\]
+\[\cos\theta\cdot\cos(60-\theta)\cdot\cos(60+\theta) = \frac{\cos3\theta}{4}\]
+\[\cos^3\theta + \cos^3(120+\theta) + \cos^3(\theta - 120) = \frac{3}{4}\cdot\cos3\theta\]
+\[\tan\theta\cdot\tan(60-\theta)\cdot\tan(60+\theta) = \tan3\theta\]
+\[\]
+\[\]
+\[\]
+\[\]
+\section{Sum Of Three Angles}
+\[\sin(\alpha + \beta + \gamma) = \sin\alpha\cdot\cos\beta\cdot\cos\gamma + \sin\beta\cdot\cos\alpha\cdot\cos\gamma + \sin\gamma\cdot\cos\alpha\cdot\cos\beta - \sin\alpha\cdot\sin\beta\cdot\sin\gamma\]
+\[\cos(\alpha + \beta + \gamma) = \cos\alpha\cdot\cos\beta\cdot\cos\gamma - \cos\alpha\cdot\sin\beta\cdot\sin\gamma - \cos\beta\cdot\sin\alpha\cdot\sin\gamma - \cos\gamma\cdot\sin\alpha\cdot\sin\beta\]
+\[\tan(\alpha + \beta + \gamma) = \frac{\tan\alpha + \tan\beta + \tan\gamma - \tan\alpha\cdot\tan\beta\cdot\tan\gamma}{1 - tan\alpha\cdot\tan\beta - tan\beta\cdot\tan\gamma - tan\alpha\cdot\tan\gamma}\] 
+
+\section{AP, GP in Trigonometrical Ratios}
+\[\sin(A) + \sin(A+D) + \ldots + \sin(A+(n-1)D) = \frac{\sin(A+\frac{(n-1)D)}{2}\cdot\sin(\frac{nD}{2}))}{\sin(\frac{D}{2})}\]
+\[\cos(A) + \cos(A+D) + \ldots + \cos(A+(n-1)D) = \frac{\cos(A+\frac{(n-1)D)}{2}\cdot\sin(\frac{nD}{2}))}{\sin(\frac{D}{2})}\]
+\[\cos\theta\cdot\cos2\theta\cdot\cos2^2\theta\ldots\cos2^{(n-1)}\theta =
+\frac{\sin(2^n\theta)}{2^n\sin\theta}\]
+
+\section{Trigonometrical Equations}
+\subsection{Value is 0}
+\[\sin\theta = 0, \theta = n\pi\]
+\[\cos\theta = 0, \theta = (2n+1)\frac{\pi}{2}\]
+\[\tan\theta = 0, \theta = n\pi\]
+
+\subsection{Value is 1}
+\[\sin\theta = 1, \theta = (4n+1)\frac{\pi}{2}\]
+\[\cos\theta = 1, \theta = 2n\pi\]
+
+\subsection{Value is -1}
+\[\sin\theta = -1, \theta = (4n-1)\frac{\pi}{2}\]
+\[\cos\theta = -1, \theta = (2n+1)\pi\]
+
+\subsection{$\theta$ = $\alpha$}
+\[\sin\theta = \sin\alpha, \theta = n\pi + (-1)^n\alpha\]
+\[\cos\theta = \cos\alpha, \theta = 2n\pi\pm\alpha\]
+\[\tan\theta = \tan\alpha, \theta = n\pi + \alpha\]
+\[\]
+\[\sin^2\theta = \sin^2\alpha, \cos^2\theta = \cos^2\alpha, \tan^2\theta =
+\tan^2\alpha, \theta = n\pi\pm\alpha\]
+\end{document}

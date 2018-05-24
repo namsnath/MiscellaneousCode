@@ -1,0 +1,185 @@
+\documentclass[Math.tex]{subfiles}
+
+\setlength{\mathindent}{1cm}
+
+\begin{document}
+\section*{\centering\huge\underline{Conics}}
+
+\pgfplotsset{width=2cm,compat=1.9}
+
+
+\subsection*{Parabola}
+A parabola is the locus of a point which moves so that its distance from a fixed point (Focus) is equal to its distance from a fixed straight line (Directrix). e = 1\\ 
+\begin{tabular}{||+>{\bfseries}l||^c|^c|^c|^c||N}
+\hline
+Graph &
+\begin{tikzpicture}[scale = 0.2]
+\draw [<->] (-2.1,0) -- (2.1,0); 
+\draw [<->] (0,-2.1) -- (0,2.1); 
+\draw[scale=0.5,domain=-2:2,smooth,variable=\y,blue] plot ({\y*\y},{\y});
+\end{tikzpicture}
+
+&
+
+\begin{tikzpicture}[scale = 0.2]
+\draw [<->] (-2.1,0) -- (2.1,0); 
+\draw [<->] (0,-2.1) -- (0,2.1); 
+\draw[scale=0.5,domain=-2:2,smooth,variable=\y,blue] plot ({-\y*\y},{\y});
+\end{tikzpicture}
+
+&
+
+\begin{tikzpicture}[scale = 0.2]
+\draw [<->] (-2.1,0) -- (2.1,0); 
+\draw [<->] (0,-2.1) -- (0,2.1); 
+\draw[scale=0.5,domain=-2:2,smooth,variable=\y,blue] plot ({\y},{\y*\y});
+\end{tikzpicture}
+
+&
+\begin{tikzpicture}[scale = 0.2]
+\draw [<->] (-2.1,0) -- (2.1,0); 
+\draw [<->] (0,-2.1) -- (0,2.1); 
+\draw[scale=0.5,domain=-2:2,smooth,variable=\y,blue] plot ({\y},{-\y*\y});
+\end{tikzpicture}&\\
+
+\hline
+\rowstyle{\bfseries}
+Type		& Right			& Left			& Upwards		& Downards &\\
+\hline
+Equation 	& $y^2 = 4ax$ 	& $y^2 = -4ax$ 	& $x^2 = 4ay$ 	& $x^2 = -4ay$&\\ [3pt]
+\hline\hline
+Axis		& $y = 0$		& $y = 0$		& $x = 0$		& $x = 0$&\\
+\hline
+Directrix	& $x = -a$		& $x = a$		& $y = -a$		& $y = a$&\\
+\hline
+Vertex		&	\multicolumn{4}{c||}{$(0,0)$}&\\[3pt]% $(0,0)$		& $(0,0)$		& $(0,0)$		& $(0,0)$&\\[3pt]
+\hline
+Focus		& $(a,0)$		& $(-a, 0)$		& $(0,a)$		& $(0,-a)$&\\[3pt]
+\hline
+Tangent at Vertex &	\multicolumn{2}{c|}{$x = 0$}	& \multicolumn{2}{c||}{$y = 0$}&\\% $x = 0$ & $x = 0$		& $y = 0$		& $y = 0$&\\
+\hline
+Length of Latus Rectum &	\multicolumn{4}{c||}{$4a$}&\\% $4a$	& $4a$		& $4a$			& $4a$&\\
+\hline
+Equation of LR	& $x = a$	& $x = -a$		& $y = a$		& $y = -a$&\\
+\hline
+\end{tabular}\\
+
+
+\subsection*{Ellipse}
+An ellipse is the locus of a point which moves so that its distance from a fixed point (Focus) bears a constant ratio (eccentricity `e'), 
+which is less than unity, to its distance from a fixed line (Directrix).\\
+
+\begin{tabular}{||+>{\bfseries}l||^c|^c||N}
+\hline
+Graph &
+\begin{tikzpicture}[scale = 0.2]
+\draw [<->] (-2.1,0) -- (2.1,0); 
+\draw [<->] (0,-2.1) -- (0,2.1); 
+\draw[scale=0.5,domain=-2:2,smooth,variable=\y,blue] (0,0) ellipse (2 and 1);
+\end{tikzpicture}
+
+&
+
+\begin{tikzpicture}[scale = 0.2]
+\draw [<->] (-2.1,0) -- (2.1,0); 
+\draw [<->] (0,-2.1) -- (0,2.1); 
+\draw[scale=0.5,domain=-2:2,smooth,variable=\y,blue] (0,0) ellipse (1 and 2);
+\end{tikzpicture}&\\
+\hline
+\rowstyle{\bfseries}
+Type		& Horizontal		& Vertical &\\
+\hline
+Equation	& $\displaystyle\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$	& $\displaystyle\frac{y^2}{a^2} + \frac{x^2}{b^2} = 1$&\\[20pt]
+\hline\hline
+Center		&	\multicolumn{2}{c||}{$(0,0)$}&\\[3pt]% $(0,0)$					& $(0,0)$	&\\[3pt]
+\hline
+Foci		& $(\pm ae,0)$				& $(0,\pm ae)$	&\\[3pt]
+\hline
+Major Vertices	& $(\pm a, 0)$			& $(0, \pm a)$	&\\[3pt]
+\hline
+Minor Vertices	& $(0, \pm b)$			& $(\pm b, 0)$	&\\[3pt]
+\hline
+Length of Major Axis	&	\multicolumn{2}{c||}{$2a$} &\\
+\hline
+Length of Minor Axis	&	\multicolumn{2}{c||}{$2b$} &\\
+\hline
+Equations of Directrices	& $\displaystyle x = \pm\frac{a}{e}$	& $\displaystyle y = \pm\frac{a}{e}$	&\\[15pt]
+\hline
+Length of Latus Rectum	&	\multicolumn{2}{c||}{$\displaystyle\frac{2b^2}{a}$}	&\\[20pt]
+\hline
+
+\end{tabular}\\
+\[b^2 = a^2(1 - e^2)\] 
+
+
+\pagebreak
+\subsection*{Hyperbola}
+A hyperbola is the locus of a point which moves so that its distance from a fixed point (Focus) bears the a 
+constant ratio (eccentricity `e'), which is greater than unity, to its distance from a fixed line (Directrix).\\
+\begin{tabular}{||+>{\bfseries}l||^c|^c||N}
+
+\hline
+Graph &
+\begin{tikzpicture}[scale = 0.2]
+\draw [<->] (-2.9,0) -- (2.9,0); 
+\draw [<->] (0,-2.9) -- (0,2.9); 
+\draw[scale=0.5,domain=-2:2,smooth,variable=\y,blue] plot ({-\y*\y -1},{\y});
+\draw[scale=0.5,domain=-2:2,smooth,variable=\y,blue] plot ({\y*\y + 1},{\y});
+\end{tikzpicture}
+&
+\begin{tikzpicture}[scale = 0.2]
+\draw [<->] (-2.9,0) -- (2.9,0); 
+\draw [<->] (0,-2.9) -- (0,2.9); 
+\draw[scale=0.5,domain=-2:2,smooth,variable=\y,blue] plot ({\y},{-\y*\y -1});
+\draw[scale=0.5,domain=-2:2,smooth,variable=\y,blue] plot ({\y},{\y*\y + 1});
+\end{tikzpicture}
+&\\
+\hline
+\rowstyle{\bfseries}
+Type		& Horizontal		& Vertical &\\
+\hline
+Equation	& $\displaystyle\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1$	& $\displaystyle\frac{y^2}{a^2} - \frac{x^2}{b^2} = 1$&\\[20pt]
+\hline\hline
+Center		&	\multicolumn{2}{c||}{$(0,0)$}&\\[3pt]% $(0,0)$					& $(0,0)$	&\\[3pt]
+\hline
+Foci		& $(\pm ae,0)$				& $(0,\pm ae)$	&\\[3pt]
+\hline
+Vertices	& $(\pm a, 0)$			& $(0, \pm a)$	&\\[3pt]
+\hline
+Length of Transverse Axis	&	\multicolumn{2}{c||}{$2a$} &\\
+\hline
+Length of Conjugate Axis	&	\multicolumn{2}{c||}{$2b$} &\\
+\hline
+Equations of Directrices	& $\displaystyle x = \pm\frac{a}{e}$	& $\displaystyle y = \pm\frac{a}{e}$	&\\[15pt]
+\hline
+Equation of Transverse Axis	& $y = 0$	& $x = 0$	&\\[3pt]
+\hline
+Equation of Conjugate Axis	& $x = 0$	& $y = 0$	&\\[3pt]
+\hline
+Length of Latus Rectum	&	\multicolumn{2}{c||}{$\displaystyle\frac{2b^2}{a}$}	&\\[20pt]
+\hline
+Focal Radii			&	$ex \pm a$		&	$ey \pm a$	&\\[3pt]
+
+\hline
+\end{tabular}\\
+\[b^2 = a^2(e^2 - 1)\]
+
+\subsection*{Tangency}
+\begin{tabular}{||+>{\bfseries}c|^c|^c|^c|^c||N}
+\hline
+\rowstyle{\bfseries}
+Line	& Curve		& Condition		& Tangent		& Point Of Contact	&\\
+\hline\hline
+$y = mx + c$	& $y^2 = 4ax$	& $\displaystyle c = \frac{a}{m}$	& $\displaystyle y = mx + \frac{a}{m}$	& $\left(\displaystyle\frac{a}{m^2}, \frac{2a}{m}\right)$	&\\[20 pt]
+\hline
+$y = mx + c$	& $y^2 = -4ax$	& $\displaystyle c = \frac{-a}{m}$	& $\displaystyle y = mx - \frac{a}{m}$	& $\left(\displaystyle\frac{-a}{m^2}, \frac{-2a}{m}\right)$	&\\[20 pt]
+\hline
+$y = mx + c$	& $\displaystyle\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$	& $c^2 = a^2m^2 + b^2$	& $\displaystyle y = mx \pm\sqrt{a^2m^2 + b^2}$	& 
+$\displaystyle \left(\frac{\pm a^2m}{\sqrt{a^2m^2 + b^2}}, \frac{\mp b^2}{\sqrt{a^2m^2 + b^2}}\right)$	&\\[20 pt]
+\hline
+$y = mx + c$	& $\displaystyle\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1$	& $c^2 = a^2m^2 - b^2$	& $\displaystyle y = mx \pm\sqrt{a^2m^2 - b^2}$	& 
+$\displaystyle \left(\frac{\pm a^2m}{\sqrt{a^2m^2 - b^2}}, \frac{\pm b^2}{\sqrt{a^2m^2 - b^2}}\right)$	&\\[20 pt]
+\hline
+\end{tabular}
+
+\end{document}

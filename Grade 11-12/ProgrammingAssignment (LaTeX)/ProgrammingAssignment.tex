@@ -1,0 +1,120 @@
+\documentclass[10pt, a4paper, fleqn]{article}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{fullpage}
+\usepackage[ampersand]{easylist}
+\usepackage[parfill]{parskip}
+\usepackage{subfiles}
+
+
+
+%\definecolor{dkgreen}{rgb}{0,0.6,0}
+%\definecolor{gray}{rgb}{0.5,0.5,0.5}
+%\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  %numberstyle=\tiny\color{gray},
+  %keywordstyle=\color{blue},
+  %commentstyle=\color{dkgreen},
+  %stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\renewcommand{\labelenumii}{\Alph{enumii}}
+\renewcommand{\labelenumiv}{\alph{enumiv}}
+\ListProperties(Numbers1=a, Numbers2=L, Numbers3=r, Numbers4=l, Numbers5=R, FinalMark={)}, Progressive*=.5cm, Hide2=1, Hide3=2, Hide4=3, Hide5=4, Hide6=5, Style*=)
+
+
+\begin{document}
+
+\pagenumbering{gobble}
+\subfile{TitlePage} \newpage
+
+
+\section*{Acknowledgement}
+This project would not have been possible without the guidance and the help of several individuals
+who in one way or another contributed and extended their valuable assistance in the preparation
+and completion of this assignment.
+
+I express utmost gratitude to my Computer Science teachers – Ms. Nishat Khimani, Ms. Manaali Dubal, and Mr. Siddharth Naidu
+whose inputs and encouragement have been my inspiration as I hurdled over all the obstacles in the completion of this project. 
+I would also like to thank them for providing valuable inputs and feedback to aid us in our project.
+
+Furthermore, I thank all the members of my family who always had a kind concern and consideration regarding all my project and 
+academic requirements and were helpful all through the project. I specially thank my father whose inputs regarding the details of
+this project were very valuable and helpful given his eye for detail. I also thank my mother, who helped sand off the rough edges
+of the project, giving feedback and suggestions regarding the aesthetic part of the project.
+\newpage
+
+\tableofcontents
+\newpage
+
+
+\pagenumbering{arabic}
+
+
+\subfile{ArrayFill} \newpage
+\subfile{CharCount} \newpage
+\subfile{Dec_Bin_Oct_Hex} \newpage
+\subfile{BoundaryElementSort_Sum} \newpage
+\subfile{DateInWords} \newpage
+\subfile{DeterminantSolver} \newpage
+\subfile{PseudoArithmeticSeries} \newpage
+\subfile{HarshadNum} \newpage
+\subfile{KaprekarNum} \newpage
+\subfile{MobiusFn} \newpage
+\subfile{GCDLCMRecursive} \newpage
+\subfile{NoteDispense} \newpage
+\subfile{NumToWords} \newpage
+\subfile{PrimesInArray} \newpage
+\subfile{QuickSortArray} \newpage
+\subfile{RevStr} \newpage
+\subfile{CharacterCountWithoutLoop} \newpage
+\subfile{SpecialNum} \newpage
+\subfile{SaddlePoint} \newpage
+\subfile{SieveOfErasthosenes} \newpage
+\subfile{ASCIIDecryption} \newpage
+\subfile{MergeSortArray} \newpage
+\subfile{PhoneDirectory} \newpage
+\subfile{StudentRecords} \newpage
+\subfile{SmartSubstring} \newpage
+\subfile{DuplicateCharCount} \newpage
+\subfile{SymmetrixDiagonalSum} \newpage
+\subfile{CalendarGenerator} \newpage
+\subfile{MatrixInSpiral} \newpage
+\subfile{CircularPrime} \newpage
+\subfile{CharTypePercentage} \newpage
+\subfile{ReverseEachWord} \newpage
+\subfile{BouncyIncDecCheck} \newpage
+\subfile{StringNegativeEncoder} \newpage
+\subfile{NoOfDays} \newpage
+\subfile{WondrousSquare} \newpage
+\subfile{MatrixMultiplication} \newpage
+\subfile{TowersOfHanoi} \newpage
+\subfile{Unique2DigitCombos} \newpage
+\subfile{2DArraySort} \newpage
+\subfile{MatrixMirror} \newpage
+\subfile{MatrixRotation90} \newpage
+\subfile{InsertionSortArray} \newpage
+\subfile{RecursiveBinarySearch} \newpage
+\subfile{DecimalRoman} \newpage
+\subfile{LinkedList} \newpage
+\subfile{QueueAsLL} \newpage
+\subfile{StackAsLL} \newpage
+\subfile{QuickSortLinkedList} \newpage
+\subfile{BinaryTree} \newpage
+
+
+
+\subfile{OtherResources} \newpage
+
+\end{document}

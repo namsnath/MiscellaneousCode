@@ -1,0 +1,109 @@
+\documentclass[ProgramminAssignment.tex]{subfiles}
+\begin{document}
+
+\section{String Reverse (Recursive)}
+Write a recursive program to reverse a given String and check if it is a palindrome.
+
+Input:\\
+Java Is Great
+
+Output:\\
+taerG sI avaJ\\
+They are not palindromes
+
+\subsection{Algorithm}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Declare a String (Str) and a StringBuffer (Revst) and initialize it to null ("")
+	& Create an object of the Revstr class
+	& Call getStr()
+	& Call recReverse(), passing Str.length - 1 as parameter (for last character in String)
+	& Call check()
+
+\end{easylist}
+
+\subsubsection*{void getStr():}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Create a new Scanner object for user Input
+	& Take user input of a String and store it in Str
+	
+\end{easylist}	
+
+
+\subsubsection*{void recReverse(int n):}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& if n = 0, Append the first character of the String to the StringBuffer
+	& else
+		&& Append the nth character of the String to the StringBuffer
+		&& Pass n-1 in recReverse()
+	
+\end{easylist}	
+
+
+\subsubsection*{void check():}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Print String and Reversed String
+	& Check if both are equal
+	& Display appropriate message
+	
+\end{easylist}	
+
+\subsection{Code}
+\begin{lstlisting}
+import java.util.Scanner;
+
+public class Revstr
+{
+
+	String Str;		//To Store the input String
+	StringBuffer Revst = new StringBuffer("");	//For editing and storing edited String
+	
+	public static void main(String[] args)
+	{
+		wks3_Revstr r = new wks3_Revstr();	//Object of class
+		//Method Calls
+		r.getStr();
+		r.recReverse(r.Str.length() - 1);
+		r.check();
+	}
+
+	
+	void getStr()	//Function to take input
+	{
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter the String to reverse");
+		Str = s.nextLine();
+	}
+	
+	void recReverse(int n)	//Recursive Function to reverse the string
+	{
+		if(n == 0)	//Appends first character
+			Revst.append(Str.charAt(0));
+		else
+		{
+			Revst.append(Str.charAt(n));	//Appends nth character
+			recReverse(n - 1);	//Recursive call
+		}
+	}
+	
+	void check()	//Function to check if the String is a palindrome
+	{
+		System.out.println("Original String: " + Str);
+		System.out.println("Reversed String: " + Revst);
+		if(Str.equalsIgnoreCase(Revst.toString()))
+			System.out.println("They are palindromes");
+		else
+			System.out.println("They are not palindromes");
+		
+	}
+}
+
+\end{lstlisting}
+\end{document}

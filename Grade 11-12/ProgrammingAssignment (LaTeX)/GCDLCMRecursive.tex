@@ -1,0 +1,61 @@
+\documentclass[ProgramminAssignment.tex]{subfiles}
+\begin{document}
+
+\section{GCD and LCM using Recursion}
+Write a program to find the GCD and LCM of two numbers using recursion
+
+Input:\\
+6, 4
+
+Output:\\
+GCD = 2\\
+LCM = 12
+
+\subsection{Algorithm}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Take inputs of two numbers(n, m) from the user
+	& Print the value of GCD(n, m)
+	& Print the value of LCM (m * n / GCD)
+
+\end{easylist}
+
+\subsubsection*{int GCD(int n, int m):}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& if m = 0, return n
+	& Call GCD passing m and n \% m as arguments and return its value
+	
+\end{easylist}	
+
+\subsection{Code}
+\begin{lstlisting}
+import java.util.Scanner;
+public class RecursiveGCD
+{
+
+	public static void main(String[] args)
+	{
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("Enter two numbers:");	//Data Entry
+		int n = s.nextInt();
+		int m = s.nextInt();
+			
+		System.out.println("GCD = " + GCD(n, m));
+		System.out.println("LCM = " + m * n / GCD(m, n));	//GCD * LCM = m * n
+	}
+	
+	static int GCD(int n, int m)	//Recursive Function to calculate GCD
+	{
+		if(m == 0)
+			return n;
+		return GCD(m, n % m);
+	}
+
+}
+
+\end{lstlisting}
+\end{document}

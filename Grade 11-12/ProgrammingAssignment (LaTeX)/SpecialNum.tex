@@ -1,0 +1,71 @@
+\documentclass[ProgramminAssignment.tex]{subfiles}
+\begin{document}
+
+\section{Special Numbers}
+Write a program to check if a given number is a Special Number.\\
+A number is a Special number if the sum of the Factorials of it's digits equals the number itself.
+
+Input:\\
+145
+
+Output:\\
+145 is a Special Number\\
+1! + 4! + 5! = 1 + 24 + 120 = 145
+
+\subsection{Algorithm}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Take user input for a number
+	& Declare an int(sum) to store the sums of the factorials of the numbers
+	& Extract each digits from the number and find their factorials, adding each to sum
+	& Check if the sum equals the number
+
+\end{easylist}
+
+\subsubsection*{int factorial(int n):}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& If n $<$ 2, return 1
+	& Else return n * factorial(n - 1)
+ 	
+\end{easylist}	
+
+\subsection{Code}
+\begin{lstlisting}
+import java.util.Scanner;
+public class SpecialNum
+{
+
+	public static void main(String[] args)
+	{
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("Enter Number to check:");
+		int n = s.nextInt();	//Data entry
+		
+		int sum = 0;	//To store sum of factorials
+		
+		String st = String.valueOf(n);	//Converts to String
+		for(int i = 0; i < st.length(); i++)
+		{
+			sum += factorial(Integer.parseInt(st.charAt(i) + ""));	//Extracts each digit and adds its factorial
+		}
+		
+		if(n == sum)
+			System.out.println(n + " is a Special Number");
+		else
+			System.out.println(n + " is not a Special Number");
+	}
+	
+	static int factorial(int n)	//Recursive function to calculate factorial
+	{
+		if(n < 2)
+			return 1;
+		
+		return n * factorial(n - 1);
+	}	
+}
+\end{lstlisting}
+\end{document}

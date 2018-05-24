@@ -1,0 +1,115 @@
+\documentclass[ProgrammingAssignment.tex]{subfiles}
+
+\begin{document}
+\section{Array Fill}
+
+%\subsection*{Question}
+Take input of order of 2D matrix. Take 3 characters (c1, c2, c3) as user input and fill the diagonals with c3, the parts created on the top and bottom by the diagonals with c1 and the parts to the left and right with c2.
+\\ Example: 
+
+Input:\\
+Order = 7\\
+Characters: @, \#, \$	
+
+Output:
+\begin{lstlisting}
+$ @ @ @ @ @ $ 
+# $ @ @ @ $ # 
+# # $ @ $ # # 
+# # # $ # # # 
+# # $ @ $ # # 
+# $ @ @ @ $ # 
+$ @ @ @ @ @ $
+\end{lstlisting}
+\subsection{Algorithm}
+
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+	& Declare variables 'n' (For storing order of matrix), 'c1', 'c2', and 'c3' for storing the three characters and take appropriate user inputs.
+	& Declare a character array M[ ][ ] of size n*n
+	& Run loop from i = 0 and j = 0 till i $<$ n, incrementing i and j at each iteration and repeat step A) each time 		
+			&& Assign c3 to M[i][j] 		
+	& Run loop from i = n - 1 and j = 0 till i $\geq$ 0, incrementing j and decrementing i at each iteration and repeat step A) each time 		
+			&& Assign c3 to M[i][j] 		
+	& Declare 'limit' to store limit of loops	
+	&	if n \% 2 = 0, go to step A), else go to step B)				
+	  		&& limit = n/2 - 1
+			&& limit = n/2				
+	& Run loop from i = 0 and j = 0 till i $<$ limit, incrementing i and j at each iteration and repeat step A) each time 				
+			&& Run loop from k = i + 1, till k $<$ (n - i - 1), incrementing k at each iteration and repeat step i) each time 							
+					&&& Assign c1 to M[i][k]						 
+	& Run loop from i = n - 1 and j = 0 till j $<$ limit, incrementing j and decrementing i at each iteration and repeat step A) each time		
+			&& Run loop from k = j + 1, till k $<$ (n - j - 1), incrementing k at each	iteration and repeat step i) each time 			
+				&&& Assign c1 to M[i][k]		
+	& Run loop from i = 0 and j = 0 till i $<$ limit, incrementing i and j at each iteration and repeat step A) each time 		
+			&& Run loop from k = i + 1, till k $<$ (n - i - 1), incrementing k at each	iteration and repeat step i) each time 			
+			  &&& Assign c2 to M[k][i]									
+	& Run loop from i = n - 1 and j = 0 till j $<$ limit, incrementing j and decrementing i at each iteration and repeat step A) each time 				
+		  && Run loop from k = j + 1, till k $<$ (n - j - 1), incrementing k at each	iteration and repeat step i) each time 						
+			  &&& Assign c1 to M[k][i]										 
+	& Run loop from i = 0 till i $<$ n, incrementing i at each iteration and repeat steps A) and B) each time 		
+		  && Run loop from j = 0 till j $<$ n, incrementing j at each iteration and repeat step i) each time 			
+			  &&& Print M[i][j]
+		&& Print empty line
+\end{easylist}
+
+
+\subsection{Code}
+\begin{lstlisting}
+import java.util.Scanner;
+public class Arr_fill
+{
+	public static void main(String[] args)
+	{
+		Scanner s = new Scanner(System.in);
+		int n, i, j, k;
+		char c1, c2, c3;	//To store characters
+		int limit;	//To store loop limit (half of order)
+		
+		
+		System.out.println("Enter order");
+		n = s.nextInt();	//Input for order
+		
+		System.out.println("Enter 3 characters");
+		c1 = s.next().charAt(0);
+		c2 = s.next().charAt(0);
+		c3 = s.next().charAt(0);
+		char M[][] = new char[n][n];	//Array to fill
+		
+		for(i = 0, j = 0; i < n; i++, j++)	//Fills left diagonal
+			M[i][j] = c3;
+			
+		for(i = (n - 1), j = 0; i >= 0; i--, j++)	//Fills Right Diagonal
+			M[i][j] = c3;
+		
+		if(n % 2 == 0)
+			limit = (n / 2) - 1;
+		else
+			limit = n / 2;
+		
+		for(i = 0, j = 0; i < limit; i++, j++)	//To fill top part
+			for(k = i + 1; k < n - 1 - i; k++)
+				M[i][k] = c1;
+		
+		for(i = n - 1, j = 0; j < limit; i--, j++) //To fill bottom part
+			for(k = j + 1; k < n - j - 1; k++)
+				M[i][k] = c1;
+		
+		for(i = 0, j = 0; i < limit; i++, j++)	//To fill left part
+			for(k = i + 1; k < n - 1 - i; k++)
+				M[k][i] = c2;
+		
+		for(i = n - 1, j = 0; j < limit; i--, j++)	//To fill right part
+			for(k = j + 1; k < n - j - 1; k++)
+				M[k][i] = c2;
+		
+		for(i = 0; i < n; i++)	//To Print Array
+		{
+			for(j = 0; j < n; j++)
+				System.out.print(M[i][j] + " ");
+			System.out.println();
+		}
+	}
+}
+\end{lstlisting}
+\end{document}

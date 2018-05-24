@@ -1,0 +1,55 @@
+\documentclass[fleqn, a4paper, 8pt]{article}
+\usepackage[parfill]{parskip}
+\usepackage{fullpage}	%Small Margin
+\usepackage[margin=0.45in]{geometry}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage[sharp]{easylist}	%List with #
+\usepackage{tikz}		
+\usetikzlibrary{shapes.geometric, arrows}
+\usepackage{tikz-qtree}	%Tree
+\usepackage{subfiles}	%For subfiles
+\usepackage{pdfpages}	%To add PDF
+\usepackage{fleqn}		%Left Flushed
+\usepackage{mathtools}	%For bmatrix*
+\usepackage{nopageno}	%Removes page numbers
+\usepackage{parallel}	%For columns
+\usepackage{pgfplots}	%Graphs
+\usepackage{array}
+\usepackage{multicol}
+\usepackage{xfrac}
+
+
+\pgfplotsset{compat = 1.12}	
+
+%\setlength{\columnseprule}{0.4pt}
+\setlength{\mathindent}{0cm}
+
+\newcolumntype{+}{>{\global\let\currentrowstyle\relax}}
+\newcolumntype{^}{>{\currentrowstyle}}
+\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}%
+#1\ignorespaces
+}
+
+\newcolumntype{N}{@{}m{0pt}@{}}
+
+\newcommand{\dif}{\mathop{}\!\mathrm{d}}
+\newcommand{\Dif}{\mathop{}\!\mathrm{D}}
+
+\newcommand{\diff}[1]{\displaystyle\frac{\dif}{\dif x} \left(#1\right)}
+\newcommand{\diffnb}[1]{\displaystyle\frac{\dif}{\dif x} #1}
+\newcommand{\intx}[1]{\displaystyle\int#1\,\mathrm{d}x}
+\newcommand{\e}{\displaystyle\mathrm{e}}
+
+\begin{document}
+
+\subfile{Determinants} \pagebreak
+\subfile{Matrices.tex} \pagebreak
+\subfile{Conics.tex} \pagebreak
+\subfile{InverseTrig.tex} \pagebreak
+\subfile{Differentiation.tex} \pagebreak
+\subfile{Integration.tex}	\pagebreak
+\subfile{CorrelationRegression.tex}	\pagebreak
+
+\end{document}

@@ -1,0 +1,53 @@
+\documentclass[ProgrammingAssignment.tex]{subfiles}
+
+\begin{document}
+
+\section{Harshad Number}
+Harshad Number is an integer (in base 10) that is divisible by the sum of its digits.
+
+Input:\\
+18
+
+Ouput:\\
+18 is a Harshad Number
+
+\subsection{Algorithm}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Declare and Initialize a Scanner object to take user input
+	& Take user input for a number and store it in an int (n)
+	& Declare an int (sum) and initialize it to 0 to store sum of digits of the number
+	& Run a loop from i = n to 0, Adding i % 10 to sum and dividing i by 10 every time
+	& if the number (n) is divisible by the sum, It is a Harshad Number.
+	& Display appropriate message
+	
+\end{easylist}
+
+\subsection{Code}
+\begin{lstlisting}
+import java.util.Scanner;
+public class HarshadNum
+{
+
+	public static void main(String[] args)
+	{
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter Number");
+		int n = s.nextInt();	//user Input of Number
+		int sum = 0;	//To store the sum of digits
+		
+		for(int i = n; i > 0; sum += i % 10, i = i / 10)	//Loop to obtain sum of digits
+		{}
+		
+		if(n % sum == 0)	//If the Number is divisible by its Sum
+			System.out.println(n + " is a Harshad Number");
+		else
+			System.out.println(n + " is not a Harshad Number");
+	}
+
+}
+
+\end{lstlisting}
+
+\end{document}

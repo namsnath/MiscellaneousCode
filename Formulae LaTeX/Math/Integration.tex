@@ -1,0 +1,137 @@
+\documentclass[Math.tex]{subfiles}
+
+\begin{document}
+
+\section*{\centering\huge\underline{Integration}}
+\subsection*{Fundamental Formulae}
+
+\begin{multicols}{2}
+[\subsubsection*{Basic:}]
+
+$\intx{x^n} = \frac{x^{n+1}}{n+1}+C,\, n\neq -1$
+
+$\intx{(ax+b)^n} = \frac{(ax+b)^{n+1}}{a(n+1)} + C\,, n\neq -1$
+
+$\intx{\frac{1}{x}} = \log|x| + C$
+
+$\intx{\frac{1}{ax+b}} = \frac{\log|ax+b|}{a} + C$
+
+$\intx{\e^x} = \e^x + C$
+
+$\intx{a^x}= \frac{a^x}{\log a} + C$
+\end{multicols}
+
+\begin{multicols}{2}
+[\subsubsection*{Special Forms:}]
+$\intx{\left[f(x)\right]^n\,f'(x)} = \frac{\left[f(x)\right]^{n + 1}}{n + 1} + C\,, n\neq -1$
+
+$\intx{\frac{f'(x)}{f(x)}} = \log|f(x)| + C$
+
+$\intx{\frac{f'(x)}{\sqrt{f(x)}}} = 2\sqrt{f{(x)}} + C$
+\end{multicols}
+\begin{multicols}{2}
+[\subsubsection*{Trigonometry:}]
+$ \intx{\sin x} = -\cos x + C $
+
+$ \intx{\cos x} = \sin x  + C $
+
+$ \intx{\sec ^2 x} = \tan x + C $
+
+$ \intx{\csc ^2 x} = -\cot x + C $
+
+$ \intx{\sec x\tan x} = \sec x + C $
+
+$ \intx{\csc x\cot x} = -\csc x + C $
+
+$ \intx{\tan x} = -\log |\cos x| + C = \log| \sec x| + C $
+
+$ \intx{\cot x} = \log |\sin x| + C $
+
+$ \intx{\csc x} = \log|\csc x - \cot x| + C = \log\left|\tan\frac{x}{2}\right| + C $
+\end{multicols}
+$ \intx{\sec x} = \log|\sec x + \tan x| + C = \log\left|\tan\left(\frac{\pi}{4} + \frac{x}{2}\right)\right| + C $
+
+\subsubsection*{Integration By Parts:}
+$\intx{u\cdot v} = u\intx{v} - \intx{\diffnb{u}\smallint v}$
+
+To decide first function use: \textbf{L}ogarithmic, \textbf{I}nverse Trig, \textbf{A}lgebraic, \textbf{T}rigo, \textbf{E}xponential
+
+\textbf{For integrals of the form} $\int{e^{ax}\cos bx}$ or $\int{e^{ax}\sin bx}$:\\
+Integrate by parts taking $e^{ax}$ as the first function, and integrate by parts again, substituting the original integral as I and then simplifying.
+
+
+$\intx{e^x\cdot\left[f(x) + f'(x)\right] = e^x f(x)}$
+
+\begin{multicols}{2}
+[\subsubsection*{Special Integrals:}]
+$\intx{\frac{1}{x^2 + a^2}} = \frac{1}{a} \tan ^{-1}\frac{x}{a} + C$
+
+$\intx{\frac{1}{x^2 - a^2}} = \frac{1}{2a}\log\left|\frac{x - a}{x + a}\right| + C$
+
+$\intx{\frac{1}{a^2 - x^2}} = \frac{1}{2a}\log\left|\frac{a + x}{a - x}\right| + C$ 
+\end{multicols}
+
+\textbf{For integrals of the form} $\intx{\frac{x^2 + 1}{x^4 + kx^2 + 1}}$ or $\intx{\frac{x^2 - 1}{x^4 + kx^2 + 1}}$,\\
+Divide the nummerator and denominator by $x^2$ and put $\displaystyle \left(x - \frac{1}{x}\right) = t$ and $\displaystyle \left(x + \frac{1}{x}\right) = t$ respectively. 
+
+\textbf{For integrals of the form} $\intx{\frac{1}{ax^2 + bx + c}}$
+
+
+\begin{easylist}
+	# Make coefficient of $x^2$ unity
+	# Complete the square by Adding and Subtracting the square of half the coefficient of x $\left(\sfrac{b^2}{4} \right)$
+	# Use standard form for denominator as $(x + \alpha)^2 \pm \beta ^2$
+\end{easylist}
+
+
+\textbf{For integrals of the form} $\intx{\frac{px + q}{ax^2 + bx + c}}$,\\
+\begin{easylist}
+	\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+	# Put $px + q$ as $\diff{Denominator}\cdot k_1 \pm k_2$ where $k_1$ and $k_2$ are constants.
+	# Split numerator taking individual denominators and evaluate
+\end{easylist}
+
+\begin{multicols}{2}
+[\subsubsection*{Irrational Forms:}]
+$\intx{\frac{1}{\sqrt{a^2 - x^2}}} = \sin ^{-1}\frac{x}{a} + C$
+
+$\intx{\frac{1}{\sqrt{x^2 - a^2}}} = \log\left|x + \sqrt{x^2 - a^2}\right| + C$
+
+$\intx{\frac{1}{\sqrt{x^2 + a^2}}} = \log\left|x + \sqrt{x^2 + a^2}\right| + C$
+\end{multicols}
+
+
+\textbf{For integrals of the form} $\intx{\frac{1}{\sqrt{ax^2 + bx + c}}}$,\\
+\begin{easylist}
+	\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+	# Make coefficient of $x^2$ unity
+	# Complete the square by Adding and Subtracting the square of half the coefficient of x $\left(\sfrac{b^2}{4} \right)$
+	# Use standard form for denominator as $\sqrt{(x + \alpha)^2 \pm \beta ^2}$
+\end{easylist}
+
+\textbf{For integrals of the form} $\intx{\frac{px + q}{\sqrt{ax^2 + bx + c}}}$,\\
+\begin{easylist}
+	\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+	# Put $px + q$ as $\diff{Denominator}\cdot k_1 \pm k_2$ where $k_1$ and $k_2$ are constants.
+	# Split numerator taking individual denominators and evaluate
+\end{easylist}
+
+\textbf{For integrals of the form} $\intx{\frac{1}{a + b\cos x}}$, $\intx{\frac{1}{a + b\sin x}}$, $\intx{\frac{1}{a\cos x + b\sin x}}$
+
+\begin{easylist}
+	\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+	# Put $\displaystyle\sin x = \frac{2\, \tan (\sfrac{x}{2})}{1 + \tan ^2 (\sfrac{x}{2})}$, $\displaystyle\cos x = \frac{1 - \tan ^2(\sfrac{x}{2})}{1 + \tan ^2 (\sfrac{x}{2})}$
+	# Replace $1 + \tan ^2(\sfrac{x}{2})$ in numerator with $\sec ^2 (\sfrac{x}{2})$
+	# Put $\tan (x / 2) = t$ so that $\frac{1}{2} \sec ^2 (\sfrac{x}{2}) \mathrm{d}x = \mathrm{d}t$
+	# Evaluate using standard integrals
+\end{easylist}
+
+
+\subsubsection*{More Irrational Integrals:}
+$\intx{\sqrt{a^2 - x^2}} = \frac{x}{2}\cdot\sqrt{a^2 - x^2} + \frac{a^2}{2}\sin^{-1}\left(\frac{x}{a}\right) + C$
+
+$\intx{\sqrt{x^2 + a^2}} = \frac{x}{2}\cdot\sqrt{x^2 + a^2} + \frac{a^2}{2}\log\left|x + \sqrt{x^2 + a^2\right| + C}$
+
+$\intx{\sqrt{x^2 - a^2}} = \frac{x}{2}\cdot\sqrt{x^2 - a^2} - \frac{a^2}{2}\log\left|x + \sqrt{x^2 - a^2\right| + C}$
+
+\end{document}

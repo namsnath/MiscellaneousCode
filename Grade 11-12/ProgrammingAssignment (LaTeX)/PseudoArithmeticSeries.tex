@@ -1,0 +1,58 @@
+\documentclass[ProgramminAssignment.tex]{subfiles}
+\begin{document}
+
+\section{PseudoArithmetic Series}
+Write a program to check for a PseudoArithmetic Series and display its sum.\\
+A PseudoArithmetic series is one where elements from the opposite ends add up to a common sum.
+
+Input:\\
+2, 5, 7, 9, 12
+
+Output:\\
+It is a Pseudo Arithmetic Series \\
+Common sum is 14\\
+Total Sum is 42\\
+
+\subsection{Algorithm}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Take user input of an array(A[ ]) or use Sample Data (Sample data used here)
+	& Declare an int(sum) and store sum of first and last elements of array in it
+	& Declare a flag for checking if it is a PseudoArithmetic Series or not
+	& Run a loop from i = 0 and j = length - 1 till i $\leq$ j, incrementing i and decrementing j by 1 at each iteration
+		&& If A[i] + A[j] $\neq$ sum, raise a flag
+	& Declare an int(num) to store half the number of elements in case of even number, (Length + 1) / 2 in case of odd
+	& If it is a PseudoArithmetic Series, Display message, common sum and total sum	
+
+\end{easylist}
+
+\subsection{Code}
+\begin{lstlisting}
+public class PseudoArithmeticSeries
+{
+
+	public static void main(String[] args)
+	{
+		int[] A = {2, 5, 7, 9, 12};	//Sample Data
+		
+		int sum = A[0] + A[A.length - 1];
+		boolean flag = true;
+		
+		
+		for(int i = 0, j = A.length - 1; i <= j; i++, j--)	//Checks oposite elements and sums them
+			if((A[i] + A[j]) != sum)	//If sums don't match
+				flag = false;
+		
+		int num = (A.length % 2 == 0) ? A.length / 2 : (A.length + 1) / 2;	//Stores number of elements in half the list for calculating sum
+		
+		if(flag)
+			System.out.println("It is a Pseudo Arithmetic Series \nCommon sum is " + sum + "\nTotal Sum is " + (sum * num));
+		else
+			System.out.println("It is not a Pseudo Arithmetic Series");
+	}
+
+}
+
+\end{lstlisting}
+\end{document}

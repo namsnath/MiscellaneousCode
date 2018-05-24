@@ -1,0 +1,82 @@
+\documentclass[ProgramminAssignment.tex]{subfiles}
+\begin{document}
+
+\section{String Negative Encoder}
+Write a program to encode a String using negative encoding of characters with cyclic encoding with a given value of encoding.
+
+Input:\\
+Java Concept Of The Day\\
+Value = 2
+
+Output:\\
+HYTY AMLACNR MD RFC BYW
+
+\subsection{Algorithm}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Declare a Scanner object tot ake user input
+	& Take user input of a String to encode(input) and convert it to UpperCase
+	& Take input for an encoding value(n)
+	& Declare a StringBuffer(str) and set it to input
+	& Run a loop from i = 0 to length of String - 1, incrementing i at each iteration
+		&& If the character is a blank space, skip it
+		&& Store the int value of the current character in an int(x)
+		&& Subtract the encoding value from x
+		&& if x $<$ 65 (Before 'A')
+			&&& set x to 64$-$x
+			&&& Replace the character with character having the value 'Z' $-$ x
+		&& else
+			&&& Replace the character with character having the value of character $-$ n	
+	& Print the new String		
+
+\end{easylist}
+
+\subsection{Code}
+\begin{lstlisting}
+import java.util.Scanner;
+
+public class String_NegativeEncoder
+{
+
+	public static void main(String[] args)
+	{
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("Enter Word to Encode");
+		String input = s.nextLine().toUpperCase();		//Convert input to UpperCase
+		
+		System.out.println("Enter Encoding value:");
+		int n = s.nextInt();							//Value to encode by
+		
+		StringBuffer str = new StringBuffer(input.trim());	//To perform edits
+		
+		int x, i;	//Temporary variables for operations
+		
+		
+		for(i = 0; i < str.length(); i++)
+		{
+			if(str.charAt(i) == ' ')	//Skips if it is a space
+				continue;
+			
+			x = (int)str.charAt(i);	//Storing int value of a character
+			x = x - n;	//Subtracts encoding value
+			
+			if(x < 65)	//Cyclic shift for characters before 'A'
+			{
+				x = 64 - x;	//Converts it to x characters before 'X'
+				str.setCharAt(i, (char)((int)'Z'- x));	//Replaces character in String
+			}
+			else
+			{
+				str.setCharAt(i, (char)((int)str.charAt(i) - n));	//Replaces character in String
+			}
+		}
+		
+		System.out.println("Encoded Word: " + str.toString());	//Printing
+	}
+
+}
+
+\end{lstlisting}
+\end{document}

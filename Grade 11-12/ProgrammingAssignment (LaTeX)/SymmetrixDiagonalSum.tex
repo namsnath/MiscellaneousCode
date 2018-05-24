@@ -1,0 +1,92 @@
+\documentclass[ProgrammingAssignment.tex]{subfiles}
+\begin{document}
+
+\section{Symmetric Matrix check and Sum of Diagonals}
+Write a program to check if the given matrix is Symmetric or not, and find the sums of the left and right diagonals.\\
+A square matrix is said to be Symmetric, if the element of the i th row and j th column is
+equal to the element of the j th row and i th column.
+
+Input:\\
+Order = 3\\
+\begin{tabular}{ccc}
+1& 2& 3\\
+2& 4& 5\\
+3& 5& 6\\
+\end{tabular}
+
+Output:\\
+The Matrix is Symmetric.\\
+Sum of Left Diagonal = 11\\
+Sum of Right Diagonal = 10
+
+\subsection{Algorithm}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Take input for order of Matrix and check its validity
+	& Create a Matrix of appropriate order(A[ ][ ])
+	& Take user input for each element in the Matrix
+	& Run a loop to iterate through the Matrix checking that each A[i][j] = A[j][i], and displaying appropriate message
+	& If Matrix is Symmetric
+		&& Run a loop from i = 0 and j = 0 till i $<$ n and j $<$ n, incrementing i and j by 1 at each iteration
+			&&& Add each A[i][j] to an int(sumLeft)
+		&& Run a loop from i = n - 1 and j = 0 till i $\geq$ 0 and j $<$ n, decrementing i and incrementing j at each iteration
+			&&& Add each A[i][j] to an int(sumRight)
+		&& Print sumLeft and sumRight		
+
+\end{easylist}
+
+\subsection{Code}
+\begin{lstlisting}
+import java.util.Scanner;
+
+public class Symmetric_DiagonalSum
+{
+
+	public static void main(String[] args)
+	{
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("Enter Order of the Matrix");
+		int n = s.nextInt();	//Input
+		
+		if(n < 2 || n > 10)	//Validation of Input
+		{
+			System.out.println("Order of matrix cannot be less than 2 or more than 10");
+			System.exit(0);
+		}
+		
+		int i, j, A[][] = new int[n][n], sumLeft = 0, sumRight = 0;	//Iteration variables, Matrix, Sums of Diagonals
+		
+		System.out.println("Enter Elements of the Matrix, Row-wise");	//Data Entry
+		for(i = 0; i < n; i++)
+			for(j = 0; j < n; j++)
+			{
+				A[i][j] = s.nextInt();	//User Input for each element
+			}
+		
+		for(i = 0; i < n; i++)
+			for(j = 0; j < n; j++)
+				if(A[i][j] != A[j][i])	//Checks for elements on opposites of the Matrix
+				{
+					System.out.println("Not Symmetrical");
+					System.exit(0);
+				}
+		System.out.println("Symmetrical");
+		
+		
+		for(i = 0, j = 0; i < n && j < n; i++, j++)	//Left Diagonal Sum
+				sumLeft += A[i][j];
+		
+		for(i = n - 1, j = 0; i >= 0 && j < n; i--, j++)	//Right Diagonal Sum
+				sumRight += A[i][j];
+		
+		//Printing
+		System.out.println("Sum of Left Diagonal = " + sumLeft);
+		System.out.println("Sum of Right Diagonal = " + sumRight);
+	}
+
+}
+
+\end{lstlisting}
+\end{document}

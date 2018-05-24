@@ -1,0 +1,174 @@
+\documentclass[ProgramminAssignment.tex]{subfiles}
+\begin{document}
+
+\section{Quick Sort (Linked List)}
+Write a program to sort a Linked List using QuickSort (LinkedList package used directly, included in Other Resources)
+
+\subsection{Algorithm}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Create a LinkedList of sample data(A[ ]) or take user input (Sample data used here)
+	& Call quicksort() on the LinkedList, passing the List, first and last Nodes as the parameters
+	& Display the Sorted LinkedList
+
+\end{easylist}
+
+\subsubsection*{void quicksort(LinkedList LL, Node left, Node right):}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Declare a pivot Node(q) and a boolean(flag) and set it to false
+	& Run a loop using a Node(ptr) starting from left, till ptr is not null, setting ptr to the next Node in the list at each iteration
+		&& If ptr = right, raise a flag indicating right lies after left
+	& If flag has been raised
+		&& Pass the List, left and right to partition() and assign the value to q
+		&& Declare a temporary Node and assign the Node preceding q to it
+		&& Call quicksort passing the List, left and temp as arguments (First half of list before q)
+		&& Call quicksort passing the List, Node after q and right as arguments (Second half of list after q)
+	
+\end{easylist}	
+
+\subsubsection*{Node partition(LinkedList LL, Node left, Node right):}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Declare a pivot Node P and set it to left
+	& Declare Nodes l and r and set them to left and right respectively
+	& Declare a Node ptr and set it to the start of the Linked List for iteration
+	& Run a loop from i = 0, till ptr $\neq$ left, setting ptr to the next Node in the List and incrementing i each time (to get numerical position of left)
+	& Reset ptr to start of the List
+	& Run a loop from j = 0, till ptr $\neq$ right, setting ptr to the next Node in the List and incrementing j each time (to get numerical position of right)
+	& Create a new Node(temp)
+	& Run an infinite loop
+		&& Run a loop till data of Node after l $<$ data of P
+			&&& Set l to next Node
+			&&& Increment i by 1
+			&&& If l = right, break the loop
+		&& Run a loop from temp = LL.start till temp $\neq$ r, setting temp to the next Node at each iteration (To set temp to node before right)
+		&& Run a loop till data of temp $>$ data of P
+			&&& Declare a Node (temp2) and set it to node before temp
+			&&& Set temp to temp2 (Previous Node)
+			&&& Decrement j by 1
+			&&& If temp2 = left, break the loop
+		&& If i $\geq$ j, break the loop
+		&& Else, swap l and temp (to sort them relative to each other)	
+	& If temp = left (reverse iteration reaches left), return temp
+	& Swap left and temp
+	& Return temp	
+	
+\end{easylist}	
+
+\subsubsection*{void swap(Node a, Node b):}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Swap the data in the two Nodes
+	
+\end{easylist}	
+
+\subsection{Code}
+\begin{lstlisting}
+import linkedList.*;	//To use the Node class
+
+public class QuickSortLinkedList	
+{
+
+	public static void main(String[] args)
+	{
+		int[] A = {11, 9, 7, 3, 63, 74, 11, 66, 78};	//Sample Data
+		
+		LinkedList LL = new LinkedList(A);	//Creates a Linked List with the sample data
+		
+		
+		QuickSortLinkedList qs = new QuickSortLinkedList();	//Class Object
+		qs.quicksort(LL, LL.start, LL.end);	//Call for Quicksort Method
+		
+		LL.display();	//Print Sorted List
+	}
+	
+	public void quicksort(LinkedList LL, Node left, Node right)	//Function to sort the List
+	{
+		Node q;	//Pivot Node
+		boolean flag = false;	
+		
+		for(Node ptr = left; ptr != null; ptr = ptr.getLink()) //Loop to iterate from left through right to make sure right lies after left
+			if(ptr == right)
+				flag = true;	//Indicates that the Node right has been found
+		
+		if(flag)
+		{	
+			q = partition(LL, left, right);	//Passes Nodes to partition and assigns pivot Node to q
+			Node temp;	//Temporary node
+			for(temp = LL.start; temp != q; temp = temp.getLink()) //Loop to iterate to Node before q
+			{}
+			quicksort(LL, left, temp); //Passes first half to Sort
+			quicksort(LL, q.getLink(), right);	//Passes second half to sort
+		}
+	}
+
+	public Node partition(LinkedList LL, Node left, Node right)	//Function to split array into 3 parts, left block, pivot, right block
+	{
+		Node P = left;	//Set pivot to first element in the List
+		Node ptr = LL.start;	//Node for iteration
+		Node l = left;	//First Node in the List
+		Node r = right;	//Last node in the part of List passed
+		int i, j;	//Iteration variables
+		
+		for(i = 0; ptr != left; ptr = ptr.getLink(), i++) {} //Gets numerical position of left
+		
+		ptr = LL.start;	//Resets pointer to start of List
+		for(j = 0; ptr != right.getLink(); ptr = ptr.getLink(), j++) {}	//Gets numerical position of right
+		//j++;
+		Node temp;	//Temporary Node
+		
+		for(;;)
+		{
+			while(l.getLink().getData() < P.getData())	//Finds last node in the List in line which is smaller than Pivot
+			{
+				l = l.getLink();	//Gets next Node in List
+				i++;	//Position
+				if(l == right)	//Out of bounds of part passed
+					break;
+			}
+			
+			
+			for(temp = LL.start; temp != r; temp = temp.getLink())	//Sets temp to Node before right
+			{}
+			
+			while(temp.getData() > P.getData())	//Finds last Node in line (from the rear) which is larger than Pivot
+			{
+				Node temp2;
+				for(temp2 = LL.start; temp2 != temp; temp2 = temp2.getLink())
+				{}
+				temp = temp2;
+				j--;
+				
+				if(temp2 == left)	//Breaks if Node is at/before left
+					break;
+			}
+			
+			if(i >= j)	//Breaks if i and j are same, or i is larger
+				break;
+			else
+				swap(l, temp);	//Swaps temp and l to sort them
+		}
+		
+		if(temp == left)	//if Reverse iteration reaches left, returns left-most Node
+			return temp;
+		
+		swap(left, temp);	//Swap left-most Node and current Node in temp
+		return temp;	//Returns temp
+	}	
+	
+	public void swap(Node a, Node b)	//Function to Swap Nodes
+	{
+		int temp = a.getData();
+		a.setData(b.getData());
+		b.setData(temp);
+	}
+	
+}
+
+\end{lstlisting}
+\end{document}

@@ -1,0 +1,109 @@
+\documentclass[ProgrammingAssignment.tex]{subfiles}
+\begin{document}
+
+\section{Other Resources}
+
+\subsection{Package: linkedlist}
+
+\subsubsection{Class: Node}
+\begin{lstlisting}
+package linkedList;
+
+public class Node
+{
+	int d;	//Data
+	Node link;	//Link
+	
+	public Node(int val, Node l)	//Initializes the Node
+	{
+		d = val;
+		link = l;
+	}
+	
+	public void setLink(Node n)		//Modifies the Link of Node
+	{
+		link = n;
+	}
+	
+	public void setData(int val)	//Modifies the Data in Node
+	{
+		d = val;
+	}
+	
+	public Node getLink()			//Returns the Link of the Node
+	{
+		return link;
+	}
+	
+	public int getData()			//Returns the Data in the Node
+	{
+		return d;
+	}
+	
+}
+\end{lstlisting}
+
+
+
+
+
+
+
+\subsection{Package: binaryTree}
+
+\subsubsection{Class: TreeNode}
+\begin{lstlisting}
+package binaryTree;
+
+public class TreeNode
+{
+	TreeNode left, right;	//Links
+	int data;	//Data
+	
+	TreeNode()		//Default Contructor
+	{
+		left = right = null;
+		data = 0;
+	}
+	
+	TreeNode(int d)		//Node with data
+	{
+		left = null;
+		right = null;
+		data = d;
+	}
+	
+	void setData(int d)	//Function to change data
+	{
+		data = d;
+	}
+	
+	void setLeftLink(TreeNode n)	//Function to change Left Link
+	{
+		left = n;
+	}
+	
+	void setRightLink(TreeNode n)	//Function to change Right Node
+	{
+		right = n;
+	}
+	
+	int getData()	//Function to return data in a Node
+	{
+		return data;
+	}
+	
+	TreeNode getLeftLink()	//Function to return Left Link of Node
+	{
+		return left;
+	}
+	
+	TreeNode getRightLink()	//Function to return Right Link of Node
+	{
+		return right;
+	}
+}
+
+\end{lstlisting}
+
+\end{document}

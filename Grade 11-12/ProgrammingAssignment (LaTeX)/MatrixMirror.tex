@@ -1,0 +1,89 @@
+\documentclass[ProgramminAssignment.tex]{subfiles}
+\begin{document}
+
+\section{Mirror Image Of A Matrix}
+Write a program to find the mirror image of a matrix
+
+Input:\\
+\begin{tabular}{ccc}
+1&	2&	5\\	
+3&	4&	5	\\
+8&	7&	9	\\
+\end{tabular}
+
+Output:\\
+\begin{tabular}{ccc}
+5&	2&	1	\\
+5&	4&	3	\\
+9&	7&	8	\\
+\end{tabular}
+
+\subsection{Algorithm}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Take user input for dimensions of the matrix
+	& Declare two arrays(A[ ][ ] and B[ ][ ]) of appropriate size
+	& Run a loop from i = 0 to rows - 1, incrementing i at each iteration
+		&& Run a loop from j = 0 and k = columns - 1 till j $<$ n and k $\geq$ 0, incrementing j and decrementing j by 1 at each iteration
+			&&& Take user input 
+			&&& Add it to A[i][j]
+			&&& Add it to B[i][k] (Inverted column)
+	& Print Matrix A and B
+
+\end{easylist}
+
+\subsection{Code}
+\begin{lstlisting}
+import java.util.Scanner;
+
+public class MirrorImage
+{
+
+	public static void main(String[] args)
+	{
+		Scanner s  = new Scanner(System.in);
+		int m,n, i, j, k, temp;
+		//Dimensions of the Matrix
+		System.out.println("Enter Number of Rows:");
+		m = s.nextInt();
+		
+		System.out.println("Enter Number of Columns:");
+		n = s.nextInt();
+		
+		int A[][] = new int[m][n], B[][] = new int[m][n];	//A is original, B is mirror
+		
+		System.out.println("Enter the elements in the array, Row-Wise:");	//Data Entry
+		
+		for(i = 0; i < m; i++)
+			for(j = 0, k = n - 1; j < n && k >= 0; j++, k--)
+			{
+				temp = s.nextInt();
+				A[i][j] = temp;	//Add to A normally
+				B[i][k] = temp;	//Add to B with columns in opposite order
+			}
+		
+		System.out.println("Your array:");
+		//Printing
+		for(i = 0; i < m; i++)
+		{
+			for(j = 0; j < n; j++)
+				System.out.print(A[i][j] + "\t");
+			System.out.println();
+		}
+		
+		System.out.println("Mirror array:");
+		
+		for(i = 0; i < m; i++)
+		{
+			for(j = 0; j < n; j++)
+				System.out.print(B[i][j] + "\t");
+			System.out.println();
+		}
+		
+	}
+
+}
+
+\end{lstlisting}
+\end{document}

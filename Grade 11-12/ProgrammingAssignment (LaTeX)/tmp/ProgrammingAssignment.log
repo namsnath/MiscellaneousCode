@@ -1,0 +1,242 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2015.10.11)  20 OCT 2016 15:19
+entering extended mode
+**ProgrammingAssignment.tex
+(ProgrammingAssignment.tex
+LaTeX2e <2014/05/01>
+Babel <3.9l> and hyphenation patterns for 68 languages loaded.
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\article.cls"
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\fleqn.clo"
+File: fleqn.clo 1998/08/17 v1.1c Standard LaTeX option (flush left equations)
+\mathindent=\dimen102
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\size10.clo"
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen103
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.sty"
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+\lst@mode=\count87
+\lst@gtempboxa=\box26
+\lst@token=\toks15
+\lst@length=\count88
+\lst@currlwidth=\dimen104
+\lst@column=\count89
+\lst@pos=\count90
+\lst@lostspace=\dimen105
+\lst@width=\dimen106
+\lst@newlines=\count91
+\lst@lineno=\count92
+\lst@maxwidth=\dimen107
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+File: lstmisc.sty 2014/09/06 1.5e (Carsten Heinz)
+\c@lstnumber=\count93
+\lst@skipnumbers=\count94
+\lst@framebox=\box27
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.cfg"
+File: listings.cfg 2014/09/06 1.5e listings configuration
+))
+Package: listings 2014/09/06 1.5e (Carsten Heinz)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\color.sty"
+Package: color 2014/10/28 v1.1a Standard LaTeX Color (DPC)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: pdftex.def on input line 137.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count95
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\preprint\fullpage.sty"
+Package: fullpage 1999/02/23 1.1 (PWD)
+\FP@margin=\skip43
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\easylist\easylist.sty"
+Package: easylist 2014/01/11 v.1.4 Numbered items with a single command.
+\el@CounterTotal=\count96
+\el@Scratch=\count97
+\el@ControlCounter=\count98
+\el@CounterLevel=\count99
+\c@List1=\count100
+\c@List2=\count101
+\c@List3=\count102
+\c@List4=\count103
+\c@List5=\count104
+\c@List6=\count105
+\c@List7=\count106
+\c@List8=\count107
+\c@List9=\count108
+\c@List10=\count109
+\el@ProgressiveDimension=\dimen108
+\el@CounterBox=\box28
+\el@ControlBox=\box29
+\el@TotalMargin=\dimen109
+\el@LeftMove=\dimen110
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\ltxmisc\parskip.sty"
+Package: parskip 2001/04/09 non-zero parskip adjustments
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\subfiles\subfiles.sty"
+Package: subfiles 2012/05/23 Federico Garcia
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\verbatim.sty"
+Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks16
+\verbatim@line=\toks17
+\verbatim@in@stream=\read1
+))
+("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
+File: lstlang1.sty 2014/09/06 1.5e listings language file
+)
+(ProgrammingAssignment.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+\c@lstlisting=\count110
+
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count111
+\scratchdimen=\dimen111
+\scratchbox=\box30
+\nofMPsegments=\count112
+\nofMParguments=\count113
+\everyMPshowfont=\toks18
+\MPscratchCnt=\count114
+\MPscratchDim=\dimen112
+\MPnumerator=\count115
+\makeMPintoPDFobject=\count116
+\everyMPtoPDFconversion=\toks19
+) (TitlePage.tex) [1
+
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
+Missing character: There is no – in font cmr10!
+
+[2] (ProgrammingAssignment.toc
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 2.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 2.
+ [3] [4] [5])
+\tf@toc=\write3
+ [6] (ArrayFill.tex [1]
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <9> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 59.
+ [2])
+[3] (CharCount.tex
+Underfull \hbox (badness 10000) in paragraph at lines 10--21
+
+ []
+
+[4]) [5] (Dec_Bin_Oct_Hex.tex
+Missing character: There is no “ in font cmr10!
+Missing character: There is no ” in font cmr10!
+Missing character: There is no “ in font cmr10!
+Missing character: There is no ” in font cmr10!
+Missing character: There is no “ in font cmr10!
+Missing character: There is no ” in font cmr10!
+Missing character: There is no “ in font cmr10!
+Missing character: There is no ” in font cmr10!
+Missing character: There is no “ in font cmr10!
+Missing character: There is no ” in font cmr10!
+Missing character: There is no “ in font cmr10!
+Missing character: There is no ” in font cmr10!
+Missing character: There is no “ in font cmr10!
+Missing character: There is no ” in font cmr10!
+ [6] [7]) [8] (BoundaryElementSort_Sum.tex
+[9] [10]) [11] (DateInWords.tex [12]) [13] (DeterminantSolver.tex [14])
+[15] (PseudoArithmeticSeries.tex
+Underfull \hbox (badness 10000) in paragraph at lines 11--15
+
+ []
+
+[16]) [17] (HarshadNum.tex) [18] (KaprekarNum.tex [19]) [20] (MobiusFn.tex
+[21]) [22] (GCDLCMRecursive.tex) [23] (NoteDispense.tex [24] [25]) [26]
+(NumToWords.tex [27]) [28] (PrimesInArray.tex [29]) [30] (QuickSortArray.tex
+[31] [32]) [33] (RevStr.tex [34]) [35] (CharacterCountWithoutLoop.tex) [36]
+(SpecialNum.tex [37]) [38] (SaddlePoint.tex [39]) [40] (SieveOfErasthosenes.tex
+[41]) [42] (ASCIIDecryption.tex [43]) [44] (MergeSortArray.tex [45] [46])
+[47] (PhoneDirectory.tex [48] [49] [50] [51] [52] [53] [54] [55] [56] [57]
+[58] [59]) [60] (StudentRecords.tex [61] [62] [63] [64] [65] [66] [67] [68])
+[69] (SmartSubstring.tex [70]) [71] (DuplicateCharCount.tex [72]) [73]
+(SymmetrixDiagonalSum.tex [74]) [75] (CalendarGenerator.tex [76] [77]) [78]
+(MatrixInSpiral.tex [79] [80]) [81] (CircularPrime.tex
+Underfull \hbox (badness 10000) in paragraph at lines 14--18
+
+ []
+
+[82]) [83] (CharTypePercentage.tex [84]) [85] (ReverseEachWord.tex) [86]
+(BouncyIncDecCheck.tex
+Missing character: There is no “ in font cmr10!
+Missing character: There is no ” in font cmr10!
+ [87]) [88] (StringNegativeEncoder.tex [89]) [90]
+(NoOfDays.tex [91]) [92] (WondrousSquare.tex [93] [94]) [95]
+(MatrixMultiplication.tex [96] [97]) [98] (TowersOfHanoi.tex [99]) [100]
+(Unique2DigitCombos.tex [101] [102]) [103] (2DArraySort.tex [104]) [105]
+(MatrixMirror.tex [106]) [107] (MatrixRotation90.tex [108]) [109]
+(InsertionSortArray.tex) [110] (RecursiveBinarySearch.tex) [111]
+(DecimalRoman.tex) [112] (LinkedList.tex [113] [114] [115] [116] [117] [118]
+[119]) [120] (QueueAsLL.tex [121] [122]) [123] (StackAsLL.tex [124] [125])
+[126] (QuickSortLinkedList.tex [127] [128] [129]) [130] (BinaryTree.tex
+[131] [132] [133]) [134] (OtherResources.tex [135]) [136]
+(ProgrammingAssignment.aux) ) 
+Here is how much of TeX's memory you used:
+ 3287 strings out of 493698
+ 44673 string characters out of 3144399
+ 221077 words of memory out of 3000000
+ 6468 multiletter control sequences out of 15000+200000
+ 7700 words of font info for 28 fonts, out of 3000000 for 9000
+ 1025 hyphenation exceptions out of 8191
+ 26i,7n,40p,346b,1556s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmbx10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc1
+0.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmitt10.pfb><
+C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Progr
+am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/
+MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publ
+ic/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cm/cmtt9.pfb>
+Output written on ProgrammingAssignment.pdf (142 pages, 364986 bytes).
+PDF statistics:
+ 501 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+

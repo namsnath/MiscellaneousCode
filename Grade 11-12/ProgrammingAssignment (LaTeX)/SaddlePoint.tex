@@ -1,0 +1,117 @@
+\documentclass[ProgramminAssignment.tex]{subfiles}
+\begin{document}
+
+\section{Saddle Point}
+Write a program to find the Saddle point of a matrix.\\
+A saddle point is an element of the matrix such that it is the minimum element for
+the row to which it belongs and the maximum element for the column to which it belongs.
+Saddle point for a given matrix is always unique.
+
+
+Input:\\
+\begin{tabular}{ccc}
+4 & 5 & 6\\
+7 & 8 & 9\\
+5 & 1 & 3\\
+\end{tabular}
+
+Output:\\
+Saddle point = 7
+
+\subsection{Algorithm}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Take user input for order of matrix (n) and declare an array of size n * n
+	& Run loop from i = 0 to n, incrementing by 1 at each iteration
+		&& Run loop from j = 0 to n, incrementing by 1 at each iteration
+			&&& Take input of element
+			&&& Check for negative values
+			&&& If positive, add input to array
+	& Declare variables to store maximum and minimum (int) and a variable for flag and set it to 0
+	& Run a loop from i = 0 to n , incrementing by 1 at each iteration
+		&& Set min as A[i][0] (First element in the row), and x as 0
+			&&& Run a loop from j = 0 to n, incrementing by 1 at each iteration
+			&&& If A[i][j] (Current Element) is less than min, set min to current element and x to j
+		&& Set max to A[0][x] (First element in column where min was found)
+		&& Run a loop from i = 0 to n, incrementing by 1 at each iteration
+			&&& If A[i][x] (Current element in column) is more than max, set max to current element
+		&& If max is equal to min, print max value as saddle point and raise a flag
+	& If flag = 0 (flag raised), Print saddle point not found 
+
+\end{easylist}
+
+\subsection{Code}
+\begin{lstlisting}
+import java.util.Scanner;
+
+public class SaddlePoint
+{
+
+	public static void main(String[] args)
+	{
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter order of Matrix");
+		int n = s.nextInt();
+		int i = 0, j = 0, x = 0;		
+		
+		int A[][] = new int[n][n];	//2-D array to store matrix
+		
+		System.out.println("Enter Elements of Array, Row-wise:");
+		
+		for(i = 0; i < n; i++)		//Loops to input data
+		{
+			for(j = 0; j < n; j++)
+			{
+				x = s.nextInt();
+				if(x < 0) 
+				{
+					System.out.println("Please enter only positive Integers");
+					System.exit(0);
+				}
+				A[i][j] = x;
+			}
+		}
+		
+		int max, min, f = 0;
+	       for(i = 0; i < n; i++)		//Iterates through each row
+	       {
+	           min = A[i][0];			//Sets first element in the row as minimum
+	           x = 0;
+	           for(j = 0; j < n; j++)	//Iterates through each column of the given row
+	           {
+	                if(A[i][j] < min)	//If current element is smaller than minimum, sets element as minimum 
+	                {
+	                    min = A[i][j];
+	                    x = j;
+	                }
+	           }
+	             
+	          
+	           max = A[0][x]; 				//Sets first element in the column where minimum was found as maximum
+	           for(i = 0; i < n; i++)		//Iterates through column
+	           {
+	                if(A[i][x] > max)		//if element is greater than max, sets new element as max
+	                {
+	                    max = A[i][x];
+	                }
+	           }
+	             
+	           if(max == min)				//If max and min are same, saddle point is found
+	           {
+	               System.out.println("Saddle point = " + max);
+	               f = 1;					//raises flag
+	           }
+	        	   
+	       }
+	         
+	       if(f == 0)						//If flag is not raised, saddle point does not exist
+	       {
+	           System.out.println("No saddle point");
+	       }
+	}
+
+}
+
+\end{lstlisting}
+\end{document}

@@ -1,0 +1,103 @@
+\documentclass[Math.tex]{subfiles}
+
+\setlength{\mathindent}{0cm}
+
+\begin{document}
+\section*{\centering\huge\underline{Matrices}}
+
+\subsection*{Transpose of a Matrix:}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)	
+	# $(A')' = A$
+	# $(A+B)' = A' + B'$
+	# $(AB)' = B'A'$
+	# $(kA)' = kA'$
+\end{easylist}
+
+Symmetric Matrix: $A = A'$\\
+Skew-Symmetric Matrix: $-A = A'$
+
+For square matrices, $A + A'$ = Symmetric and $A - A'$ = Skew-Symmetric
+\[A = \frac{A + A'}{2} + \frac{A-A'}{2}\]
+
+Singular Matrix: $|A| = 0$
+
+
+\subsection*{Adjoint of a Matrix:}
+An adjoint matrix is the tranpose of the cofactor matrix.
+
+For $2\times 2$ matrix, 
+$A = 	\begin{bmatrix}
+			a & b\\
+			c & d\\
+		\end{bmatrix}\to 
+\mathrm{adj}\, A = 	\begin{bmatrix*}[r]
+				d & -b\\
+				-c & a\\
+			\end{bmatrix*}$\\
+Exchange the elements of the principal diagonal and change the sign of the rest.
+
+\[\mathrm{adj}\,(AB) = (\mathrm{adj}\,B)(\mathrm{adj}\,A)\]
+
+\subsection*{Inverse of a Matrix:}
+$A$ and $B$ are the inverse of each other if $AB = I$
+\[\frac{\mathrm{adj}\, A}{|A|} = A^{-1}\]
+
+\[(AB)^{-1} = B^{-1}A^{-1}\]
+\[(A')^{-1} = (A^{-1})'\]
+
+\pagebreak
+\subsection*{Martin's Rule:}
+To solve linear simultaneous equations using matrices.
+\[\begin{matrix}
+\begin{matrix}
+a_1x + b_1y = c_1\\
+a_2x + b_2y = c_2\\	
+\end{matrix}&&
+\begin{bmatrix}
+	a_1 & b_1\\
+	a_2 & b_2\\
+\end{bmatrix}&
+\begin{bmatrix}
+	x\\ y\\
+\end{bmatrix}&=&
+\begin{bmatrix}
+c_1\\ c_2
+\end{bmatrix}\\\\
+&&A & X &  & B\\
+\end{matrix}
+\]
+
+\[AX = B \to X = A^{-1}B = \frac{(\mathrm{adj}\,A)B}{|A|}\]
+
+\begin{center}
+%\centering
+\begin{tikzpicture}[every node/.style={align=center},level distance=1.5cm]
+\tikzset{edge from parent/.style=
+ {draw,
+ edge from parent path={(\tikzparentnode.south)
+ -- +(0,-12pt)
+ -| (\tikzchildnode)}}}
+ \tikzset{every tree node/.style={align=center,anchor=north}}
+ \tikzset{level distance=40pt,sibling distance=50pt}
+ \baselineskip=5pt
+ 
+	\Tree	[.{Find $|A|$}
+				[.{$|A| \neq 0$} 
+				 	[.{Unique Solution} ]
+				]
+				[.{$|A| = 0$ }
+					[.{Find ($\mathrm{adj}\,A)B$} 
+						[. {($\mathrm{adj}\,A)B \neq 0$}
+							[.{Inconsistent \\\\ No Solution} ]
+						]
+						[. {($\mathrm{adj}\,A)B = 0$} 
+							[.{Infinite Solutions \\\\ Dependent} ]
+						]
+					]
+				]
+			]	
+\end{tikzpicture}
+ \end{center} 
+
+\end{document}

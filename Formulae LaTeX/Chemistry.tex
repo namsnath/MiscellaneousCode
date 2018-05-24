@@ -1,0 +1,89 @@
+\documentclass[fleqn, a4paper, 8pt, twocolumn]{article}
+\usepackage[parfill]{parskip}
+\usepackage{fullpage}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{subfiles}
+
+\setlength{\columnseprule}{0.4pt}
+\setlength{\mathindent}{0cm}
+
+\begin{document}
+\[m = \frac{M}{d-M\cdot MW}\] 
+(MW in kg mol$^{-1}$, d in kg L$^{-1}$)\\
+
+\[m = \frac{M\times 1000}{1000\cdot d - M\cdot MW}\]
+(MW in g mol$^{-1}$, d in g mL$^{-1}$)
+
+\noindent\rule[0.5ex]{\linewidth}{0.5pt}
+\[\ln\left(\frac{P_2}{P_1}\right) = \frac{\Delta H_{vap.}}{R}\cdot \left[\frac{1}{T_1} - \frac{1}{T_2}\right]\]
+(P$_2$ and P$_1$ are vapour pressures at temperatures T$_1$ and T$_2$)
+
+P$_A$ = P$_A^0\cdot x_A$ \\
+(P$_A$ = Partial VP, P$_A^0$ = VP of pure liquid)
+
+\textbf{Henry's Law (Gas dissolved in liquid)}\\
+m $\propto$ p\\
+(m = mass of gas dissolved per unit volume of solvent,\\
+p = VP at equilibrium)\\
+P$_{gas}$ = K$_h \cdot x_{gas}$
+
+\textbf{Relative Lowering of Vapour Pressure}
+\[\frac{\Delta P}{p^0} = \frac{p^0 - p}{p^0} = x_2\]
+
+\textbf{Osmotic Pressure}
+\[\pi = CRT\]
+\[\pi V = nRT\]
+\[\pi = \frac{W_BRT}{VM_B}\]
+
+\textbf{Elevation in Boiling Point}
+\[\Delta T_b = K_b\cdot m\]
+\[K_b = \frac{M_1R(T_b^0)^2}{\Delta H_{vap.}\times 1000}\]
+\[K_b = \frac{R(T_b^0)^2}{L_v\times 1000}\]
+\[\Delta T_b = \frac{K_bW_2\times 1000}{W_1M_2}\]
+($M_1$ = MW of Solvent, $\Delta T_b^0$ = Boiling Point of Solvent, $L_v$ = Latent Heat of Vaporization of pure solvent in $g^{-1}$
+, $W_1$ = Weight of Solvent, $\Delta H_{vap.}$ = Molar Enthalpy of Vaporization of Solvent)
+
+\textbf{Depression in Freezing Point}
+\[\Delta T_b = K_b\cdot m\]
+\[K_f = \frac{M_1R(T_f^0)^2}{\Delta H_f \times 1000}\]
+\[K_f = \frac{R(T_f^0)^2}{L_f \times 1000}\]
+\[\Delta T_f = \frac{W_2K_f\times 1000}{M_2W_1}\]
+($M_1$ = MW of Solvent, $T_f^0$ = Freezing Point of Solvent, $L_f$ = Latent Heat of Fusion of pure solvent in $g^{-1}$
+, $W_1$ = Weight of Solvent, $\Delta H_f$ = Molar Enthalpy of Fusion of Solvent)
+
+Association: $\alpha = \frac{1-i}{1-1/n}$ \,\, Dissociation: $\alpha = \frac{i-1}{n-1}$
+
+
+For a reaction $aA + bB \to cC + dD$\\
+Rate of the reaction (w.r.t. A, B, C, D):\\
+\[Rate = -\frac{1}{a}\cdot\frac{d[A]}{dt} = -\frac{1}{b}\cdot\frac{d[B]}{dt} = \frac{1}{c}\cdot\frac{d[C]}{dt} = \frac{1}{d}\cdot\frac{d[D]}{dt}\]
+\[Rate\, of\, Disappearance = -\frac{d[A]}{dt} = -\frac{d[B]}{dt}\]
+\[Rate\, of\, Appearance = \frac{d[C]}{dt} = \frac{d[D]}{dt}\]
+\textbf{Law of Mass Action:}
+\[Rate = k[A]^a[B]^b\]
+\textbf{Units for Rate Constant of n$^{th}$ order reaction}
+\[k = [mol\, L^{-1}]^{1-n} \, s^{-1}\]
+\[k = [atm]^{1-n} \, s^{-1}\]
+\textbf{Integrated Rate Law (First Order)}
+\[k = \frac{1}{t}\cdot\ln\frac{[A_0]}{[A_t]}\]
+\[[A_t] = [A_0]\cdot e^{-kt}\]
+\textbf{Integrated Rate Law (Second Order)}
+\[k = \frac{1}{t}\left[\frac{1}{[A]} - \frac{1}{[A_0]} \right]\]
+
+\textbf{Half Lives $(t_{1/2})$:}
+\[Zero\,\,Order = \frac{[A_0]}{2k}\]
+\[First\,\,Order = \frac{0.693}{k}\]
+\[Second\,\,Order = \frac{1}{k\cdot [A_0]}\]
+
+Amount left after n half-lives = $\frac{[A_0]}{2^n}$\\
+\noindent\rule[0.5ex]{\linewidth}{0.5pt}
+\[t_f \propto \frac{1}{[A_0]^{n-1}}\]
+\noindent\rule[0.5ex]{\linewidth}{0.5pt}
+\[Arrhenius\,\,Equation \to k = Ae^{-E_a/RT}\]
+\[k = Ze^{-E_a/RT}\]
+\[Z \propto \sqrt{T}\]
+\noindent\rule[0.5ex]{\linewidth}{0.5pt}
+\[\ln\frac{k_2}{k_1} = \frac{E_a}{R}\left[\frac{1}{T_1} - \frac{1}{T_2}\right]\]
+
+
+\end{document}

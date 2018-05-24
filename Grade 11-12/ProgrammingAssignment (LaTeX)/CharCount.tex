@@ -1,0 +1,88 @@
+\documentclass[ProgramminAssignment.tex]{subfiles}
+\begin{document}
+
+\section{Character Counter}
+Write a program to count the number of instances of each character in a String
+
+Input:\\
+Java J2EE Java JSP J2EE
+
+Output:\\
+\begin{tabular}{ccc}
+J&:&5\\
+a&:&4\\
+v&:&2\\
+ &:&4\\
+2&:&2\\
+E&:&4\\
+S&:&1\\
+P&:&1\\ 
+\end{tabular}\\
+
+\subsection{Algorithm}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Declare a Scanner object to accept user input
+	& Take user input of a String(inp)
+	& Declare a char array (chars[ ]) and an int array (freq[ ]) of the same length as the input
+	& Run a loop from i = 0 to length of inp - 1, incrementing i at each iteration
+		&& Run a loop from j = 0 to length of chars[ ] - 1, incrementing j at each iteration
+			&&& if chars[j] is null,
+				&&&& Set chars[j] to the current character in String
+				&&&& Set frequency of the character to 1
+				&&&& Break the loop
+			&&& if chars[j] is present in the array
+				&&&& Increase frequency of the character
+				&&&& Break the loop
+	& Print the characters and their frequencies			
+				
+
+\end{easylist}
+
+\subsection{Code}
+\begin{lstlisting}
+import java.util.Scanner;
+
+public class CharCount
+{
+	public static void main(String args[])
+	 {
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("Enter String");
+		String inp = s.nextLine();				//Stores input String
+		
+		char[] chars = new char[inp.length()];	//char array of length = length of input to store each character
+		int[] freq = new int[inp.length()];		//int array of length = length of input to store frequency of each character
+		
+		for(int i = 0; i < inp.length(); i++)	//iterates through characters in string
+		{
+			for(int j = 0; j < chars.length; j++)	//iterates through character array (chars)
+			{
+				if(chars[j] == Character.MIN_VALUE)	//if chars[j] is null
+				{
+					chars[j] = inp.charAt(i);		//sets chars[j] to current character
+					freq[j] = 1;					//increases frequency of that character to 1
+					break;
+				}
+				if(chars[j] == inp.charAt(i))		//if character present in array
+				{
+					freq[j]++;						//increases frequency of character by 1
+					break;
+				}
+			}
+		}
+		
+		for(int i = 0; i < chars.length; i++)		//Prints characters and their frequency
+		{
+			if(chars[i] != Character.MIN_VALUE)
+				System.out.println(chars[i] + " : " + freq[i]);
+		}
+		
+		s.close();
+	 }
+}
+
+\end{lstlisting}
+\end{document}

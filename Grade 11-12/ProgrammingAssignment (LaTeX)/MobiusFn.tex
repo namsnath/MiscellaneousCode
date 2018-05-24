@@ -1,0 +1,121 @@
+\documentclass[ProgramminAssignment.tex]{subfiles}
+\begin{document}
+
+\section{Mobius Function}
+Mobius Function M(n) for a natural number n is defined as:
+\begin{easylist}
+\ListProperties(Start1=1)
+
+	& M(n) = 1 if n = 1
+	& M(n) = 0 if any prime factor of N is contained in n more than once
+	& M(n) = (-1)p if n is a product of p distinct prime factors
+
+\end{easylist}
+
+
+Input:\\
+78
+
+Output:\\
+-1
+
+\[78 = 2*3*13\]
+\[M(78) = (-1)^3 = -1\]
+
+\subsection{Algorithm}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Declare a Scanner object to take user input
+	& Take user input and store it in an int (n)
+	& Call primeFac(), passing n as an argument and print its value
+	
+\end{easylist}
+
+\subsubsection*{void primeFac(int n):}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Declare an int (primeCount) to store number of prime factors and initialize it to 0
+	& If Number is Prime (using checkPrime()), return -1
+	& Run a loop from i = 2, to n, incrementing i at each iteration
+		&& if i is Prime
+			&&& if n is divisible by i more than one time (two times here), return 0
+			&&& if n is divisible by i one time, increment primeCount
+	& return $(-1)^{primeCount}$
+	
+\end{easylist}	
+
+\subsubsection*{boolean checkPrime(int n):}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& if n is 0 or 1, return false
+	& if n is 2, return true
+	& if n is a multiple of 2, return false
+	& Run a loop from 3 to sqrt(n) and increment by 2 at each iteration
+		&& If n is divisible by the current index, return false, else continue loop
+	& return true
+	
+	
+\end{easylist}	
+
+\subsection{Code}
+\begin{lstlisting}
+import java.util.Scanner;
+public class MobiusFn
+{
+
+	public static void main(String[] args)
+	{
+		Scanner s = new Scanner(System.in);	//To take user input
+		MobiusFn f = new MobiusFn();	//Class Object
+		
+		System.out.println("Enter number to check:");
+		int n = s.nextInt();	//Number to check
+		s.close();
+		
+		System.out.println(f.primeFac(n));	//Prints value of M(n)
+	}
+	
+	int primeFac(int n)	//Function to Factorize the number
+	{
+		int primeCount = 0;	//Number of Prime Factors
+		
+		if(checkPrime(n))	//Checks if the number is prime (has only 1 prime factor)
+			return -1;
+		
+		for(int i = 2; i < n; i++)	//Loops through numbers till n to check for factors contained more than once
+		{	
+			if(checkPrime(i))	//Checks if the number is a prime
+			{
+				if(n % (i * i) == 0)	//factor present more than once
+					return 0;
+				if(n % i == 0)	//Factor present only once
+					primeCount++;
+			}	
+		}
+		
+		return (int) Math.pow(-1, primeCount);	//returns (-1)^p
+	}
+	
+	boolean checkPrime(int num)	//Function to check if number is prime
+	{
+		if(num == 1 || num == 0)
+			return false;
+		if(num == 2)
+			return true;
+		if(num % 2 == 0)
+			return false;
+		
+		for(int i = 3; i * i < num; i += 2)
+			if(num % i == 0)
+				return false;
+		
+		return true;
+	}
+
+}
+
+\end{lstlisting}
+\end{document}

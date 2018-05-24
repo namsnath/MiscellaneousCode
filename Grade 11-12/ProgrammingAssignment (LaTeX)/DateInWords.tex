@@ -1,0 +1,86 @@
+\documentclass[ProgrammingAssignment.tex]{subfiles}
+
+\begin{document}
+
+\section{Date In Words}
+Take user input for a date in ddmmyyyy format and check its validity. Display the date in words if it is valid.
+
+Input:\\
+12052013
+
+Output:\\
+12th May, 2013
+
+\subsection{Algorithm}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+	& Take user input for the date in the "ddmmyyyy" format
+	& Declare and initialize 3 StringBuffer objects passing the input string as a parameter.
+	& Set the length of the first StringBuffer object to 2 to extract the first two characters in the String i.e. the date
+	& Set the length of the second StringBuffer object to 4, and reverse it to eliminate the year part. After reversing, set the length to 2 and reverse again to eliminate the date part.
+	& Reverse the third StringBuffer object, set the length to 4 and reverse again to extract the year.
+	& Parse the data from the StringBuffer objects into three int varibles (date, month, year)
+	& Check the validity of dates, with conditions related to date, month, and number of days per month, also checking for leap year. Display appropriate message if an invalid date in entered.
+	& Print the date along with an appropriate suffix by using a switch case
+	& Declare a String array month[ ] and print out the month using the (n-1)th index. Print out the year as it is.
+\end{easylist}
+
+\subsection{Code}
+\begin{lstlisting}
+import java.util.Scanner;
+public class DateInWords
+{
+
+	public static void main(String[] args)
+	{
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter Date in format: ddmmyyyy");
+		String input = s.next();		//Takes User input as a String
+		
+		StringBuffer p1, p2, p3;		//Declaration and initialisation of three String Buffers with the input String
+		p1 = new StringBuffer(input);
+		p2 = new StringBuffer(input);
+		p3 = new StringBuffer(input);
+		
+		p1.setLength(2);			//First two characters extracted
+		
+		p2.setLength(4);			//Middle two characters extracted
+		p2.reverse();
+		p2.setLength(2);
+		p2.reverse();
+		
+		p3.reverse();				//Last two characters extracted
+		p3.setLength(4);
+		p3.reverse();
+		
+		int date = Integer.parseInt(p1.toString());		//StringBuffers parsed to Integers
+		int month = Integer.parseInt(p2.toString());
+		int year = Integer.parseInt(p3.toString());
+		
+		if((date > 30 && (month == 2 || month == 4 || month == 6 || month == 9 || month == 1)) || date > 31 || 	//Checking Validity of Dates
+				(date > 28 && month == 2 && year % 4 != 0) || (date > 29 && month == 2 && year % 4 == 0))
+			System.out.println("Invalid Date");
+		else
+		{
+			System.out.print(date);		//Date along with appropriate suffix printed
+			switch(date)
+			{
+				case 1:	System.out.print("st "); break;
+				case 2:	System.out.print("nd "); break;
+				case 3:	System.out.print("rd "); break;
+				case 21:	System.out.print("st "); break;
+				case 22:	System.out.print("nd "); break;
+				case 23:	System.out.print("rd "); break;
+				case 31:	System.out.print("st "); break;
+				default:	System.out.print("th "); break;
+			}
+			
+			String months[] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"}; //Array of Month Names
+			System.out.print(months[month - 1] + ", " + year); 		//Printing of Year and Month
+		}
+	}
+}
+
+\end{lstlisting}
+
+\end{document}

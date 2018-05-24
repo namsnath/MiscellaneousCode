@@ -1,0 +1,62 @@
+\documentclass[Math.tex]{subfiles}
+
+\setlength{\mathindent}{0cm}
+
+\begin{document}
+\section*{\centering\huge\underline{Inverse Trigonometric Functions}}
+
+\begin{tabular}{||+>{\bfseries}c||^c|^c||N}
+\hline
+\rowstyle{\bfseries}
+Function & Domain & Principal Values &\\
+\hline\hline
+$y = \sin^{-1} x$ & $-1 \leq x \leq 1$ & $\displaystyle\left[-\frac{\pi}{2},\frac{\pi}{2}\right]$	&\\[15 pt]
+\hline
+$y = \cos^{-1} x$ & $-1 \leq x \leq 1$	& $\displaystyle\left[0, \pi\right]$ & \\[5 pt]
+\hline
+$y = \tan^{-1} x$ & All real numbers & $\displaystyle\left(-\frac{\pi}{2},\frac{\pi}{2}\right)$	&\\[15 pt]
+\hline
+$y = \cot^{-1} x$ & All real numbers & $\displaystyle\left(0, \pi\right)$ & \\[5 pt]
+\hline
+$y = \sec^{-1} x$ & $x \geq 1$ or $x \leq -1$ & $\displaystyle\left(0, \pi\right],\,\, y \neq \frac{\pi}{2}$ &\\[15 pt]
+\hline
+$y = \csc^{-1} x$ & $x \geq 1$ or $x \leq -1$ & $\displaystyle\left[-\frac{\pi}{2},\frac{\pi}{2}\right], \,\, y \neq 0$	&\\[15 pt]
+\hline
+\end{tabular}
+\begin{tabular}{|l|N}
+\hline
+$\displaystyle\sin^{-1} x = \cos^{-1}\sqrt{1 - x^2} = \tan^{-1}\left(\frac{x}{\sqrt{1 - x^2}}\right)$&\\[20 pt]
+$\displaystyle= \sec^{-1}\left(\frac{1}{\sqrt{1 - x^2}}\right)=\cot^{-1}\left(\frac{\sqrt{1 - x^2}}{x}\right) = \csc^{-1}\frac{1}{x}$&\\[20 pt]
+\hline
+$\displaystyle\cos^{-1} x = \sin^{-1}\sqrt{1 - x^2} = \tan^{-1}\left(\frac{\sqrt{1 - x^2}}{x}\right)$ &\\[20pt]
+$\displaystyle=\csc^{-1}\left(\frac{1}{\sqrt{1 - x^2}}\right) = \cot^{-1}\left(\frac{x}{\sqrt{1 - x^2}}\right) = \sec^{-1}\frac{1}{x}$&\\[20pt]
+\hline
+$\displaystyle\tan^{-1} x = \sin^{-1} \left(\frac{x}{\sqrt{1 + x^2}}\right) = \cos^{-1} \left(\frac{1}{\sqrt{1 + x^2}}\right)$ &\\[20pt]
+$\displaystyle = \csc^{-1}\left(\frac{\sqrt{1 + x^2}}{x}\right) = \sec^{-1}\sqrt{1 + x^2} = \cot^{-1}\frac{1}{x}$ &\\[20pt]
+\hline
+\end{tabular}\\
+
+\begin{tabular}{|l|N}
+\hline
+$\displaystyle\tan^{-1} x + \tan ^{-1} y = \tan ^{-1} \left(\frac{x+y}{1-xy}\right), \,\, xy < 1$ &\\[20pt]
+$\displaystyle\tan^{-1} x - \tan ^{-1} y = \tan ^{-1} \left(\frac{x-y}{1+xy}\right), \,\, xy > -1$ &\\[20pt]
+\hline
+$\displaystyle\ 2\tan ^{-1} x = \tan ^{-1} \frac{2x}{1-x^2} = \sin ^{-1} \frac{2x}{1+x^2} = \cos ^{-1} \frac{1-x^2}{1+x^2}$ & \\[20 pt]
+\hline
+$2\sin ^{-1} x = \sin ^{-1}\left(2x\sqrt{1-x^2}\right)$ &\\[5pt]
+$2\cos ^{-1} x = \cos ^{-1}\left(2x^2 - 1\right)$ & \\[5 pt]
+$3\sin ^{-1} x = \sin ^{-1}\left(3x - 4x^3\right)$ &\\[5pt]
+$3\cos ^{-1} x = \cos ^{-1}\left(4x^3 - 3x\right)$ &\\[5pt]
+$\displaystyle3\tan ^{-1} x = \tan ^{-1}\frac{3x - x^3}{1-3x^3}$ &\\[15pt]
+\hline
+\end{tabular}
+\begin{tabular}{|l|N}
+\hline
+$\sin ^{-1}x + \sin ^{-1}y = \sin ^{-1}\left(x\sqrt{1-y^2} + y\sqrt{1-x^2}\right)$ &\\[10pt]
+$\sin ^{-1}x - \sin ^{-1}y = \sin ^{-1}\left(x\sqrt{1-y^2} - y\sqrt{1-x^2}\right)$ &\\[10pt]
+$\cos ^{-1}x + \cos ^{-1}y = \cos ^{-1}\left(xy - \sqrt{1-x^2}\cdot\sqrt{1-y^2}\right)$ &\\[10pt]
+$\cos ^{-1}x - \cos ^{-1}y = \cos ^{-1}\left(xy + \sqrt{1-x^2}\cdot\sqrt{1-y^2}\right)$ &\\[10pt]
+\hline
+\end{tabular}
+
+\end{document}

@@ -1,0 +1,72 @@
+\documentclass[ProgrammingAssignment.tex]{subfiles}
+
+\begin{document}
+
+\section{Kaprekar Number}
+A positive whole number 'n' that has 'd' number of digits is squared and split into two pieces, 
+a right-hand piece that has 'd' digits and the left-hand piece that has the remaining 'd' or 'd-1' digits. 
+If the sum of the two pieces is equal to the number, then 'n' is a Kaprekar Number.
+
+Input:\\
+45
+
+Output:\\
+It is a Kaprekar Number
+
+\[45^2 = 2025\]
+\[20+25=45\]
+
+\subsection{Algorithm}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Take user input into an int (inp)
+	& Square the input and store it in another int (num)
+	& Make a new StringBuffer (st) and set it to the square (num)
+	& Store length of input into an int (d)
+	& Declare a new StringBuffer (part1) and set to st and then set length to st.length() - d
+	& Declare a new StringBuffer (part2) and set to st 
+ 	& Reverse part2, set length to d, reverse it again
+	& Check if Integer values of part1 + part2 equals input, display appropriate output
+
+	
+\end{easylist}
+
+\subsection{Code}
+\begin{lstlisting}
+import java.util.Scanner;
+public class KaprekarNum
+{
+
+	public static void main(String[] args)
+	{
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter A Number");
+		int inp = s.nextInt();		//User input of integer
+		int num = inp * inp;		//input squared
+		
+		StringBuffer st = new StringBuffer(Integer.toString(num));	//String Buffer initialised with String
+		int d = Integer.toString(inp).length();		//length of original integer
+		
+		StringBuffer part1 = new StringBuffer(st.toString());
+		part1.setLength(st.length() - d);	//StringBuffer divided into parts of d and (length - d) characters
+		
+		
+		//Making the second part of length (st.length - d)
+		StringBuffer part2 = new StringBuffer(st.toString());
+		part2.reverse();
+		part2.setLength(d);
+		part2.reverse();
+		
+		if(Integer.parseInt(part2.toString()) + Integer.parseInt(part1.toString()) == inp) //checking condition for Kaprekar Numbers
+			System.out.println("It is Kaprekar Number");
+		else
+			System.out.println("It is not Kaprekar Number");
+		
+	}
+
+}
+
+\end{lstlisting}	
+
+\end{document}

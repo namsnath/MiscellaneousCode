@@ -1,0 +1,138 @@
+\documentclass[ProgramminAssignment.tex]{subfiles}
+\begin{document}
+
+\section{Merge Sort (Array)}
+Write a Program to sort an array using MergeSort
+
+
+
+
+\subsection{Algorithm}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Declare an int array A and take user input
+	& Call the MergeSort function, passing A, 0, A.length - 1 as argument
+	& Print the Array
+
+\end{easylist}
+
+\subsubsection*{MergeSort(int[ ] A, int p, int r):}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Declare a int variable to store the middle element (int q)
+	& If p is more than r, 
+		&& Set q to average of p and r (middle element)
+		&& Call merge sort on first half of array (p, q)
+		&& Call merge sort on second half of array (q + 1, r)
+		&& Call merge on entire array (p, q, r)
+	
+\end{easylist}	
+
+\subsubsection*{Merge(int[ ] A, int p, int q, int r):}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Declare an int (n1) to store size of first half of array passed (p - q + 1)
+	& Declare an int (n2) to store size of second half of array passed (r - q)
+	& Declare an int array L of size n1 + 1, and array R of size n2 + 1
+	& Fill first half of original array in L, and second half in R
+	& Set final element in L and R to Integer.MAX\_VALUE for comparison ease
+	& Declare int variable (i and j) and initialize them to 0
+	& Run a loop from k = p, to k $\leq$ r, incrementing k at each iteration
+	& If L[i] $\leq$ R[j] (Comparing elements in the two arrays)
+		&& Set A[k] to L[i] (Smaller element)
+		&& Increment i by 1
+	& Else
+		&& Set A[k] to R[j]
+		&& Increment j by 1
+	
+\end{easylist}	
+
+
+
+\subsection{Code}
+\begin{lstlisting}
+import java.util.Scanner;
+
+public class MergeSortArray
+{
+
+	public static void main(String[] args)
+	{
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("Enter number of elements");
+		int n = s.nextInt();
+		
+		int[] A = new int[n];
+		
+		System.out.println("Enter elements");
+		for(int i = 0; i < n; i++)
+			A[i] = s.nextInt();
+		
+		MergeSortArray ms = new MergeSortArray();
+		ms.MergeSort(A, 0, A.length - 1);				//Passes the entire array to the function
+		
+		for(int i = 0; i < A.length; i++)
+			System.out.print(A[i]  + " ");
+	}
+
+	public void MergeSort(int[] A, int p, int r)
+	{
+		int q;
+		if(p < r)									//Runs till lower index is less then upper index
+		{
+			q = (p + r) / 2;						//Gets middle index
+			MergeSort(A, p, q);						//Passes first half of array to itself
+			MergeSort(A, q + 1, r);					//Passes seconds half of aray to itself
+			Merge(A, p, q, r);						//Calls merge on entire array with q as middle element
+		}
+	}
+	
+	public void Merge(int[] A, int p, int q, int r)
+	{
+		int n1 = q - p + 1;		//Gets size of first half of array passed
+		int n2 = r - q ;		//Gets size of second half of array passed
+		int i, j, k;
+		
+		
+		int[] L = new int[n1 + 1], R = new int[n2 + 1];		//Declaring arrays corresponding to halves
+		
+		//Filling elements in the new arrays
+		
+		for(i = 0; i < n1; i++)
+			L[i] = A[p + i];
+		for(j = 0; j < n2; j++)
+			R[j] = A[q + j + 1];
+		
+		
+		//Sets last element in array to Maximum value of integer for comparison
+		L[n1] = Integer.MAX_VALUE;		
+		R[n2] = Integer.MAX_VALUE;
+		
+		i = 0;
+		j = 0;
+		
+		for(k = p; k <= r; k++)		//Iterates thtough elements in the given range
+		{
+			//Rewrites elements to original array after comparison of two halves
+			
+			if(L[i] <= R[j])
+			{
+				A[k] = L[i];
+				i++;
+			}
+			else
+			{
+				A[k] = R[j];
+				j++;
+			}
+		}	
+				
+	}
+}
+
+\end{lstlisting}
+\end{document}

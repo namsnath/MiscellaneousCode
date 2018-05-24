@@ -1,0 +1,100 @@
+\documentclass[ProgramminAssignment.tex]{subfiles}
+\begin{document}
+
+\section{Towers Of Hanoi}
+Write a program to solve the Towers of Hanoi problem for a given N number of disks and 3 pegs.\\
+The object is to move all disks from peg A to C, one at a time such that a larger disk is never over a smaller one.
+
+Input:\\
+N = 5
+
+Output:\\
+(Pegs Labelled as L - C - R)\\
+Move disk 1 from L to R\\
+Move disk 2 from L to C\\
+Move disk 1 from R to C\\
+Move disk 3 from L to R\\
+Move disk 1 from C to L\\
+Move disk 2 from C to R\\
+Move disk 1 from L to R\\
+Move disk 4 from L to C\\
+Move disk 1 from R to C\\
+Move disk 2 from R to L\\
+Move disk 1 from C to L\\
+Move disk 3 from R to C\\
+Move disk 1 from L to R\\
+Move disk 2 from L to C\\
+Move disk 1 from R to C\\
+Move disk 5 from L to R\\
+Move disk 1 from C to L\\
+Move disk 2 from C to R\\
+Move disk 1 from L to R\\
+Move disk 3 from C to L\\
+Move disk 1 from R to C\\
+Move disk 2 from R to L\\
+Move disk 1 from C to L\\
+Move disk 4 from C to R\\
+Move disk 1 from L to R\\
+Move disk 2 from L to C\\
+Move disk 1 from R to C\\
+Move disk 3 from L to R\\
+Move disk 1 from C to L\\
+Move disk 2 from C to R\\
+Move disk 1 from L to R
+
+\subsection{Algorithm}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Take input for number of disks and store it in an int(N)
+	& Define the pegs with characters
+	& Call move(), passing N, start, intermediate and destination peg characters as parameters
+
+\end{easylist}
+
+\subsubsection*{void move(int N, char startPeg, char intPeg, char destPeg):}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& If N $\neq$ 0
+		&& Move N - 1 disks from startPeg to intPeg (call move with parameters as N, startPeg, destPeg, intPeg)
+		&& Move disk N from startPeg to destPeg
+		&& Move N - 1 disks from intPeg to destPeg (call move with parameters as N, intPeg, startPeg, destPeg)
+	
+\end{easylist}	
+
+\subsection{Code}
+\begin{lstlisting}
+import java.util.Scanner;
+
+public class TowersOfHanoi
+{
+
+	public static void main(String[] args)
+	{
+		Scanner s = new Scanner(System.in);
+		char start = 'L', inter = 'C', dest = 'R';
+		
+		System.out.println("Enter number of disks");
+		int N = s.nextInt();		//Number of disks
+		TowersOfHanoi t = new TowersOfHanoi();
+		t.move(N, start, inter, dest);
+	}
+	
+	private void move(int N, char startPeg, char intPeg, char destPeg)
+	{
+		if(N != 0)
+		{
+			//Move n - 1 disks from starting peg to intermediate peg
+			move(N-1, startPeg, destPeg, intPeg);
+			//Move disk N from start to Destination
+			System.out.println("Move disk " + N + " from " + startPeg + " to " + destPeg);
+			//Move n - 1 disks from intermediate peg to destination peg
+			move(N-1, intPeg, startPeg, destPeg);
+		}
+	}
+
+}
+
+\end{lstlisting}
+\end{document}

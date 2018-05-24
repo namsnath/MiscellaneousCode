@@ -1,0 +1,143 @@
+\documentclass[ProgramminAssignment.tex]{subfiles}
+\begin{document}
+
+\section{Note Dispenser}
+Write a program to take input of 10 amounts from the user and write them to a .DAT file. 
+Read the file with the numbers and dispense notes and print the results.
+
+Input (For one amount):\\
+98
+
+Output:\\
+Amount: 98\\
+1000: 0 notes\\
+500: 0 notes\\
+100: 0 notes\\
+50: 1 notes\\
+20: 2 notes\\
+10: 0 notes\\
+5: 1 notes\\
+2: 1 notes\\
+1: 1 notes
+
+\subsection{Algorithm}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Declare an int array (denominations[ ]) and set it to available note denominations.
+	& Create a new NoteDispense object.
+	& Create a FileOutputStream (fis) object passing "NoteDispense.dat" as the parameter.
+	& Create a DataOutputStream (dis) object and pass FileOutputStream object as parameter.
+	& Declare an int array of length 10 (nums[ ]) to store the numbers.
+	& Take user input for the number and check validity of the inputs.
+	& Write the numbers to the file using dis.
+	& Close all objects excluding NoteDispense.
+	& Declare FileInputStream (fr) and DataInputStream (dr) objects with "NoteDispense.dat" and fr as parameters respectively.
+	& Run an infinite for loop
+		&& try calling dispense(), passing read line as the parameter.
+		&& catch Exception and break loop if caught.
+	& Close all objects.
+	
+\end{easylist}
+
+\subsubsection*{void dispense(int n):}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Declare an int x and store the passed value 'n' in it.
+	& Declare an int array (noteNumber[ ]) of the same length as denominations and initialize all elements to 0.
+	& Run a loop from i = 0 to 9, incrementing i at each iteration
+		&& set noteNumber[i] to noteNumber[i] + n / denominations[i].
+		&& set n to n \% denominations[i]
+	& Print amount and number of notes per denomination.
+	
+\end{easylist}	
+
+\subsection{Code}
+\begin{lstlisting}
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.util.Scanner;
+
+public class NoteDispense
+{
+
+	int[] denominations = {1000, 500, 100, 50, 20, 10, 5, 2, 1};	//Array for denominations
+	
+	public static void main(String[] args) throws Exception
+	{
+		Scanner s = new Scanner(System.in);
+		NoteDispense nd = new NoteDispense();
+		
+		FileOutputStream fis = new FileOutputStream("NoteDispense.dat");		//Creates a .dat file to write to
+		DataOutputStream dis = new DataOutputStream(fis);						//Passes object to D.O.S. to allow writing to the file
+	
+		int[] nums = new int[10];		//Array to store 10 Numbers to parse
+		
+		System.out.println("Enter 10 Amounts");
+		for(int i = 0 ; i < 10; i++)		//Loop to input numbers into array
+		{
+			int n = s.nextInt();
+			if(n < 0)						//Checks validity of input
+			{
+				System.out.println("Invalid Input");
+				System.exit(0);
+			}
+			nums[i] = n;
+		}
+		
+		for(int i = 0; i < 10; i++)			//Writes the numbers to the file
+			dis.writeInt(nums[i]);
+		
+		fis.close();
+		dis.close();			//fis, dis closed to save file
+		s.close();
+		
+		FileInputStream fr = new FileInputStream("NoteDispense.dat");		//Input stream Objects declared for reading from the file
+		DataInputStream dr = new DataInputStream(fr);
+		
+		for(;;)
+		{
+			try
+			{
+				nd.dispense(dr.readInt());			//reads numbers from the file and passes them to the dispense() function
+			}
+			catch(Exception e)						//Catches EndOfFile Exception and breaks the loop
+			{
+				break;
+			}
+		}
+		
+		dr.close();
+		fr.close();
+	}
+
+	
+	public void dispense(int n)		//Function to dispense notes
+	{
+		int x = n;		//Saves the value in a varible
+		
+		int[] noteNumber = new int[denominations.length];		//Array to store number of notes
+		for(int i = 0; i < noteNumber.length; i++)				//Loop to initialize the new array
+			noteNumber[i] = 0;
+		
+		for(int i = 0; i < 9; i++)		//Loop to iterate and calculate number of notes for each denomination
+		{
+			noteNumber[i] += (n / denominations[i]);		//Adds integral multiples of the current denomination to the number
+			n = n % denominations[i];	//Sets value to remainder
+		}
+		
+		System.out.println("Amount: " + x);
+		for(int i = 0; i < noteNumber.length; i++)		//Prints Amount and the denominations
+		{
+			System.out.println(denominations[i] + ": " + noteNumber[i] + " notes");
+		}
+		
+		System.out.println("\n\n");
+	}
+}
+
+\end{lstlisting}
+\end{document}

@@ -1,0 +1,155 @@
+\contentsline {section}{\numberline {1}Array Fill}{1}
+\contentsline {subsection}{\numberline {1.1}Algorithm}{1}
+\contentsline {subsection}{\numberline {1.2}Code}{2}
+\contentsline {section}{\numberline {2}Character Counter}{4}
+\contentsline {subsection}{\numberline {2.1}Algorithm}{4}
+\contentsline {subsection}{\numberline {2.2}Code}{4}
+\contentsline {section}{\numberline {3}Decimal, Binary, Octal, Hexadecimal Convertor}{6}
+\contentsline {subsection}{\numberline {3.1}Algorithm}{6}
+\contentsline {subsection}{\numberline {3.2}Code}{7}
+\contentsline {section}{\numberline {4}Sorting Boundary Elements of a 2-D Array}{9}
+\contentsline {subsection}{\numberline {4.1}Algorithm}{9}
+\contentsline {subsection}{\numberline {4.2}Code}{10}
+\contentsline {section}{\numberline {5}Date In Words}{12}
+\contentsline {subsection}{\numberline {5.1}Algorithm}{12}
+\contentsline {subsection}{\numberline {5.2}Code}{12}
+\contentsline {section}{\numberline {6}Determinant Solver}{14}
+\contentsline {subsection}{\numberline {6.1}Algorithm}{14}
+\contentsline {subsection}{\numberline {6.2}Code}{14}
+\contentsline {section}{\numberline {7}PseudoArithmetic Series}{16}
+\contentsline {subsection}{\numberline {7.1}Algorithm}{16}
+\contentsline {subsection}{\numberline {7.2}Code}{16}
+\contentsline {section}{\numberline {8}Harshad Number}{18}
+\contentsline {subsection}{\numberline {8.1}Algorithm}{18}
+\contentsline {subsection}{\numberline {8.2}Code}{18}
+\contentsline {section}{\numberline {9}Kaprekar Number}{19}
+\contentsline {subsection}{\numberline {9.1}Algorithm}{19}
+\contentsline {subsection}{\numberline {9.2}Code}{19}
+\contentsline {section}{\numberline {10}Mobius Function}{21}
+\contentsline {subsection}{\numberline {10.1}Algorithm}{21}
+\contentsline {subsection}{\numberline {10.2}Code}{22}
+\contentsline {section}{\numberline {11}GCD and LCM using Recursion}{23}
+\contentsline {subsection}{\numberline {11.1}Algorithm}{23}
+\contentsline {subsection}{\numberline {11.2}Code}{23}
+\contentsline {section}{\numberline {12}Note Dispenser}{24}
+\contentsline {subsection}{\numberline {12.1}Algorithm}{24}
+\contentsline {subsection}{\numberline {12.2}Code}{25}
+\contentsline {section}{\numberline {13}Numbers to Words}{27}
+\contentsline {subsection}{\numberline {13.1}Algorithm}{27}
+\contentsline {subsection}{\numberline {13.2}Code}{27}
+\contentsline {section}{\numberline {14}Primes Array}{29}
+\contentsline {subsection}{\numberline {14.1}Algorithm}{29}
+\contentsline {subsection}{\numberline {14.2}Code}{29}
+\contentsline {section}{\numberline {15}Quick Sort(Array)}{31}
+\contentsline {subsection}{\numberline {15.1}Algorithm}{31}
+\contentsline {subsection}{\numberline {15.2}Code}{32}
+\contentsline {section}{\numberline {16}String Reverse (Recursive)}{34}
+\contentsline {subsection}{\numberline {16.1}Algorithm}{34}
+\contentsline {subsection}{\numberline {16.2}Code}{34}
+\contentsline {section}{\numberline {17}Character Count Without Loop}{36}
+\contentsline {subsection}{\numberline {17.1}Algorithm}{36}
+\contentsline {subsection}{\numberline {17.2}Code}{36}
+\contentsline {section}{\numberline {18}Special Numbers}{37}
+\contentsline {subsection}{\numberline {18.1}Algorithm}{37}
+\contentsline {subsection}{\numberline {18.2}Code}{37}
+\contentsline {section}{\numberline {19}Saddle Point}{39}
+\contentsline {subsection}{\numberline {19.1}Algorithm}{39}
+\contentsline {subsection}{\numberline {19.2}Code}{39}
+\contentsline {section}{\numberline {20}Sieve Of Erasthosenes}{41}
+\contentsline {subsection}{\numberline {20.1}Algorithm}{41}
+\contentsline {subsection}{\numberline {20.2}Code}{41}
+\contentsline {section}{\numberline {21}ASCII Decryption}{43}
+\contentsline {subsection}{\numberline {21.1}Algorithm}{43}
+\contentsline {subsection}{\numberline {21.2}Code}{43}
+\contentsline {section}{\numberline {22}Merge Sort (Array)}{45}
+\contentsline {subsection}{\numberline {22.1}Algorithm}{45}
+\contentsline {subsection}{\numberline {22.2}Code}{45}
+\contentsline {section}{\numberline {23}Phone Directory}{48}
+\contentsline {subsection}{\numberline {23.1}Algorithm}{48}
+\contentsline {subsection}{\numberline {23.2}Code}{50}
+\contentsline {section}{\numberline {24}Student Records}{61}
+\contentsline {subsection}{\numberline {24.1}Algorithm}{61}
+\contentsline {subsection}{\numberline {24.2}Code}{63}
+\contentsline {section}{\numberline {25}Smart Substring}{70}
+\contentsline {subsection}{\numberline {25.1}Algorithm}{70}
+\contentsline {subsection}{\numberline {25.2}Code}{70}
+\contentsline {section}{\numberline {26}Duplicate Character Counter}{72}
+\contentsline {subsection}{\numberline {26.1}Algorithm}{72}
+\contentsline {subsection}{\numberline {26.2}Code}{72}
+\contentsline {section}{\numberline {27}Symmetric Matrix check and Sum of Diagonals}{74}
+\contentsline {subsection}{\numberline {27.1}Algorithm}{74}
+\contentsline {subsection}{\numberline {27.2}Code}{74}
+\contentsline {section}{\numberline {28}Calendar Generator}{76}
+\contentsline {subsection}{\numberline {28.1}Algorithm}{76}
+\contentsline {subsection}{\numberline {28.2}Code}{76}
+\contentsline {section}{\numberline {29}Matrix in Spiral Form}{79}
+\contentsline {subsection}{\numberline {29.1}Algorithm}{79}
+\contentsline {subsection}{\numberline {29.2}Code}{80}
+\contentsline {section}{\numberline {30}Circular Primes}{82}
+\contentsline {subsection}{\numberline {30.1}Algorithm}{82}
+\contentsline {subsection}{\numberline {30.2}Code}{83}
+\contentsline {section}{\numberline {31}Character Types and Percentage}{84}
+\contentsline {subsection}{\numberline {31.1}Algorithm}{84}
+\contentsline {subsection}{\numberline {31.2}Code}{84}
+\contentsline {section}{\numberline {32}Reverse Each Word in a String}{86}
+\contentsline {subsection}{\numberline {32.1}Algorithm}{86}
+\contentsline {subsection}{\numberline {32.2}Code}{86}
+\contentsline {section}{\numberline {33}Checking Increasing, Decreasing and Bouncy Numbers}{87}
+\contentsline {subsection}{\numberline {33.1}Algorithm}{87}
+\contentsline {subsection}{\numberline {33.2}Code}{88}
+\contentsline {section}{\numberline {34}String Negative Encoder}{89}
+\contentsline {subsection}{\numberline {34.1}Algorithm}{89}
+\contentsline {subsection}{\numberline {34.2}Code}{89}
+\contentsline {section}{\numberline {35}Calculate Number of Days Past In The Year Till a Given Date}{91}
+\contentsline {subsection}{\numberline {35.1}Algorithm}{91}
+\contentsline {subsection}{\numberline {35.2}Code}{91}
+\contentsline {section}{\numberline {36}Wondrous Square and Prime Display}{93}
+\contentsline {subsection}{\numberline {36.1}Algorithm}{93}
+\contentsline {subsection}{\numberline {36.2}Code}{94}
+\contentsline {section}{\numberline {37}Matrix Multiplication}{96}
+\contentsline {subsection}{\numberline {37.1}Algorithm}{96}
+\contentsline {subsection}{\numberline {37.2}Code}{96}
+\contentsline {section}{\numberline {38}Towers Of Hanoi}{99}
+\contentsline {subsection}{\numberline {38.1}Algorithm}{99}
+\contentsline {subsection}{\numberline {38.2}Code}{100}
+\contentsline {section}{\numberline {39}Unique 2 Digit Combinations}{101}
+\contentsline {subsection}{\numberline {39.1}Algorithm}{101}
+\contentsline {subsection}{\numberline {39.2}Code}{101}
+\contentsline {section}{\numberline {40}2-D Array Sort}{104}
+\contentsline {subsection}{\numberline {40.1}Algorithm}{104}
+\contentsline {subsection}{\numberline {40.2}Code}{104}
+\contentsline {section}{\numberline {41}Mirror Image Of A Matrix}{106}
+\contentsline {subsection}{\numberline {41.1}Algorithm}{106}
+\contentsline {subsection}{\numberline {41.2}Code}{106}
+\contentsline {section}{\numberline {42}Rotate Matrix by 90 Degrees Clockwise}{108}
+\contentsline {subsection}{\numberline {42.1}Algorithm}{108}
+\contentsline {subsection}{\numberline {42.2}Code}{108}
+\contentsline {section}{\numberline {43}Insertion Sort (Array)}{110}
+\contentsline {subsection}{\numberline {43.1}Algorithm}{110}
+\contentsline {subsection}{\numberline {43.2}Code}{110}
+\contentsline {section}{\numberline {44}Binary Search (Recursive)}{111}
+\contentsline {subsection}{\numberline {44.1}Algorithm}{111}
+\contentsline {subsection}{\numberline {44.2}Code}{111}
+\contentsline {section}{\numberline {45}Decimal To Roman Numerals}{112}
+\contentsline {subsection}{\numberline {45.1}Algorithm}{112}
+\contentsline {subsection}{\numberline {45.2}Code}{112}
+\contentsline {section}{\numberline {46}Linked List}{113}
+\contentsline {subsection}{\numberline {46.1}Algorithm}{113}
+\contentsline {subsection}{\numberline {46.2}Code}{115}
+\contentsline {section}{\numberline {47}Queue (Linked List)}{121}
+\contentsline {subsection}{\numberline {47.1}Algorithm}{121}
+\contentsline {subsection}{\numberline {47.2}Code}{122}
+\contentsline {section}{\numberline {48}Stack (Linked List)}{124}
+\contentsline {subsection}{\numberline {48.1}Algorithm}{124}
+\contentsline {subsection}{\numberline {48.2}Code}{124}
+\contentsline {section}{\numberline {49}Quick Sort (Linked List)}{127}
+\contentsline {subsection}{\numberline {49.1}Algorithm}{127}
+\contentsline {subsection}{\numberline {49.2}Code}{128}
+\contentsline {section}{\numberline {50}Binary Tree}{131}
+\contentsline {subsection}{\numberline {50.1}Algorithm}{131}
+\contentsline {subsection}{\numberline {50.2}Code}{132}
+\contentsline {section}{\numberline {51}Other Resources}{135}
+\contentsline {subsection}{\numberline {51.1}Package: linkedlist}{135}
+\contentsline {subsubsection}{\numberline {51.1.1}Class: Node}{135}
+\contentsline {subsection}{\numberline {51.2}Package: binaryTree}{135}
+\contentsline {subsubsection}{\numberline {51.2.1}Class: TreeNode}{135}

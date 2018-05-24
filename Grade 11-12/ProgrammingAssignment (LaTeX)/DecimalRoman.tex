@@ -1,0 +1,54 @@
+\documentclass[ProgramminAssignment.tex]{subfiles}
+\begin{document}
+
+\section{Decimal To Roman Numerals}
+Write a Program to Convert decimal numbers to their Roman equivalent
+
+Input:\\
+969
+
+Output:\\
+CMLXIX
+
+\subsection{Algorithm}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Declare a String array(Hundreds[ ]) and fill it wih Hundreds in Roman Numerals(C, CC $\dots$ CM)
+	& Declare a String array(Tens[ ]) and fill it with Tens in Roman Numerals(X, XX $\dots$ XC)
+	& Declare a String array(Units[ ]) and fill it with Units in Roman Numerals(I, II $\dots$ IX)
+	& Take user input of number
+	& Hundreds is found by taking the element at n / 100 in Hundreds[ ]
+	& Tens is found by taking element at (n / 10) \% 10 in Tens[ ]
+	& Units is found by taking element at n \% 10 in Units[ ]
+
+\end{easylist}
+
+\subsection{Code}
+\begin{lstlisting}
+import java.util.Scanner;
+public class DecimalRoman
+{
+
+	public static void main(String[] args)
+	{
+		Scanner s = new Scanner(System.in);
+		
+		String[] Hundreds = {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};	//Array for Hundreds in Roman
+		String Tens[]={"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};	//Array for Tens in Roman
+		String Units[]={"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};	//Array for Units in Roman
+		
+		System.out.println("Enter Decimal Number to Convert to Roman (Less than 1000):");	//Input
+		int n = s.nextInt();
+		
+		String Hund = Hundreds[n / 100];	//Division by 100 yields number of hundreds
+		String Ten = Tens[(n / 10) % 10];	//Division by 10 and the remainder of further division by 10 yields Tens
+		String Unit = Units[n % 10];	//Remainder of division by 10 yields number of Ones
+		
+		System.out.println("Roman Equivalent: " + Hund + Ten + Unit);	//Final Answer
+	}
+
+}
+
+\end{lstlisting}
+\end{document}

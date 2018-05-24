@@ -1,0 +1,459 @@
+\documentclass[ProgramminAssignment.tex]{subfiles}
+\begin{document}
+
+\section{Student Records}
+Write a program to Manage Student Records and performing neccessary actions using Files.
+
+\subsection{Algorithm}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+	& Create class arrays for Name, Class, Roll Number, English, Math, Science, SS, Percent, Rank. Also make variables for linecount and studentcount.
+	& Create object for FileWriter, passing the file as a parameter. Create a new StudentRecords object. Create a Scanner object to take user input.
+	& Declare an int variable (menuChoice) to store choice for the menu.
+	& Run a do while loop, while menuChoice lies in range.
+		&& Display Menu options.
+		&& Take user input for Menu.
+		&& Pass the choice into a switch and call corresponding functions.
+	& Close the objects (FileWriter and Scanner).
+\end{easylist}
+
+
+\subsubsection*{void dataEntry():}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Create a FileWriter object, passing the filename as parameter along with a true to make the file appendable. pass this into a PrintWriter object as parameter.
+	& Take input for number of students to enter data for and store it in an int (n).
+	& Run a loop n times and take inputs for various data, printing it to the file.
+	& Close the objects (FileWriter and PrintWriter)
+\end{easylist}
+
+\subsubsection*{void dataModify():}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Call the dataParse() method to parse the file
+	& Take user input for Roll number (key) of the student to modify data for
+	& Declare a boolean flag (exists) and set it to false, to check if the record exists
+	& Run a loop from i = 0 to stuCount, incrementing i by 1 at each iteration
+		&& check if RollNo[i] is equal to key
+			&&& set exists to true
+			&&& set an int position to i
+	& If record does not exist
+		& Display message and return to menu
+	& Display all data of the student at position i and ask for confirmation
+	& if confirmed, take input for new data, else return to menu
+	& Reinitialise the FileWriter and PrintWriter passing the FileWriter as an argument for the PrintWriter. Make the file non-appendable to allow overwriting
+	& Print all data to the file, overwriting previous data so changes are reflected.
+	& Close FileWriter and PrintWriter.
+\end{easylist}
+
+\subsubsection*{void dataDelete():}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Call the dataParse() method to parse the file
+	& Take user input for Roll number (key) of the student to delete data for
+	& Declare a boolean flag (exists) and set it to false, to check if the record exists
+	& Run a loop from i = 0 to stuCount, incrementing i by 1 at each iteration
+		&& check if RollNo[i] is equal to key
+			&&& set exists to true
+			&&& set an int position to i
+	& If record does not exist
+		&& Display message and return to menu
+	& Reinitialise the FileWriter and PrintWriter passing the FileWriter as an argument for the PrintWriter. Make the file non-appendable to allow overwriting
+	& Print all data to the file, excluding the selected record, so that all data is overwritten with the new data excluding the record.
+	& Close FileWriter and PrintWriter.
+\end{easylist}
+
+\subsubsection*{void displayAll():}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+	& Call the dataParse() method to parse the file
+	& Run a loop from i = 0 to stuCount, incrementing by 1 at each iteration
+		&& Print the student data for student at position i in all arrays excluding rank and percentage.
+\end{easylist}
+
+\subsubsection*{void displayMarksPercent():}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+	& Call the dataParse() method to parse the file.
+	& Run a loop from i = 0, to stuCount, incrementing i at each iteration.
+	&& Print Student Name, Marks in each subject, and percentage
+\end{easylist}
+
+\subsubsection*{void displayRank():}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+	& Call the dataParse() method to parse the file.
+	& Run a loop from i = 0, to stuCount, incrementing i at each iteration
+	&& Print Student Name, Percentage and Rank.
+\end{easylist}
+
+\subsubsection*{void dataParse():}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+	& Declare a FileReader instance,  passing the filename as an argument Declare a Scanner instance, passing the FileReader as an arguemnt.
+	& Declare an int (lineCount) and initialize it to 0.
+	& Run a loop until the end of the file
+		&& increment lineCount at each iteration
+	& set stuCount to lineCount / 7
+	& Initialise all data arrays to length equal to stuCount
+	& Run a loop from i = 0, to stuCount, incrementing i at each iteration
+		&& Use the Scanner object to read lines from the file and parse the data into the respective arrays
+		&& Calculate average percentage of the given 4 subjects
+	& Call the assignRank() function
+	& Close Scanner and FileReader.
+\end{easylist}
+
+\subsubsection*{void assignRank():}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+	& Declare two int arrays Percentage[ ] and index[ ]. Set Percentage[ ] equal to the class variable Percent[ ], and initialize the index[ ] to a length of stuCount.
+	& Run a loop from i = 0, to stuCount, incrementing i at each iteration
+		&& set index[i] to i.
+	& Sort the Percentage array, and modify the index array at the same time to maintain the index number assigned to each record
+	& Run a loop from i = 0, to stuCount, incrementing i at each iteration
+		&& Run a loop from j = 0, to stuCount, incrementing j at each iteration
+			&&& if index[j] = i (compares index number with student number to assign rank)
+				&&&& Assign j+1 to rank[i]
+\end{easylist}
+
+
+\subsection{Code}
+\begin{lstlisting}
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
+public class StudentRecords
+{
+
+	String fileName = "StudentRecords.txt";	//Filename for ease
+	String Name[];	//Array for Student name
+	int[] Class, RollNo, English, Math, Science, SS, Percent, Rank;	//Arrays for Student data
+	int lineCount, stuCount;	//Other data for ease and reusability
+	
+	public static void main(String[] args) throws Exception
+	{
+		FileWriter fw = new FileWriter("StudentRecords.txt", true);		//Creates a new file which is appendable (or appends to existing file)
+		Scanner s = new Scanner(System.in);
+		StudentRecords stu = new StudentRecords();
+		
+		int menuChoice = 1;
+		
+		do
+		{
+			menuChoice = 0;
+			
+			System.out.println("Choose Operation\nEnter Any Other Number to Exit");
+			System.out.println("1 - Enter Data");
+			System.out.println("2 - Modify Data");
+			System.out.println("3 - Delete Record");
+			System.out.println("4 - Display All Data");
+			System.out.println("5 - Display Marks and Percentage");
+			System.out.println("6 - Display Rank");
+			
+			menuChoice = s.nextInt();
+			
+			switch(menuChoice)
+			{
+				case 1:	stu.dataEntry();
+						break;
+						
+				case 2:	stu.dataModify();
+						break;
+						
+				case 3:	stu.dataDelete();
+						break;
+						
+				case 4:	stu.displayAll();
+						break;
+					
+				case 5:	stu.displayMarksPercent();
+						break;
+						
+				case 6:	stu.displayRank();
+						break;
+			}
+			
+		} while(menuChoice > 0 && menuChoice < 7);		//Displays menu until appropriate choice is given
+		
+		fw.close();
+		s.close();
+	}
+	
+	public void dataEntry() throws Exception	//Function to input data
+	{
+		FileWriter fw = new FileWriter(fileName, true);		//Creates object to allow appending to the file
+		PrintWriter pw = new PrintWriter(fw);				//Object to allow printing to the file
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("Enter Number of Students to Enter Data For:");
+		int n = s.nextInt();		//To store number of students
+		
+		for(int i = 0; i < n; i++)		//Loop to take input for various data
+		{
+			System.out.println("Enter Data for Student #" + (i + 1) + ":");
+			System.out.println("Name:");
+			pw.println(s.nextLine());
+			System.out.println("Class:");
+			pw.println(s.nextInt());
+			System.out.println("Roll Number:");
+			pw.println(s.nextInt());
+			System.out.println("English Marks (out of 100):");
+			pw.println(s.nextInt());
+			System.out.println("Math Marks (out of 100):");
+			pw.println(s.nextInt());
+			System.out.println("Science Marks (out of 100):");
+			pw.println(s.nextInt());
+			System.out.println("Social Studies Marks (out of 100):");
+			pw.println(s.nextInt());
+			System.out.println("\n\n");
+		}
+		
+		fw.close();
+		pw.close();
+	}
+
+	public void dataModify() throws Exception		//Function to modify entered data
+	{
+		dataParse();		//Parses the file
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter Roll Number of Student to Modify Record for:");
+		int key = s.nextInt(), position = 0;		//Stores Roll Number to modify data for
+		boolean exists = false;		//Flag to check if record exists
+		
+		for(int i = 0; i < stuCount; i++)		//Iterates through Roll Number array
+			if(RollNo[i] == key)	//Checks if current element is the required record
+			{
+				exists = true;
+				position = i;
+			}
+				
+		if(exists ==  false)
+		{
+			System.out.println("Record Does Not Exist");
+			return;
+		}
+		
+		//Displays Data for Confirmation
+		
+		System.out.println("\n\n");
+		System.out.println("Student Number: " + (position + 1));
+		System.out.println("Student Name: " + Name[position]);
+		System.out.println("Class: " + Class[position]);
+		System.out.println("Roll Number: " + RollNo[position]);
+		System.out.println("English: " + English[position]);
+		System.out.println("Math: " + Math[position]);
+		System.out.println("Science: " + Science[position]);
+		System.out.println("Social Science: " + SS[position]);
+		
+		System.out.println("Are you sure you want to modify data for this student? (1 = yes, any other number = no");
+		int confirm = s.nextInt();	//For confirmation
+		
+		if(confirm != 1)
+			return;
+		
+		//Inputting new data
+		
+		System.out.println("Enter Data for Student #" + (position + 1) + ":");
+		System.out.println("Name:");
+		Name[position] = s.nextLine();
+		System.out.println("Class:");
+		Class[position] = s.nextInt();
+		System.out.println("Roll Number:");
+		RollNo[position] = s.nextInt();
+		System.out.println("English Marks (out of 100):");
+		English[position] = s.nextInt();
+		System.out.println("Math Marks (out of 100):");
+		Math[position] = s.nextInt();
+		System.out.println("Science Marks (out of 100):");
+		Science[position] = s.nextInt();
+		System.out.println("Social Studies Marks (out of 100):");
+		SS[position] = s.nextInt();
+		
+		FileWriter fw = new FileWriter(fileName);	//Makes the file non-appendable to allow overwriting
+		PrintWriter pw = new PrintWriter(fw);	
+		
+		for(int i = 0; i < stuCount; i++)	//Prints data to file from the start to overwrite
+		{
+			pw.println(Name[i]);
+			pw.println(Class[i]);
+			pw.println(RollNo[i]);
+			pw.println(English[i]);
+			pw.println(Math[i]);
+			pw.println(Science[i]);
+			pw.println(SS[i]);
+		}
+		
+		fw.close();
+		pw.close();
+	}
+	
+	
+	public void dataDelete() throws Exception		//Function to delete selected record
+	{
+		dataParse();		//Parses data from file
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter Roll Number of Student to Delete Record for:");
+		int key = s.nextInt();		//Stores roll number to find record for
+		boolean exists = false;		//Flag to check if record exists
+		
+		for(int i = 0; i < stuCount; i++)		//Iterates through the roll number array
+			if(RollNo[i] == key)	//Checks if current element is the required record
+				exists = true;
+		
+		if(!exists)
+		{
+			System.out.println("Record Does Not Exist");
+			return;
+		}
+		
+		FileWriter fw = new FileWriter(fileName);	//Non-appendable writer to allow overwriting
+		PrintWriter pw = new PrintWriter(fw);
+		
+		for(int i = 0; i < stuCount; i++)		//Overwrites data to file
+		{	
+			if(RollNo[i] == key)				//Skips writing record to be deleted
+				continue;
+			
+			
+			pw.println(Name[i]);
+			pw.println(Class[i]);
+			pw.println(RollNo[i]);
+			pw.println(English[i]);
+			pw.println(Math[i]);
+			pw.println(Science[i]);
+			pw.println(SS[i]);
+		}
+		
+		fw.close();
+		pw.close();
+	}
+	
+	public void displayAll() throws Exception		//Function to Display all records as in the file
+	{
+		dataParse();		//Parses data from file
+		for(int i = 0; i < stuCount; i++)	//Iterates through the data arrays and prints them
+		{
+			System.out.println("Student Number: " + (i + 1));
+			System.out.println("Student Name: " + Name[i]);
+			System.out.println("Class: " + Class[i]);
+			System.out.println("Roll Number: " + RollNo[i]);
+			System.out.println("English: " + English[i]);
+			System.out.println("Math: " + Math[i]);
+			System.out.println("Science: " + Science[i]);
+			System.out.println("Social Science: " + SS[i]);
+			System.out.println("\n\n");
+		}	
+	}
+	
+	public void displayMarksPercent() throws Exception		//Function to display essential details along with marks and percentage
+	{
+		dataParse();		//Parses data from file
+		for(int i = 0; i < stuCount; i++)		//Iterates through the data arrays and prints Name, Roll Number, marks and percentage
+		{
+			System.out.println("Student Number: " + (i + 1));
+			System.out.println("Student Name: " + Name[i]);
+			System.out.println("English: " + English[i]);
+			System.out.println("Math: " + Math[i]);
+			System.out.println("Science: " + Science[i]);
+			System.out.println("Social Science: " + SS[i]);
+			System.out.println("Percentage: " + Percent[i]);
+			System.out.println("\n\n");
+		}	
+	}
+	
+	public void displayRank() throws Exception		//Function to Display Student number, name, percentage and rank
+	{	
+		dataParse();		//Parses Data from file
+		for(int i = 0; i < stuCount; i++)	//Iterates through the data arrays and print Name, Roll number, percentage and rank
+		{
+			System.out.println("Student Number: " + (i + 1));
+			System.out.println("Student Name: " + Name[i]);
+			System.out.println("Percentage: " + Percent[i]);
+			System.out.println("Rank: " + Rank[i]);
+			System.out.println("\n\n");
+		}	
+	}
+	
+	public void dataParse() throws Exception	//Function to parse data from file and perform required calculations
+	{
+		FileReader fr = new FileReader(fileName);		//File Reader
+		Scanner s = new Scanner(fr);	//To read data
+		lineCount = 0;	//Counts total lines for reference
+			
+		while(s.hasNextLine())		//Loops until it reaches end of file, gives line count
+		{
+			s.nextLine();
+			lineCount++;
+		}
+		
+		stuCount = lineCount / 7;	//Calculates number of students based on number of lines in the file
+		
+		//Initialization of the arrays
+		
+		Name = new String[stuCount];
+		Class = new int[stuCount];
+		RollNo = new int[stuCount];
+		English = new int[stuCount];
+		Math = new int[stuCount];
+		Science = new int[stuCount];
+		SS = new int[stuCount];
+		Percent = new int[stuCount];
+		Rank = new int[stuCount];
+		
+		for(int i = 0; i < stuCount; i++)		//Reads lines and parses the data into arrays
+		{
+			Name[i] = s.nextLine();
+			Class[i] = Integer.parseInt(s.nextLine());
+			RollNo[i] = Integer.parseInt(s.nextLine());
+			English[i] = Integer.parseInt(s.nextLine());
+			Math[i] = Integer.parseInt(s.nextLine());
+			Science[i] = Integer.parseInt(s.nextLine());
+			SS[i] = Integer.parseInt(s.nextLine());
+			Percent[i] = (English[i] + Math[i] + Science[i] + SS[i]) / 4;	//Calculates percentage
+		}
+		
+		assignRank();		//Assigns rank to the students based on percentage
+		
+		s.close();
+		fr.close();
+	}
+	
+	public void assignRank()		//Function to assign rank to the students based on percentage
+	{
+		int[] Percentage = Percent, index = new int[stuCount];		//Percentage is a copy of Percent[], index stores index of students for reference
+		
+		for(int i = 0; i < stuCount; i++)		//Assigns index in order
+			index[i] = i;
+		
+		//Sorting the two arrays
+		
+		for(int i = 0; i < stuCount; i++)
+			for(int j = 0; i < stuCount - 1; j++)
+				if(Percentage[j + 1] < Percentage [j])
+				{
+					int temp = Percentage[j];
+					Percentage[j + 1] = Percentage[j];
+					Percentage[j] = temp;
+					
+					temp = index[j];
+					index[j + 1] = index[j];
+					index[j] = temp;
+				}
+		
+		//Compares index with student and assigns appropriate rank
+		
+		for(int i = 0; i < stuCount; i++)
+			for(int j = 0; j < stuCount; j++)
+				if(index[j] == i)
+					Rank[i] = j + 1;
+		
+	}
+}
+
+\end{lstlisting}
+\end{document}

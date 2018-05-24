@@ -1,0 +1,74 @@
+\documentclass[ProgramminAssignment.tex]{subfiles}
+\begin{document}
+
+\section{Smart Substring}
+Write a program that takes maximum 30 characters from a string but without cutting the words.
+
+Input:\\
+Featuring stylish rooms and moorings for recreation boats, Room Mate Aitana is a designer hotel built in 2013 on an island in the IJ River in Amsterdam.
+
+Output:\\
+Featuring stylish rooms and
+
+\subsection{Algorithm}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Take user input for a String(inp), and declare a String 'st'
+	& Take user input for maximum characters
+	& Split the input String from blank spaces and store in an array (words[ ])
+	& Run a loop from st = "" and i = 0, till length of st + words[i]is less than or equal to n and append words[i] and a blank space to string and increment i at each iteration
+	& if length of st is more than n
+		&& trim st
+		&& if length of st is more than n
+			&&& String st by blank space again and store it in an array(words2[ ])
+			&&& set st to blank again ("")
+			&&& Run a loop from i = 0, till i $<$ length of words2, incrementing i at each iteration
+				&&&& append words2[i] and blank space to st
+			&&& trim st
+	& Print st  
+
+\end{easylist}
+
+\subsection{Code}
+\begin{lstlisting}
+import java.util.Scanner;
+
+public class SmartSubstring
+{
+
+	public static void main(String[] args)
+	{
+		Scanner s = new Scanner(System.in);
+		System.out.println("Enter String");
+		String inp = s.nextLine(), st;			//Stores input String
+		
+		System.out.println("Enter Max Chars");	
+		int n = s.nextInt();					//Stores maximum number of characters
+		int i = 0;								//iteration variable
+		String[] words = inp.split(" ");		//Splits string into String array containing words
+		for(st = ""; st.length() + words[i].length() <= n; st = st + words[i] + " ", i++)		//Loop to append each word to empty string till length of new string < n
+		{}
+		
+		if(st.length() > n)			//Checks if length of new string > n
+		{
+			st.trim();				//trims extra spaces
+			if(st.length() > n)		//Checks length again
+			{
+				String words2[] = st.split(" ");	//Splits String into words
+				st = "";							//sets st to ""
+				for(i = 0; i < words2.length - 1; i++)	//appends each word to st
+					st = st + words2[i] + " ";
+				st.trim();	//trims extra spaces
+			}
+		}
+		
+		System.out.println(st);		//Prints smart substring
+		
+		s.close();
+	}
+
+}
+
+\end{lstlisting}
+\end{document}

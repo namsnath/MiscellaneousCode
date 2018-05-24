@@ -1,0 +1,147 @@
+\documentclass[ProgramminAssignment.tex]{subfiles}
+\begin{document}
+
+\section{Matrix Multiplication}
+Write a Program to multiply two matrices.
+
+Input:\\
+Matrix 1:\\
+\begin{tabular}{ccc}
+1&	3&	5\\	
+6&	7&	8\\	
+9&	4&	5	\\
+\end{tabular}
+
+Matrix 2:\\
+\begin{tabular}{ccc}
+2&	12&	6\\	
+8&	9&	7	\\
+3&	4&	5	\\
+\end{tabular}
+
+Output:\\
+Multiplied Matrix:\\
+\begin{tabular}{ccc}
+41&	59&	52\\	
+92&	167&	125\\	
+65&	164&	107	\\
+\end{tabular}
+
+\subsection{Algorithm}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Declare a Scanner object to take user input
+	& Take user input for dimensions of the two matrices and check if columns in first = rows in second
+	& Create two arrays (A[ ][ ] and B[ ][ ]) of appropriate size
+	& Take user input for the elements of the matrices
+	& Print the original matrices
+	& Create an array (C[ ][ ]) for the multiplication of the size Rows1 $\times$ Columns2
+	& Run a loop from i = 0 till Rows1 - 1, incrementing i at each iteration
+		&& Run a loop from j = 0 till Columns2 - 1, incrementing j at each iteration
+			&&& Run a loop from k = 0 till  Rows1 - 1, incrementing k at each iteration
+				&&&& Add A[i][k] $\times$ B[k][j] to C[i][j] (Row of first matrix with column of second)
+	& Print the Multiplied Matrix			
+
+\end{easylist}
+
+\subsection{Code}
+\begin{lstlisting}
+import java.util.Scanner;
+
+public class Multiplication
+{
+
+	public static void main(String[] args)
+	{
+		Scanner s  = new Scanner(System.in);
+		int r1, r2, c1, c2, i, j;
+		
+		//Dimensions of the two Matrices
+		System.out.println("Enter Number of Rows in First Matrix:");
+		r1 = s.nextInt();
+		
+		System.out.println("Enter Number of Columns in First Matrix:");
+		c1 = s.nextInt();
+		
+		System.out.println("Enter Number of Rows in Second Matrix:");
+		r2 = s.nextInt();
+		
+		System.out.println("Enter Number of Columns in Second Matrix:");
+		c2 = s.nextInt();
+		
+		
+		if(c1 != r2)	//Condition for multiplication
+		{
+			System.out.println("Number of Columns in Matrix 1 have to be equal to Rows in Matrix 2");
+			System.exit(0);
+		}
+		
+		//Creating the Matrices
+		int A[][] = new int[r1][c1];
+		int B[][] = new int [r2][c2];
+		
+		//Data Entry
+		System.out.println("Enter the elements in the First Matrix, Row-Wise:");
+		
+		for(i = 0; i < r1; i++)
+			for(j = 0; j < c1; j++)
+				A[i][j] = s.nextInt();
+		
+		
+		System.out.println("Enter the elements in the Second Matrix, Row-Wise:");
+		
+		for(i = 0; i < r2; i++)
+			for(j = 0; j < c2; j++)
+				B[i][j] = s.nextInt();
+		
+		System.out.println("\n\n\n");
+		
+		//Printing the Original Matrices
+		System.out.println("Matrix 1:");
+		
+		for(i = 0; i < r1; i++)
+		{
+			for(j = 0; j < c1; j++)
+				System.out.print(A[i][j] + "\t");
+			System.out.println();
+		}
+		
+		System.out.println("Matrix 2:");
+		
+		for(i = 0; i < r2; i++)
+		{
+			for(j = 0; j < c2; j++)
+				System.out.print(B[i][j] + "\t");
+			System.out.println();
+		}
+		
+		int C[][] = new int [r1][c2];	//Multiplication array
+		
+		for( i = 0; i < r1; i++)
+		{
+			for( j = 0;j < c2; j++)
+			{
+				for(int k = 0;k < r1; k++)
+				{
+		            C[i][j] += A[i][k] * B[k][j];	//Multiplies Row of 1st matrix with Column of the other and adds to third
+		        }
+		    }
+		}
+		
+		System.out.println("Multiplied Matrix:");	//Printing the Multiplied Matrix
+		
+		for(i = 0; i < r1; i++)
+		{
+			for(j = 0; j < c2; j++)
+				System.out.print(C[i][j] + "\t");
+			System.out.println();
+		}
+		
+		s.close();
+	}
+
+}
+
+\end{lstlisting}
+\end{document}

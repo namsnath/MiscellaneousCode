@@ -1,0 +1,143 @@
+\documentclass[ProgramminAssignment.tex]{subfiles}
+\begin{document}
+
+\section{Matrix in Spiral Form}
+Write a program to output a given 2-D array in spiral form
+
+Input:\\
+\begin{tabular}{cccc}
+1  & 2  & 3  & 4  \\
+5  & 6  & 7  & 8  \\
+9  & 10 & 11 & 12 \\
+13 & 14 & 15 & 16
+\end{tabular}
+
+Output:\\
+1 2 3 4 8 12 16 15 14 13 9 5 6 7 11 10 
+
+\subsection{Algorithm}
+\begin{easylist}
+\ListProperties(Start1=1, Start2=1, Start3=1, Start4=1, Start5=1)
+
+	& Declare a Scanner object for user input
+	& Take input for number of rows and columns and declare an array(a[ ]) of appropriate size
+	& Declare variables for limits, keeping up and left as 0, down and right as rows - 1 and columns - 1 respectively
+	& Declare an int elements = rows * columns
+	& Take user input and add it to array
+	& Print original array
+	& Run a loop from i = 0, j = 0 till elements $>$ 0, decrementing elements at each iteration
+		&& Print a[i][j]
+		&& if Direction is right
+			&&& if j+1 $>$ right limit
+				&&&& Set direction to down
+				&&&& Increase upper limit by 1
+				&&&& Increase row number
+		&& if Direction is down
+			&&& if i+1 $>$ down limit
+				&&&& Set direction to left
+				&&&& Decrease right limit by1
+				&&&& Decrease column number
+		&& if Direction is left
+			&&& if j-1 $<$ left limit
+				&&&& Set direction to up
+				&&&& Decrease down limit by 1
+				&&&& Decrease row number
+		&& if Direction is up
+			&&& if i-1 $<$ up limit
+				&&&& Set direction to right
+				&&&& Increase left limit by 1
+				&&&& Increase column number
+								
+
+\end{easylist}
+
+\subsection{Code}
+\begin{lstlisting}
+import java.util.Scanner;
+
+public class MatrixInSpiral
+{
+
+	public static void main(String[] args)
+	{
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("Enter No of Rows");
+		int rows = s.nextInt();						//To store number of rows
+		System.out.println("Enter No of Columns");
+		int cols = s.nextInt();						//To store number of columns
+		
+		int[][] a = new int[rows][cols];			//new int array of size rows*columns
+		
+		String direction = "right";					//Direction to run loop in
+		int up_limit = 0, down_limit = rows - 1, left_limit = 0, right_limit = cols - 1, elements = rows * cols; //Limits of each direction and total number of elements
+		
+		System.out.println("Enter data row-wise");
+		for(int i = 0; i < rows; i++)				//Loop to input data
+			for(int j = 0; j < cols; j++)
+				a[i][j] = s.nextInt();
+		
+		System.out.println("Original 2D Array - ");
+		for(int i = 0; i < rows; i++)				//Loop to print data
+		{
+			for(int j = 0; j < cols; j++)
+				System.out.print(a[i][j] + "\t");
+			
+			System.out.println();
+		}
+		
+		System.out.println("2D Array in Spiral Form - ");
+		
+		for(int i = 0, j = 0; elements > 0; elements--)		//Runs loop from number of elements to 0 and row number(i) and column number(j)
+		{
+			System.out.print(a[i][j] + " ");				//Prints element at index (i, j)
+			
+			if(direction.equals("right"))					//For checking if current direction is 'right'
+			{
+				if(++j > right_limit)						//checks if j + 1 > limit of right
+	            {
+	                --j;
+	                direction = "down";						//direction changed to 'down'
+	                ++up_limit;								//upper limit increased
+	                ++i;									//row number increased
+	            }
+			}
+			else if(direction.equals("down")) 				//For checking if current direction is 'down'
+			{
+				if(++i > down_limit)						//checks if i + 1 > limit of down
+	            {
+	                --i;
+	                direction = "left";						//direction changed to 'left'
+	                --right_limit;							//right limit decreased
+	                --j;									//column number decreased
+	            }
+			}
+			else if(direction.equals("left"))				//For checking if current direction is 'left'
+			{
+				if(--j < left_limit)						//checks if j - 1 < limit of left
+	            {
+	                ++j;
+	                direction = "up";						//direction changed to 'up'
+	                --down_limit;							//down limit decreased
+	                --i;									//row number decreased
+	            }
+			}
+			else if(direction.equals("up"))					//For checking if current direction is 'up'
+			{
+				if(--i < up_limit)							//checks if i - 1 < limit of up
+	            {
+	                ++i;
+	                direction = "right";					//direction changed to 'right'
+	                ++left_limit;							//left limit increased
+	                ++j;									//column number increased
+	            }
+			}
+		}
+		
+		s.close();
+	}
+
+}
+
+\end{lstlisting}
+\end{document}

@@ -1,0 +1,142 @@
+\documentclass[Math.tex]{subfiles}
+\setlength{\mathindent}{0cm}
+
+\begin{document}
+\section*{\huge\centering\underline{Determinants}}
+For a triangle with vertices $(x_1, y_1), (x_2, y_2), (x_3, y_3)$, Area is given by
+$\Delta = \frac{1}{2}
+\begin{vmatrix}
+x_1 & y_1 & 1\\
+x_2 & y_2 & 1\\
+x_3 & y_3 & 1
+\end{vmatrix}$\\
+If $\Delta = 0$, the points are collinear.
+\subsection*{Properties of determinants:}
+\begin{easylist}
+	# If all elements of a row or column are zero, value of the determinant is zero.
+	# If any two rows or columns of a determinant are identical, result is zero.
+	# $|A| = |A'|$, where $A'$ is the transpose of $A$.
+	# If any row of column of a determinant is multiplied by a non-zero constant $k$, the result is $k$ times.
+	# By interchanging two rows or columns of a determinant, the resulting determinant is the negative of the original determinant.
+	# 	$\begin{vmatrix}
+			a_1 + x_1 & b_1 & c_1\\
+			a_2 + x_2 & b_2 & c_2\\
+			a_3 + x_3 & b_3 & c_3\\
+		\end{vmatrix} = 
+		\begin{vmatrix}
+			a_1 & b_1 & c_1\\
+			a_2 & b_2 & c_2\\
+			a_3 & b_3 & c_3\\
+		\end{vmatrix} + 
+		\begin{vmatrix}
+			x_1 & b_1 & c_1\\
+			x_2 & b_2 & c_2\\
+			x_3 & b_3 & c_3\\
+		\end{vmatrix}$
+		
+	# $|AB| = |A||B|$
+	# If a row or column is multiplied by a non-zero constant $k$ and added to/subtracted from another row or column, the result does not change.	
+\end{easylist}
+
+\subsection*{Cramer's Rule:}
+To solve a system of linear, non-homogenous equations using determinants.
+
+$a_1x + b_1y + c_1z = d_1$\\
+$a_2x + b_2y + c_2z = d_2$\\
+$a_3x + b_3y + c_3z = d_3$\\
+\[D = \begin{vmatrix}
+			a_1 & b_1 & c_1\\
+			a_2 & b_2 & c_2\\
+			a_3 & b_3 & c_3\\
+		\end{vmatrix}
+D_x = \begin{vmatrix}
+			d_1 & b_1 & c_1\\
+			d_2 & b_2 & c_2\\
+			d_3 & b_3 & c_3\\
+		\end{vmatrix},
+D_y = \begin{vmatrix}
+			a_1 & d_1 & c_1\\
+			a_2 & d_2 & c_2\\
+			a_3 & d_3 & c_3\\
+		\end{vmatrix},
+D_z = \begin{vmatrix}
+			a_1 & b_1 & d_1\\
+			a_2 & b_2 & d_2\\
+			a_3 & b_3 & d_3\\
+		\end{vmatrix}\]			
+\[x = \frac{D_x}{D}, y = \frac{D_y}{D}, z = \frac{D_z}{D}\]		
+
+\begin{center}
+%\centering
+\begin{tikzpicture}[every node/.style={align=center},level distance=1.5cm]
+\tikzset{edge from parent/.style=
+ {draw,
+ edge from parent path={(\tikzparentnode.south)
+ -- +(0,-12pt)
+ -| (\tikzchildnode)}}}
+ \tikzset{every tree node/.style={align=center,anchor=north}}
+ \tikzset{level distance=40pt,sibling distance=50pt}
+ \baselineskip=5pt
+ 
+	\Tree	[.{Find D}
+				[.{D $\neq$ 0} 
+				 	[.{Consistent \\\\ Unique Solution} ]
+				]
+				[.{D = 0 }
+					[. {Either $D_x, D_y, D_z \neq 0$\\\\ Inconsistent\\\\ No Solution} ]
+	 				[. {$D_x=D_y=D_z=0$\\\\ Infinite Solutions\\\\ Consistent\\\\ Dependent} ]
+				]
+			]	
+\end{tikzpicture}
+ \end{center} 
+
+\pagebreak 
+\subsubsection*{Homogeneous Equations}
+Equations in which the constant term is always 0. These are always consistent and $D_x=D_y=D_z=0$.
+
+\begin{center}
+\begin{tikzpicture}[every node/.style={align=center},level distance=1.0cm]
+\tikzset{edge from parent/.style=
+ {draw,
+ edge from parent path={(\tikzparentnode.south)
+ -- +(0,-12pt)
+ -| (\tikzchildnode)}}}
+ \tikzset{every tree node/.style={align=center,anchor=north}}
+ \tikzset{level distance=40pt,sibling distance=50pt}
+ \baselineskip=5pt
+ 
+	\Tree	[.{Find D}
+				[.{D $\neq$ 0\\\\ $x=y=z=0$ \\\\ Trivial Solution} ]
+				[.{D = 0 \\\\Infinite Solutions\\\\ Non-Trivial Solutions\\\\ (Includes Trivial Solutions)} ]
+			]	
+\end{tikzpicture}
+ \end{center} 
+ 
+\subsection*{Concurrency Of Lines:}
+For equations of the form $ax + by + c = 0$,
+\[D = \begin{vmatrix}
+	a_1 & b_1 & c_1\\
+	a_2 & b_2 & c_2\\
+	a_3 & b_3 & c_3\\
+\end{vmatrix}\]
+
+\begin{center}
+\begin{tikzpicture}[every node/.style={align=center},level distance=1.0cm]
+\tikzset{edge from parent/.style=
+ {draw,
+ edge from parent path={(\tikzparentnode.south)
+ -- +(0,-12pt)
+ -| (\tikzchildnode)}}}
+ \tikzset{every tree node/.style={align=center,anchor=north}}
+ \tikzset{level distance=40pt,sibling distance=50pt}
+ \baselineskip=5pt
+ 
+	\Tree	[.{Find D}
+				[.{D $\neq$ 0\\\\ No Solution} ]
+				[.{D = 0 \\\\ Consistent \\\\ Unique Solution} ]
+			]	
+\end{tikzpicture}
+ \end{center} 
+
+
+\end{document}
