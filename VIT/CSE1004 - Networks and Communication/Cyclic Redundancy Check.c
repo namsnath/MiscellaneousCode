@@ -21,7 +21,7 @@ void main() {
 
 void doSender() {
 	int i, j, k;
-	int data[100], divisor[100], carry[100], div[100], dividend[100];
+	int data[100], divisor[100];
 
 	int dataLen, divLen, fullLen;
 
@@ -55,7 +55,7 @@ void doSender() {
 
 void doReceiver() {
 	int i, j, k;
-	int data[100], divisor[100], carry[100], div[100], dividend[100];
+	int data[100], divisor[100];
 
 	int dataLen, divLen, fullLen;
 
