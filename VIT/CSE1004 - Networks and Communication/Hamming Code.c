@@ -133,5 +133,11 @@ void doSender() {
 	for(i = 1; i <= totalLen; i++)
 		printf("%d", data[i]);
 
+	printf("\nParity Bits: \n");
+	for(j = 0; j < cLen; j++) {
+		p = (int)pow(2, j);
+		printf("P%d - %d\n", p, data[p]);
+	}	
+
 	printf("\n");
 }
