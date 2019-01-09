@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-void doDivision();
+int doDivision();
 void doSender();
 void doReceiver();
 
@@ -50,7 +50,7 @@ void doSender() {
 	for(i = 0; i < divLen; i++)
 		scanf("%d", &divisor[i]);
 		
-	doDivision(dataLen, divLen, data, divisor);
+	int rem = doDivision(dataLen, divLen, data, divisor);
 }
 
 void doReceiver() {
@@ -79,12 +79,18 @@ void doReceiver() {
 	for(i = 0; i < divLen; i++)
 		scanf("%d", &divisor[i]);
 		
-	doDivision(dataLen, divLen, data, divisor);
+	int rem = doDivision(dataLen, divLen, data, divisor);
+	// printf("%d", rem);
+	if(rem == 0)
+		printf("\nNo error\n");
+	else
+		printf("\nError\n");
 }
 
-void doDivision(int dataLen, int divLen, int data[], int divisor[]) {
+int doDivision(int dataLen, int divLen, int data[], int divisor[]) {
 	int carry[100], div[100], dividend[100];
 	int i, j, k;
+	int rem = 0;
 
 	for(i = 0; i < divLen; i++) {
 		carry[i] = 0;
@@ -113,8 +119,11 @@ void doDivision(int dataLen, int divLen, int data[], int divisor[]) {
 
 		if(i == dataLen - 1) {
 			printf("\nRemainder: ");
-			for(j = 0; j < divLen - 1; j++)
+			for(j = 0; j < divLen - 1; j++) {
 				printf("%d", carry[j]);	
+				rem *= 10;
+				rem += carry[j];
+			}	
 
 			printf("\n");
 		} else {
@@ -137,4 +146,6 @@ void doDivision(int dataLen, int divLen, int data[], int divisor[]) {
 			for(j = 0; j < divLen; j++)
 				div[j] = divisor[j];		
 	}
+
+	return rem;
 }
