@@ -1,19 +1,21 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<unistd.h>
-#define window 3
-
 int doReceiver();
 int doSender();
 
 int sent[100];
 int expected = 0;
 int windowPos = 0;
+int window;
+int frameCount;
 
 void main() {
-	int frameCount;
 	int data[100];
 	int i, j = 0, send, rcv;
+
+	printf("Enter window size: ");
+	scanf("%d", &window);
 
 	printf("Enter number of frames to send: ");
 	scanf("%d", &frameCount);
@@ -27,8 +29,8 @@ void main() {
 	}
 
 	while(j < frameCount) {
-		printf("\n\nSending Frames %d-%d\n", windowPos, windowPos+window);
-		for(i = windowPos; i < windowPos + window; i++) {
+		printf("\n\nSending Frames %d-%d\n", windowPos, windowPos+window-1);
+		for(i = windowPos; i < windowPos + window && i < frameCount; i++) {
 			printf("Sending data = %d\n", data[i]);
 
 			sent[i] = doSender(data[i], i);
@@ -52,8 +54,11 @@ void main() {
 		}
 		int add = doReceiver();
 		printf("Good frames received = %d\n", add);
-		if((windowPos + window + add) <= frameCount)
+		if((windowPos + add - 1) <= frameCount) {
 			windowPos += add;
+			j += add;
+		}
+		// printf("j = %d", j);
 	}	
 }
 
@@ -78,11 +83,11 @@ int doReceiver() {
 		// printf("%d ", i);
 		if(sent[i] < 0)
 			return add;
-		if(i <= expected) {
+		if(i <= expected && i <= frameCount) {
 			add++;
 			expected++;
 			// printf("\nAdd = %d\n", add);
 		}	
 	}
-	return add;
+	return add-1;
 }
