@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>17BCI0113 - CSE3002 - Assgn1 - Q6</title>
+</head>
+
+<style>
+	.categories {
+		vertical-align: top;
+		display: inline-block;
+		padding: 10px;
+		border: 1px solid black;
+		background-color: lightblue;
+	}
+
+	.subCategories, .subSubCategories {
+		display: none;
+		padding: 10px;
+		border: 1px solid black;
+		margin: 5px;
+	}
+
+	.subCategories{
+		background-color: lightcoral;
+	}
+
+	.subSubCategories {
+		background-color: lightgreen;
+	}
+
+	.categories:hover .subCategories{
+		display: block;
+	}
+
+	.categories:hover .subCategories:hover .subSubCategories{
+		display: block;
+	}
+</style>
+
+<body>
+	<nav>
+		<div class="categories">Home</div>
+		<div class="categories">
+			Categories
+
+			<div class="subCategories">Photoshop</div>
+			<div class="subCategories">Illustrator</div>
+			<div class="subCategories">
+				WebDesign
+				<div class="subSubCategories">HTML</div>
+				<div class="subSubCategories">CSS</div>
+			</div>
+		</div>
+		<div class="categories">Most Popular</div>
+		<div class="categories">Contact Us</div>
+	</nav>
+</body>
+</html> 

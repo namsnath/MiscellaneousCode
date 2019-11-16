@@ -1,0 +1,68 @@
+html {
+
+}
+
+body {
+	background-color: pink;
+	font-family: Times New Roman; 
+}
+
+a:hover {
+	color: green;
+}
+
+.title {
+	text-align: center;
+}
+
+.title h1 {
+	font-size: 40px;
+}
+
+.desc {
+	text-align: center;
+}
+
+.redText {
+	color: tomato;
+}
+
+.blueText {
+	color: blue;
+}
+
+.code {
+	font-family: Courier New;
+	font-weight: 700;
+}
+
+.classes {
+	font-size: 18px;
+	display: inline-block;
+	padding: 10px;
+	margin: 20px;
+	border: 2px solid black;
+	box-shadow: 4px 2px 2px grey;
+}
+
+.artists {
+	vertical-align: top;
+	padding: 10px;
+	display: inline-block;
+	margin: 20px;
+	border: 2px solid black;
+}
+
+.imgs {
+	vertical-align: top;
+	padding: 10px;
+	display: inline-block;
+	width: auto;
+	margin: 20px;
+	border: 2px solid black;
+}
+
+.img {
+	width: 300px;
+	height: auto;
+}

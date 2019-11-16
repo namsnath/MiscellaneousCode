@@ -1,0 +1,83 @@
+html {
+	background-color: lightblue;
+	font-family: "Ubuntu";
+}
+
+body {
+	
+}
+
+header {
+	text-align: center;
+	/*background-color: pink;*/
+	padding: 20px 20px;
+}
+
+#titleDiv {
+	/*display: inline-block;*/
+	vertical-align: top;
+}
+
+h3 {
+	text-decoration: underline;
+}
+
+section {
+	padding: 20px;
+}
+
+p {
+	padding: 10px 10px;
+	font-family: "Ubuntu Light";
+
+}
+
+p:hover {
+	background-color: lightgrey;
+}
+
+#audio, #video, #img {
+	display: inline-block;
+	width: 30%;
+	margin: 20px 10px;
+	text-align: center;
+	height: 200px;
+	vertical-align: top;
+}
+#moreImgs {
+	text-align: center;
+}
+
+#subscribe {
+	text-align: center;
+	background-color: pink;
+	font-size: 22px;
+	border: 2px solid black;
+	width: 30%;
+	float: right;
+	display: inline-block;
+	padding: 20px;
+}
+
+#about {
+	display: inline-block;
+}
+
+footer {
+	padding: 20px 20px;
+	background-color: lightgrey;
+	opacity: 10%;
+}
+
+a:hover {
+	color: #0094ff;
+}
+
+#Me {
+	color: #0094ff;
+	font-weight: 700;
+}
+
+#VIT {
+	color: red;
+}

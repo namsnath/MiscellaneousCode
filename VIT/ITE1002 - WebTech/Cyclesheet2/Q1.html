@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	</head>
+
+	<body>
+		Input 1: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="text" id="str1">
+		<br>
+		Input 2/Output: <input type="text" id="str2">
+		<br>
+		<button onclick="return isPangram();">Panagram</button>
+		<button onclick="return isMarsupial();">Marsupial</button>
+		<button onclick="return toTitleCase();">Title Case</button>
+		<button onclick="return isPalindrome();">Palindrome</button>
+		<button onclick="return countPunc();">Count Punc</button>
+		<button onclick="return countCons();">Count Cons</button>
+		<br>
+		<!-- <button onclick="return clear();">Clear</button> -->
+	</body>
+
+	<script>
+		function clear() {
+			document.getElementById("str1").value = "";
+			document.getElementById("str2").value = "";
+		}
+
+		// Pangram
+		// Marsupial
+		// Sentence to Title Case
+		// Check if one string is palindrome of another.
+		// Count number of punctuators in a string. Count consonants in a string
+		function isPangram() {
+			var a = document.getElementById("str1").value;
+			a = a.toLowerCase().split(/\W+/).join("");
+
+			var dict = {};
+			for(var i = 'a'.charCodeAt(); i <= 'z'.charCodeAt(); i++)
+				dict[String.fromCharCode(i)] = 0;
+
+			for(var i = 0; i < a.length; i++)
+				if(dict[i])
+					dict[i]++;
+
+			for(var i = 'a'.charCodeAt(); i <= 'z'.charCodeAt(); i++)
+				if(String.fromCharCode(i) <= 0)
+					return alert("Not Panagram");
+
+			console.log(dict);		
+			return alert("Panagram");
+		}
+
+		function isMarsupial() {
+			var a = document.getElementById("str1").value;
+			var b = document.getElementById("str2").value;
+			var index = a.indexOf(b[0]);
+			for(var i in b) {
+				var temp = a.indexOf(b[i]);
+				if(temp < index) {
+					alert("Not a Marsupial.");
+					return;
+				}
+				index = temp;
+			}
+			alert("Is a Marsupial.")
+		}
+
+		function toTitleCase() {
+			var a = document.getElementById("str1").value;
+			var w = a.split(/\W+/);
+			for(var i = 0; i < w.length; i++) 
+				w[i] = w[i][0].toUpperCase() + w[i].substr(1).toLowerCase();
+			document.getElementById("str2").value = w.join(" ");
+		}
+
+		function isPalindrome() {
+			var a = document.getElementById("str1").value;
+			var rev = a.split("").reverse().join("");
+
+			if(rev === a)
+				alert("Is a Palindrome");
+			else
+				alert("Is not a Palindrome");
+		}
+
+		function countPunc() {
+			var a = document.getElementById("str1").value;
+			var w = a.split(/\W+/);
+			alert("Punctuator Count = " + (w.length - 1));
+		}
+
+		function countCons() {
+			var a = document.getElementById("str1").value;
+			// var r = /[bcdfghjklmnpqrstvwxyz]/ig;
+			var r = /[^(aeiou)\W]/ig
+			var w = a.match(r);
+			alert(w);
+		}
+	</script>
+</html>

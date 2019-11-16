@@ -1,0 +1,9 @@
+https://books.google.co.in/books?id=1_jaeMHrxRwC&pg=PA171&lpg=PA171&dq=If+the+lines+of+regression+of+Y+on+X+and+X+on+Y+are+respectively+a1x%2Bb1y%2Bc1%3D0+and+a2x%2Bb2y%2Bc2%3D0,+prove+that+a1b2%E2%89%A4+a2b1.+Find+also+the+coefficient+of+correlation+between+X+and+Y.&source=bl&ots=dNrYVGNF5I&sig=n75G7enC22uUBpgxay4TQ1EKrwc&hl=en&sa=X&ved=2ahUKEwjT5IeYz8HdAhWVUn0KHa1BC2sQ6AEwAHoECAQQAQ#v=onepage&q&f=false
+
+Veerarajan
+Pg 204 answers
+
+Ex 4E, Q20
+
+Extra Questions
+http://www.dsgroups.org/images/stories/images/dhana_engineering/biomedic/Questionbank/even/i/Random%20Process.pdf

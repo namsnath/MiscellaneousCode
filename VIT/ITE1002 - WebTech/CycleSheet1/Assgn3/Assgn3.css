@@ -1,0 +1,42 @@
+body {
+}
+
+table, th, td {
+	border: 1px solid black;
+	text-align: center;
+	padding: 5px;
+}
+
+.vaderDialogue {
+	width: 50%;
+	height: auto;
+	display: inline-block;
+}
+
+.vaderImg {
+	vertical-align: top;
+	width: 20%;
+	height: auto;
+	display: inline-block;
+}
+
+.img {
+	width: 20vw;
+	height: auto;
+}
+
+.alignLeft {
+	text-align: left;
+}
+
+.alignRight {
+	text-align: right;
+}
+
+tr:hover {
+	background-color: silver;
+}
+
+td:hover, th:hover {
+	background-color: grey;
+}

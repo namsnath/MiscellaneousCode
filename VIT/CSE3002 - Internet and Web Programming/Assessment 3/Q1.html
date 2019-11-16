@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>17BCI0113 - Assessment 3 - Q1</title>
+</head>
+
+<body>
+	<h3>Guess a number from 1-100</h3>
+	<input type="text" id="guessField"> <br> <br>
+	<button id="btnGuess">Guess</button> <br> <br>
+	<input type="text" id="hintField" disabled>
+
+	<script>
+		var randomNumber;
+		
+		function generateRandomNumber() {
+			document.getElementById('guessField').value = "";
+			document.getElementById('hintField').value = "";
+			randomNumber = Math.trunc(Math.random() * 100);
+			console.log(randomNumber);
+		}
+
+		function makeGuess() {
+			var guessValue = Number(document.getElementById('guessField').value);
+			var hintField = document.getElementById('hintField');
+
+			if(guessValue === randomNumber) {
+				hintField.value = 'Correct Guess!';
+				alert('Generating a new random number.');
+				generateRandomNumber();
+			}
+			else if(guessValue < randomNumber)
+				hintField.value = 'Go higher.';
+			else if(guessValue > randomNumber)
+				hintField.value = 'Go lower.';
+		}
+
+
+		generateRandomNumber();
+
+		document.getElementById('btnGuess').addEventListener('click', makeGuess);
+	</script>
+</body>
+</html>

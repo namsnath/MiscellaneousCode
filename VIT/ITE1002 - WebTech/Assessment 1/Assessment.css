@@ -1,0 +1,38 @@
+header, footer{
+	text-align: center;
+}
+
+header {
+	border-bottom: 2px solid black;
+}
+
+footer {
+	border-top: 2px solid black;
+}
+
+#info {
+	padding: 20px;
+}
+
+#VIT {
+	color: red;
+	font-weight: 700;
+}
+
+#stallLocations {
+	text-align: center;
+}
+
+.titleImg {
+	width: 5%;
+	height: auto;
+}
+
+.tableHolder {
+	display: inline-block;
+}
+
+table, td, th {
+	border: 1px solid black;
+	padding: 5px;
+}

@@ -1,0 +1,95 @@
+<html>
+<head>
+	<title>17BCI0113 - Namit Nathwani - Assessment 2 - Q1</title>
+	<style>
+		body {
+			background-color: lightgrey;
+		}
+
+		td, th {
+			padding: 5px;
+			border: none;
+		}
+
+		table {
+			background-color: grey;
+			border-radius: 5px;
+			box-shadow: 4px 4px 4px grey;
+		}
+
+		td:nth-child(even) {
+			text-align: center;
+		}
+
+		table tr:last-child td:first-child {
+			border-bottom-left-radius: 0.7rem;
+		}
+
+		table tr:last-child td:last-child {
+			border-bottom-right-radius: 0.7rem;
+		}
+
+		table tr:first-child th:first-child {
+			border-top-left-radius: 0.7rem;
+		}
+
+		table tr:first-child th:last-child {
+			border-top-right-radius: 0.7rem;
+		}
+
+	</style>
+</head>
+
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>Product #</th>
+				<th>Total Sales</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+		
+		</tbody>
+	</table>
+	
+	<script>
+		var prices = [2.98, 4.5, 9.98, 4.49, 6.87];
+		var sales = [0, 0, 0, 0, 0];
+		
+		while(sales.filter(function(v) { return v > 0; }).length !== 5) {
+			var productNum = Number(prompt('Enter product number (1-5): '));
+			var productCount = 0;
+			switch(productNum) {
+				case 1:
+				case 2:
+				case 3:
+				case 4:
+				case 5:	productCount = Math.trunc(Number(prompt(`Enter quantity for Product ${productNum}: `)));
+						var val = prices[productNum - 1] * productCount
+						sales[productNum - 1] = Math.round(val * Math.pow(10, 3)) / Math.pow(10, 3);
+						break;
+				
+				default:	alert('Enter a valid choice (1-5).');
+			}
+		}
+		
+		for(var i = 0; i < sales.length; i++) {
+			var row = document.createElement('tr');
+			var cell1 = document.createElement('td');
+			var text1 = document.createTextNode(`Product ${i+1}`);
+			cell1.append(text1);
+
+			var cell2 = document.createElement('td');
+			var text2 = document.createTextNode(sales[i]);
+			cell2.append(text2);
+
+			row.append(cell1, cell2);
+			
+			var tbody = document.getElementsByTagName('tbody')[0];
+			tbody.append(row);
+		}
+	</script>
+</body>
+</html>

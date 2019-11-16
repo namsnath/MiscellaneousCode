@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>17BCI0113 - Assessment 3 - Q1</title>
+</head>
+
+<body>
+	<form>
+		<label>Starters:</label> <br>
+		<select id="selectStarters" multiple></select>
+		<br> <br>
+		<label>Main Course:</label> <br>
+		<select id="selectMain" multiple></select>
+		<br> <br>
+		<label>Drinks:</label> <br>
+		<select id="selectDrinks"></select>
+
+		<br> <br>
+
+		<textarea id="orderDetails" disabled cols=50 rows=15></textarea>
+
+		<br> <br>
+		<input type="reset">
+	</form>
+
+	<script>
+		var mainCourseDishes = {
+			"Paneer Butter Masala": 75,
+			"Kadai Paneer": 65,
+			"Gobi Masala": 50,
+			"Chicken Tikka": 95,
+		};
+
+		var starters = {
+			"French Fries": 50,
+			"Potato Wedges": 60,
+			"Onion Rings": 65,
+			"Garlic Bread": 55,
+		};
+
+		var softDrinks = {
+			"Pepsi": 35,
+			"Coca Cola": 40,
+			"Mountain Dew": 35,
+		}
+
+		function generateSelects() {
+			var mainKeys = Object.keys(mainCourseDishes);
+			var starterKeys = Object.keys(starters);
+			var drinkKeys = Object.keys(softDrinks);
+
+			for(var i = 0; i < mainKeys.length; i++)
+				document.getElementById('selectMain').innerHTML += `<option value="${mainKeys[i]}">${mainKeys[i]} - ${mainCourseDishes[mainKeys[i]]}</option>`;
+
+			for(var i = 0; i < starterKeys.length; i++)
+				document.getElementById('selectStarters').innerHTML += `<option value="${starterKeys[i]}">${starterKeys[i]} - ${starters[starterKeys[i]]}</option>`;
+
+			for(var i = 0; i < drinkKeys.length; i++)
+				document.getElementById('selectDrinks').innerHTML += `<option value="${drinkKeys[i]}">${drinkKeys[i]} - ${softDrinks[drinkKeys[i]]}</option>`;
+
+			document.getElementById('orderDetails').value = "";
+		}
+
+		function calculateCosts() {
+			var mainOptions = document.getElementById('selectMain').options;
+			var starterOptions = document.getElementById('selectStarters').options;
+			var drinksOptions = document.getElementById('selectDrinks').options;
+
+			var total = 0;
+			
+			var orderDetailsBox = document.getElementById('orderDetails');
+			orderDetailsBox.value = "";
+
+
+			var starterText = "========= STARTERS =========\n";
+			var starterCount = 0;
+			for(var i = 0; i < starterOptions.length; i++) {
+				if(starterOptions[i].selected) {
+					starterCount++;
+					starterText += starterOptions[i].text + "\n";
+					total += starters[starterOptions[i].value];
+				}
+			}
+			if(starterCount > 0)
+				orderDetailsBox.value += starterText;
+
+			var mainText = "========= MAIN COURSE =========\n";
+			var mainCount = 0;
+			for(var i = 0; i < mainOptions.length; i++) {
+				if(mainOptions[i].selected) {
+					mainCount++;
+					mainText += mainOptions[i].text + "\n";
+					total += mainCourseDishes[mainOptions[i].value];
+				}
+			}
+			if(mainCount > 0)
+				orderDetailsBox.value += mainText;
+
+			orderDetailsBox.value += "========= DRINKS =========\n";
+			for(var i = 0; i < drinksOptions.length; i++) {
+				if(drinksOptions[i].selected) {
+					orderDetailsBox.value += drinksOptions[i].text + "\n";
+					total += softDrinks[drinksOptions[i].value];
+				}
+			}
+
+			orderDetailsBox.value += "\n\nTotal Cost = " + total;
+
+		}
+
+		generateSelects();
+
+		document.getElementById('selectMain').addEventListener('change', calculateCosts);
+		document.getElementById('selectStarters').addEventListener('change', calculateCosts);
+		document.getElementById('selectDrinks').addEventListener('change', calculateCosts);
+
+	</script>
+</body>
+</html>

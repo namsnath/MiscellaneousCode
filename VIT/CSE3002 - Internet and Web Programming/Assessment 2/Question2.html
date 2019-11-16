@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>17BCI0113 - Namit Nathwani - Assessment 2 - Q2</title>
+
+	<style>
+		body {
+			text-align: center;
+		}
+	</style>
+
+	<script>
+		var images = ["img0.png", "img1.png", "img2.png", "img3.png"];
+		var currentImage = 0;
+
+		function updateDetails() {
+			var para = document.getElementById('detailsPara');
+			para.innerHTML = "Images in array: <br>";
+			for(var i in images) {
+				if(i == currentImage)
+					para.innerHTML += `<b>${i}: ${images[i]}</b><br> `;
+				else
+					para.innerHTML += `${i}: ${images[i]}<br> `;
+			}
+
+		}
+
+		function getNextImage() {
+			currentImage = (currentImage + 1) % images.length;
+			var image = document.getElementById('displayImage');
+			image.alt = `Image ${currentImage}`;
+			image.src = images[currentImage];
+			updateDetails();
+		}
+
+		function addImage() {
+			var imgSrc = prompt("Enter source of the new image: ");
+			images.push(imgSrc);
+			updateDetails();
+		}
+	</script>
+</head>
+<body>
+	<img id="displayImage" src="img0.png" alt="Image 0">
+	<br>
+	<p id="detailsPara"></p>
+
+	<button id="nextButton" onclick="getNextImage()">Next</button>
+	<button id="addButton" onclick="addImage()">Add</button>
+
+	<script>
+		updateDetails();
+	</script>
+</body>
+</html> 

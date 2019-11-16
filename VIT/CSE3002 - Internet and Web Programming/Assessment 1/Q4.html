@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>17BCI0113 - CSE3002 - Assgn1 - Q4</title>
+</head>
+
+<style>
+	.video, .audio, .figure {
+		display: inline-block;
+		width: 30%;
+		margin: 20px 10px;
+		text-align: center;
+		height: 200px;
+		vertical-align: top;
+	}
+	
+	.video video, .figure img {
+		height: 100%; 
+		width: auto;
+	}
+</style>
+
+<body>
+	<section>
+		<div class="video">	
+			<h4>Video</h4>
+			<video src="CatRub.mp4" type="video/mp4" controls>
+				<track default kind="captions" srclang="en" src=""></track>
+			</video>
+		</div>
+		
+		<div class="audio">	
+			<h4>Audio</h4>
+			<audio src="CatRub.mp4" type="audio/mp3" controls></audio>
+		</div>
+		
+		<div class="figure">	
+			<h4>Figure</h4>
+			<figure>
+				<img src="Q1Picture.png">
+				<figcaption>Random cat picture</figcaption>
+			</figure>
+		</div>
+	</section>
+</body>
+</html> 
