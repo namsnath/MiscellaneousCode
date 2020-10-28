@@ -1,0 +1,15 @@
+<web-app> 
+    <servlet> 
+         <servlet-name>MyFamily</servlet-name> 
+         <servlet-class>MyFamily_17BCI0113</servlet-class> 
+    </servlet> 
+    <servlet-mapping>
+         <servlet-name>MyFamily</servlet-name> 
+         <url-pattern>/details</url-pattern> 
+    </servlet-mapping> 
+    <session-config> 
+        <session-timeout> 
+            30 
+        </session-timeout>
+    </session-config> 
+</web-app> 

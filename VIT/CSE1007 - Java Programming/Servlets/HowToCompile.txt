@@ -1,0 +1,5 @@
+javac -cp /usr/share/tomcat7/lib/servlet-api.jar  <className>.java -d WEB-INF/classes/
+jar cvf <Servlet>.war *
+
+javac -cp /usr/share/tomcat7/lib/servlet-api.jar  HelloWorldNamit.java -d WEB-INF/classes/
+jar cvf HelloWorldNamit.war *

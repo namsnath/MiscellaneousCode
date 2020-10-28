@@ -1,0 +1,16 @@
+
+<?xml version="1.0" encoding="UTF=8"?> 
+<web-app> 
+    <servlet> 
+         <servlet-name>HelloWorldNamit</servlet-name> 
+         <servlet-class>HelloWorldNamit</servlet-class> 
+    </servlet> 
+    <servlet-mapping> 
+         <servlet-name>HelloWorldNamit</servlet-name> 
+         <url-pattern>/HelloWorldNamit</url-pattern> 
+    </servlet-mapping> 
+    <session-config> 
+         <session-timeout> 
+             30 
+         </session-config> 
+</web-app> 

@@ -1,0 +1,31 @@
+<web-app> 
+    <servlet> 
+         <servlet-name>MyFamilyDB</servlet-name> 
+         <servlet-class>MyFamilyDB_17BCI0113</servlet-class> 
+    </servlet> 
+    <servlet> 
+         <servlet-name>Update</servlet-name> 
+         <servlet-class>Update</servlet-class> 
+    </servlet>
+    <servlet> 
+         <servlet-name>Delete</servlet-name> 
+         <servlet-class>Delete</servlet-class> 
+    </servlet>
+    <servlet-mapping>
+         <servlet-name>MyFamilyDB</servlet-name> 
+         <url-pattern>/details</url-pattern> 
+    </servlet-mapping>
+    <servlet-mapping>
+         <servlet-name>Update</servlet-name>
+         <url-pattern>/update</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+         <servlet-name>Delete</servlet-name>
+         <url-pattern>/delete</url-pattern>
+    </servlet-mapping>
+    <session-config> 
+        <session-timeout> 
+            30 
+        </session-timeout>
+    </session-config> 
+</web-app> 
